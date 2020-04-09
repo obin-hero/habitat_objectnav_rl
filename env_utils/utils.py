@@ -27,6 +27,7 @@ def make_env_fn(
     env = VisdomMonitor(env,
                         directory = config.VIDEO_DIR,
                         video_callable = lambda x : x % config.VIS_INTERVAL == 0,
+                        uid = str(rank)
                         )
     return env
 
@@ -68,6 +69,7 @@ def construct_envs(
             )
 
         random.shuffle(scenes)
+
 
     scene_splits = [[] for _ in range(num_processes)]
     for idx, scene in enumerate(scenes):

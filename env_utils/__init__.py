@@ -1,3 +1,3 @@
 from env_utils.object_nav_task import CustomObjectGoalSensor
 from env_utils.object_nav_dataset import CustomObjectNavDatasetV1
-#from env_utils.object_nav_env import CustomObjectNavEnv not needed yet
+from env_utils.object_nav_env import CustomObjectNavEnv

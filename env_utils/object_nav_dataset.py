@@ -125,9 +125,9 @@ class CustomObjectNavDatasetV1(PointNavDatasetV1):
             self.goals_by_category[k] = [self.__deserialize_goal(g) for g in v]
 
         for i, episode in enumerate(deserialized["episodes"]):
+            #if i > 5 : break # for debug
             episode = ObjectGoalNavEpisode(**episode)
             episode.episode_id = str(i)
-
             if self.filter_fn is not None and not self.filter_fn(episode): continue
 
             if scenes_dir is not None:

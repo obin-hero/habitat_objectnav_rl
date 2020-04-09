@@ -190,6 +190,7 @@ class PPOTrainer(BaseRLTrainer):
 
         #scenes = [curr_ep.scene_id.split('/')[-2] for curr_ep in self.envs.current_episodes()]
         outputs = self.envs.step([a[0].item() for a in actions])
+        #self.envs.render('human')
         #scenes_ = [curr_ep.scene_id.split('/')[-2] for curr_ep in self.envs.current_episodes()]
         #if not (scenes == scenes_):
         #    print(scenes_)
@@ -212,7 +213,7 @@ class PPOTrainer(BaseRLTrainer):
         current_episode_reward += rewards
         running_episode_stats["reward"] += (1 - masks) * current_episode_reward
         running_episode_stats["count"] += 1 - masks
-        running_episode_stats['epsiode_num'] += masks
+        running_episode_stats['episode_num'] += masks
         for k, v in self._extract_scalars_from_infos(infos).items():
             v = torch.tensor(
                 v, dtype=torch.float, device=current_episode_reward.device

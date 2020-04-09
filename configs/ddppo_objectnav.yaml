@@ -1,6 +1,6 @@
 BASE_TASK_CONFIG_PATH: "configs/objectnav_mp3d.yaml"
 TRAINER_NAME: "custom_ddppo"
-ENV_NAME: "NavRLEnv"
+ENV_NAME: "CustomObjectNavRLEnv"
 SIMULATOR_GPU_ID: 0
 TORCH_GPU_ID: 0
 VIDEO_OPTION: ["disk", "tensorboard"]
@@ -8,7 +8,7 @@ TENSORBOARD_DIR: "logs/ddppo/obj_nav_mp3d"
 VIDEO_DIR: "data/video_dir"
 TEST_EPISODE_COUNT: 2184
 EVAL_CKPT_PATH_DIR: "data/new_checkpoints"
-NUM_PROCESSES: 4
+NUM_PROCESSES: 1
 SENSORS: ["DEPTH_SENSOR", "RGB_SENSOR"]
 CHECKPOINT_FOLDER: "data/new_checkpoints"
 NUM_UPDATES: 10000
@@ -21,7 +21,7 @@ RL:
     # ppo params
     clip_param: 0.2
     ppo_epoch: 2
-    num_mini_batch: 4
+    num_mini_batch: 1
     value_loss_coef: 0.5
     entropy_coef: 0.01
     lr: 2.5e-6
@@ -44,7 +44,7 @@ RL:
     # The PyTorch distributed backend to use
     distrib_backend: NCCL
     # Visual encoder backbone
-    pretrained_weights: data/ddppo-models/gibson-2plus-resnet50.pth
+    pretrained_weights: data/new_checkpoints/ckpt.100.pth
     # Initialize with pretrained weights
     pretrained: False
     # Initialize just the visual encoder backbone with pretrained weights
@@ -52,7 +52,7 @@ RL:
     # Whether or not the visual encoder backbone will be trained.
     train_encoder: True
     # Whether or not to reset the critic linear layer
-    reset_critic: True
+    reset_critic: False
 
     # Model parameters
     backbone: resnet50

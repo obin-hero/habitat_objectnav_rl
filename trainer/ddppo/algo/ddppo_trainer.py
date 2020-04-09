@@ -421,7 +421,7 @@ class DDPPOTrainer(PPOTrainer):
 
                     writer.add_scalars(
                         "metrics",
-                        deltas['lengths']/deltas['episode_num'],
+                        {'length':deltas['length']/deltas['episode_num']},
                         count_steps
                     )
                     # log stats

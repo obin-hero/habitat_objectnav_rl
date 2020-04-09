@@ -103,7 +103,7 @@ class CustomObjectGoalSensor(Sensor):
         elif self.config.GOAL_SPEC == "OBJECT_IMG":
             episode_id = episode.episode_id
             scene_id = episode.scene_id
-            if (self.curr_episode_id != episode_id) and (self.curr_scene_id != scene_id):
+            if (self.curr_episode_id != episode_id) or (self.curr_scene_id != scene_id):
                 closest = episode.info['closest_goal_object_id']
                 for goal in episode.goals:
                     if goal.object_id == int(closest):
