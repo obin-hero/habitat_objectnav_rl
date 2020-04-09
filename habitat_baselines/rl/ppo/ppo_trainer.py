@@ -212,6 +212,7 @@ class PPOTrainer(BaseRLTrainer):
         current_episode_reward += rewards
         running_episode_stats["reward"] += (1 - masks) * current_episode_reward
         running_episode_stats["count"] += 1 - masks
+        running_episode_stats['epsiode_num'] += masks
         for k, v in self._extract_scalars_from_infos(infos).items():
             v = torch.tensor(
                 v, dtype=torch.float, device=current_episode_reward.device
@@ -220,7 +221,8 @@ class PPOTrainer(BaseRLTrainer):
                 running_episode_stats[k] = torch.zeros_like(
                     running_episode_stats["count"]
                 )
-
+            if k == 'length':
+                running_episode_stats[k] += masks * v
             running_episode_stats[k] += (1 - masks) * v
 
         current_episode_reward *= masks

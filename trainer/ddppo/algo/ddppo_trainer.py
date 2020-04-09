@@ -93,6 +93,7 @@ class DDPPOTrainer(PPOTrainer):
             pretrained_state = torch.load(
                 self.config.RL.DDPPO.pretrained_weights, map_location="cpu"
             )
+            self.resume_steps = pretrained_state['step']
 
         if self.config.RL.DDPPO.pretrained:
             self.actor_critic.load_state_dict(
@@ -237,6 +238,7 @@ class DDPPOTrainer(PPOTrainer):
         running_episode_stats = dict(
             count=torch.zeros(self.envs.num_envs, 1, device=self.device),
             reward=torch.zeros(self.envs.num_envs, 1, device=self.device),
+            episode_num=torch.zeros(self.envs.num_envs, 1, device=self.device)
         )
         window_episode_stats = defaultdict(
             lambda: deque(maxlen=ppo_cfg.reward_window_size)
@@ -245,7 +247,7 @@ class DDPPOTrainer(PPOTrainer):
         t_start = time.time()
         env_time = 0
         pth_time = 0
-        count_steps = 0
+        count_steps = 0 if not hasattr(self,'resume_steps') else self.resume_steps
         count_checkpoints = 0
         start_update = 0
         prev_time = 0
@@ -406,7 +408,7 @@ class DDPPOTrainer(PPOTrainer):
                     metrics = {
                         k: v / deltas["count"]
                         for k, v in deltas.items()
-                        if k not in {"reward", "count"}
+                        if k not in {"reward", "count", "lengths"}
                     }
                     if len(metrics) > 0:
                         writer.add_scalars("metrics", metrics, count_steps)
@@ -417,6 +419,11 @@ class DDPPOTrainer(PPOTrainer):
                         count_steps,
                     )
 
+                    writer.add_scalars(
+                        "metrics",
+                        deltas['lengths']/deltas['episode_num'],
+                        count_steps
+                    )
                     # log stats
                     if update > 0 and update % self.config.LOG_INTERVAL == 0:
                         logger.info(

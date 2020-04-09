@@ -9,12 +9,12 @@ from typing import Type, Union
 
 import habitat
 from habitat import Config, Env, RLEnv, VectorEnv, make_dataset
-
+from utils.visdommonitor import VisdomMonitor
+import os
 
 def filter_fn(episode):
     if episode.info['geodesic_distance'] < 3.0 : return True
     else : return False
-
 
 def make_env_fn(
     config: Config, env_class: Type[Union[Env, RLEnv]], rank: int, kwargs
@@ -24,6 +24,10 @@ def make_env_fn(
     )
     env = env_class(config=config, dataset=dataset)
     env.seed(rank)
+    env = VisdomMonitor(env,
+                        directory = config.VIDEO_DIR,
+                        video_callable = lambda x : x % config.VIS_INTERVAL == 0,
+                        )
     return env
 
 
