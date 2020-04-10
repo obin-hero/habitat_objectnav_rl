@@ -4,4 +4,5 @@
 # This source code is licensed under the MIT license found in the
 # LICENSE file in the root directory of this source tree.
 
-from trainer.ddppo.algo import DDPPOTrainer
+from trainer.algo.ddppo.ddppo_trainer import DDPPOTrainer
+from trainer.algo.ddppo.ddppo_trainer_withMemory import DDPPOTrainer_with_Memory

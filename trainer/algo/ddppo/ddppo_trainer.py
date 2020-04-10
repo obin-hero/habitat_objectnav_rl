@@ -26,7 +26,7 @@ from habitat_baselines.common.environments import get_env_class
 from habitat_baselines.common.rollout_storage import RolloutStorage
 from habitat_baselines.common.tensorboard_utils import TensorboardWriter
 from habitat_baselines.common.utils import batch_obs, linear_decay
-from trainer.ddppo.algo.ddp_utils import (
+from trainer.algo.ddppo.ddp_utils import (
     EXIT,
     REQUEUE,
     add_signal_handlers,
@@ -35,10 +35,8 @@ from trainer.ddppo.algo.ddp_utils import (
     requeue_job,
     save_interrupted_state,
 )
-from trainer.ddppo.algo.ddppo import DDPPO
-from trainer.ddppo.policy.resnet_policy import (
-    PointNavResNetPolicy,
-)
+from trainer.algo.ddppo.ddppo import DDPPO
+from trainer.policy import *
 from habitat_baselines.rl.ppo.ppo_trainer import PPOTrainer
 import time
 TIME_DEBUG = False

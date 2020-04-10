@@ -98,3 +98,6 @@ class CustomObjectNavEnv(habitat.RLEnv):
             cv2.waitKey(1)
             return img
         return super().render(mode)
+
+
+#if __name__ == '__main__':
