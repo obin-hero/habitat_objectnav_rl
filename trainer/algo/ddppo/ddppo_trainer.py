@@ -37,6 +37,7 @@ from trainer.algo.ddppo.ddp_utils import (
 )
 from trainer.algo.ddppo.ddppo import DDPPO
 from trainer.policy import *
+from trainer.policy.resnet.resnet_policy import PointNavResNetPolicy
 from habitat_baselines.rl.ppo.ppo_trainer import PPOTrainer
 import time
 TIME_DEBUG = False
@@ -393,7 +394,6 @@ class DDPPOTrainer(PPOTrainer):
                         )
                         for k, v in window_episode_stats.items()
                     }
-                    deltas["count"] = max(deltas["count"], 1.0)
 
                     writer.add_scalar(
                         "reward",
@@ -406,7 +406,7 @@ class DDPPOTrainer(PPOTrainer):
                     metrics = {
                         k: v / deltas["count"]
                         for k, v in deltas.items()
-                        if k not in {"reward", "count", "lengths"}
+                        if k not in {"reward", "count","length", "episode_num"}
                     }
                     if len(metrics) > 0:
                         writer.add_scalars("metrics", metrics, count_steps)
@@ -419,7 +419,8 @@ class DDPPOTrainer(PPOTrainer):
 
                     writer.add_scalars(
                         "metrics",
-                        {'length':deltas['length']/deltas['episode_num']},
+                        {'length':deltas['length']/deltas['episode_num'],
+                         'episode_num': deltas['episode_num']},
                         count_steps
                     )
                     # log stats
@@ -438,13 +439,15 @@ class DDPPOTrainer(PPOTrainer):
                                 update, env_time, pth_time, count_steps
                             )
                         )
+
+                        deltas['length'] = deltas['length']/deltas['episode_num'] * deltas['count']
                         logger.info(
                             "Average window size: {}  {}".format(
                                 len(window_episode_stats["count"]),
                                 "  ".join(
                                     "{}: {:.3f}".format(k, v / deltas["count"])
                                     for k, v in deltas.items()
-                                    if k != "count"
+                                    if k not in ["count", "episode_num"]
                                 ),
                             )
                         )

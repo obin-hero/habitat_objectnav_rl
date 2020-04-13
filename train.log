@@ -2189,3 +2189,1020 @@
 2020-04-10 22:56:37,512 agent number of trainable parameters: 12986821
 2020-04-10 22:58:27,566 agent number of trainable parameters: 12986821
 2020-04-10 22:59:03,646 agent number of trainable parameters: 12986821
+2020-04-13 14:10:27,445 agent number of trainable parameters: 3289349
+2020-04-13 14:11:31,500 agent number of trainable parameters: 3289349
+2020-04-13 14:12:40,094 agent number of trainable parameters: 3289349
+2020-04-13 14:14:39,035 agent number of trainable parameters: 11871173
+2020-04-13 14:16:29,519 agent number of trainable parameters: 13641029
+2020-04-13 14:18:40,831 agent number of trainable parameters: 13641029
+2020-04-13 14:20:06,015 agent number of trainable parameters: 14689605
+2020-04-13 14:24:39,172 agent number of trainable parameters: 14689605
+2020-04-13 14:28:06,739 agent number of trainable parameters: 14689605
+2020-04-13 14:29:29,162 agent number of trainable parameters: 14689605
+2020-04-13 14:31:57,906 agent number of trainable parameters: 14689605
+2020-04-13 14:33:07,421 agent number of trainable parameters: 14689605
+2020-04-13 14:35:43,434 agent number of trainable parameters: 14689605
+2020-04-13 14:36:23,931 update: 1	fps: 6.665	
+2020-04-13 14:36:23,932 update: 1	env-time: 31.587s	pth-time: 3.588s	frames: 256.0
+2020-04-13 14:36:23,933 Average window size: 2  distance_to_goal: 2.210  episode_num: 3.267  length: 4.467  reward: 0.048  spl: 0.000  success: 0.000
+2020-04-13 14:37:45,132 agent number of trainable parameters: 14689605
+2020-04-13 14:38:19,614 update: 1	fps: 7.762	
+2020-04-13 14:38:19,617 update: 1	env-time: 29.515s	pth-time: 3.257s	frames: 256.0
+2020-04-13 14:38:19,617 Average window size: 2  distance_to_goal: 2.171  episode_num: 2.765  length: 3.882  reward: -0.073  spl: 0.000  success: 0.000
+2020-04-13 14:38:33,047 update: 2	fps: 8.273	
+2020-04-13 14:38:33,047 update: 2	env-time: 41.325s	pth-time: 4.849s	frames: 384.0
+2020-04-13 14:38:33,047 Average window size: 3  distance_to_goal: 2.230  episode_num: 3.197  length: 4.246  reward: -0.076  spl: 0.000  success: 0.000
+2020-04-13 14:38:49,820 update: 3	fps: 8.103	
+2020-04-13 14:38:49,821 update: 3	env-time: 56.480s	pth-time: 6.438s	frames: 512.0
+2020-04-13 14:38:49,821 Average window size: 4  distance_to_goal: 2.252  episode_num: 2.959  length: 4.010  reward: -0.068  spl: 0.000  success: 0.000
+2020-04-13 14:39:05,482 update: 4	fps: 8.117	
+2020-04-13 14:39:05,482 update: 4	env-time: 70.509s	pth-time: 8.045s	frames: 640.0
+2020-04-13 14:39:05,482 Average window size: 5  distance_to_goal: 2.276  episode_num: 2.969  length: 3.946  reward: -0.074  spl: 0.000  success: 0.000
+2020-04-13 14:39:22,765 update: 5	fps: 7.989	
+2020-04-13 14:39:22,766 update: 5	env-time: 86.151s	pth-time: 9.658s	frames: 768.0
+2020-04-13 14:39:22,766 Average window size: 6  distance_to_goal: 2.255  episode_num: 2.855  length: 3.880  reward: -0.066  spl: 0.000  success: 0.000
+2020-04-13 14:39:35,681 update: 6	fps: 8.216	
+2020-04-13 14:39:35,682 update: 6	env-time: 97.468s	pth-time: 11.231s	frames: 896.0
+2020-04-13 14:39:35,682 Average window size: 7  distance_to_goal: 2.242  episode_num: 3.000  length: 4.005  reward: -0.070  spl: 0.000  success: 0.000
+2020-04-13 14:40:32,188 agent number of trainable parameters: 14689605
+2020-04-13 14:40:39,521 update: 1	fps: 36.544	
+2020-04-13 14:40:39,521 update: 1	env-time: 3.389s	pth-time: 3.225s	frames: 256.0
+2020-04-13 14:40:39,522 Average window size: 2  distance_to_goal: 2.275  episode_num: 2.879  length: 3.848  reward: -0.046  spl: 0.000  success: 0.000
+2020-04-13 14:40:42,813 update: 2	fps: 37.291	
+2020-04-13 14:40:42,813 update: 2	env-time: 5.055s	pth-time: 4.825s	frames: 384.0
+2020-04-13 14:40:42,813 Average window size: 3  distance_to_goal: 2.287  episode_num: 2.879  length: 3.864  reward: -0.041  spl: 0.000  success: 0.000
+2020-04-13 14:40:46,719 update: 3	fps: 36.046	
+2020-04-13 14:40:46,721 update: 3	env-time: 7.250s	pth-time: 6.510s	frames: 512.0
+2020-04-13 14:40:46,721 Average window size: 4  distance_to_goal: 2.247  episode_num: 2.623  length: 3.604  reward: -0.023  spl: 0.000  success: 0.000
+2020-04-13 14:40:50,028 update: 4	fps: 36.546	
+2020-04-13 14:40:50,028 update: 4	env-time: 8.911s	pth-time: 8.130s	frames: 640.0
+2020-04-13 14:40:50,028 Average window size: 5  distance_to_goal: 2.292  episode_num: 2.793  length: 3.793  reward: -0.061  spl: 0.000  success: 0.000
+2020-04-13 14:40:53,226 update: 5	fps: 37.082	
+2020-04-13 14:40:53,227 update: 5	env-time: 10.454s	pth-time: 9.757s	frames: 768.0
+2020-04-13 14:40:53,227 Average window size: 6  distance_to_goal: 2.280  episode_num: 3.000  length: 3.987  reward: -0.062  spl: 0.000  success: 0.000
+2020-04-13 14:40:56,920 update: 6	fps: 36.715	
+2020-04-13 14:40:56,920 update: 6	env-time: 12.479s	pth-time: 11.399s	frames: 896.0
+2020-04-13 14:40:56,920 Average window size: 7  distance_to_goal: 2.260  episode_num: 2.898  length: 3.893  reward: -0.056  spl: 0.000  success: 0.000
+2020-04-13 14:41:00,209 update: 7	fps: 36.976	
+2020-04-13 14:41:00,210 update: 7	env-time: 14.124s	pth-time: 13.016s	frames: 1024.0
+2020-04-13 14:41:00,210 Average window size: 8  distance_to_goal: 2.248  episode_num: 2.982  length: 3.964  reward: -0.051  spl: 0.000  success: 0.000
+2020-04-13 14:41:03,359 update: 8	fps: 37.350	
+2020-04-13 14:41:03,359 update: 8	env-time: 15.644s	pth-time: 14.622s	frames: 1152.0
+2020-04-13 14:41:03,359 Average window size: 9  distance_to_goal: 2.246  episode_num: 3.047  length: 4.036  reward: -0.047  spl: 0.000  success: 0.000
+2020-04-13 14:41:32,312 agent number of trainable parameters: 14689605
+2020-04-13 14:41:38,955 update: 1	fps: 40.403	
+2020-04-13 14:41:38,956 update: 1	env-time: 2.969s	pth-time: 3.135s	frames: 256.0
+2020-04-13 14:41:38,956 Average window size: 2  distance_to_goal: 2.328  episode_num: 3.571  length: 4.464  reward: -0.053  spl: 0.000  success: 0.000
+2020-04-13 14:41:42,102 update: 2	fps: 40.494	
+2020-04-13 14:41:42,102 update: 2	env-time: 4.538s	pth-time: 4.686s	frames: 384.0
+2020-04-13 14:41:42,102 Average window size: 3  distance_to_goal: 2.333  episode_num: 3.129  length: 4.129  reward: -0.079  spl: 0.000  success: 0.000
+2020-04-13 14:41:45,276 update: 3	fps: 40.451	
+2020-04-13 14:41:45,277 update: 3	env-time: 6.139s	pth-time: 6.231s	frames: 512.0
+2020-04-13 14:41:45,277 Average window size: 4  distance_to_goal: 2.308  episode_num: 2.959  length: 3.897  reward: -0.050  spl: 0.000  success: 0.000
+2020-04-13 14:41:48,116 update: 4	fps: 41.299	
+2020-04-13 14:41:48,117 update: 4	env-time: 7.448s	pth-time: 7.736s	frames: 640.0
+2020-04-13 14:41:48,117 Average window size: 5  distance_to_goal: 2.306  episode_num: 3.376  length: 4.333  reward: -0.058  spl: 0.000  success: 0.000
+2020-04-13 14:41:51,336 update: 5	fps: 41.034	
+2020-04-13 14:41:51,337 update: 5	env-time: 9.087s	pth-time: 9.291s	frames: 768.0
+2020-04-13 14:41:51,337 Average window size: 6  distance_to_goal: 2.318  episode_num: 3.103  length: 4.103  reward: -0.060  spl: 0.000  success: 0.000
+2020-04-13 14:41:54,393 update: 6	fps: 41.150	
+2020-04-13 14:41:54,394 update: 6	env-time: 10.582s	pth-time: 10.829s	frames: 896.0
+2020-04-13 14:41:54,394 Average window size: 7  distance_to_goal: 2.323  episode_num: 3.243  length: 4.210  reward: -0.067  spl: 0.000  success: 0.000
+2020-04-13 14:41:57,473 update: 7	fps: 41.201	
+2020-04-13 14:41:57,473 update: 7	env-time: 12.090s	pth-time: 12.374s	frames: 1024.0
+2020-04-13 14:41:57,473 Average window size: 8  distance_to_goal: 2.324  episode_num: 3.246  length: 4.213  reward: -0.067  spl: 0.000  success: 0.000
+2020-04-13 14:42:00,536 update: 8	fps: 41.266	
+2020-04-13 14:42:00,536 update: 8	env-time: 13.564s	pth-time: 13.938s	frames: 1152.0
+2020-04-13 14:42:00,536 Average window size: 9  distance_to_goal: 2.321  episode_num: 3.267  length: 4.242  reward: -0.064  spl: 0.000  success: 0.000
+2020-04-13 14:42:03,698 update: 9	fps: 41.186	
+2020-04-13 14:42:03,698 update: 9	env-time: 15.129s	pth-time: 15.509s	frames: 1280.0
+2020-04-13 14:42:03,698 Average window size: 10  distance_to_goal: 2.304  episode_num: 3.204  length: 4.197  reward: -0.057  spl: 0.000  success: 0.000
+2020-04-13 14:42:06,824 update: 10	fps: 41.164	
+2020-04-13 14:42:06,825 update: 10	env-time: 16.675s	pth-time: 17.064s	frames: 1408.0
+2020-04-13 14:42:06,825 Average window size: 11  distance_to_goal: 2.316  episode_num: 3.197  length: 4.177  reward: -0.059  spl: 0.000  success: 0.000
+2020-04-13 14:42:09,986 update: 11	fps: 41.106	
+2020-04-13 14:42:09,986 update: 11	env-time: 18.254s	pth-time: 18.621s	frames: 1536.0
+2020-04-13 14:42:09,987 Average window size: 12  distance_to_goal: 2.315  episode_num: 3.166  length: 4.157  reward: -0.060  spl: 0.000  success: 0.000
+2020-04-13 14:42:13,335 update: 12	fps: 40.868	
+2020-04-13 14:42:13,336 update: 12	env-time: 20.007s	pth-time: 20.191s	frames: 1664.0
+2020-04-13 14:42:13,336 Average window size: 13  distance_to_goal: 2.304  episode_num: 3.118  length: 4.115  reward: -0.059  spl: 0.000  success: 0.000
+2020-04-13 14:42:16,485 update: 13	fps: 40.852	
+2020-04-13 14:42:16,485 update: 13	env-time: 21.594s	pth-time: 21.730s	frames: 1792.0
+2020-04-13 14:42:16,485 Average window size: 14  distance_to_goal: 2.299  episode_num: 3.078  length: 4.071  reward: -0.060  spl: 0.000  success: 0.000
+2020-04-13 14:42:19,635 update: 14	fps: 40.837	
+2020-04-13 14:42:19,635 update: 14	env-time: 23.187s	pth-time: 23.263s	frames: 1920.0
+2020-04-13 14:42:19,636 Average window size: 15  distance_to_goal: 2.301  episode_num: 3.045  length: 4.045  reward: -0.057  spl: 0.000  success: 0.000
+2020-04-13 14:42:22,706 update: 15	fps: 40.889	
+2020-04-13 14:42:22,707 update: 15	env-time: 24.692s	pth-time: 24.802s	frames: 2048.0
+2020-04-13 14:42:22,707 Average window size: 16  distance_to_goal: 2.313  episode_num: 3.059  length: 4.044  reward: -0.059  spl: 0.000  success: 0.000
+2020-04-13 14:42:25,745 update: 16	fps: 40.959	
+2020-04-13 14:42:25,746 update: 16	env-time: 26.171s	pth-time: 26.337s	frames: 2176.0
+2020-04-13 14:42:25,746 Average window size: 17  distance_to_goal: 2.319  episode_num: 3.072  length: 4.068  reward: -0.059  spl: 0.000  success: 0.000
+2020-04-13 14:42:28,788 update: 17	fps: 41.019	
+2020-04-13 14:42:28,789 update: 17	env-time: 27.627s	pth-time: 27.897s	frames: 2304.0
+2020-04-13 14:42:28,789 Average window size: 18  distance_to_goal: 2.316  episode_num: 3.098  length: 4.096  reward: -0.061  spl: 0.000  success: 0.000
+2020-04-13 14:42:31,892 update: 18	fps: 41.031	
+2020-04-13 14:42:31,892 update: 18	env-time: 29.162s	pth-time: 29.440s	frames: 2432.0
+2020-04-13 14:42:31,892 Average window size: 19  distance_to_goal: 2.321  episode_num: 3.100  length: 4.087  reward: -0.062  spl: 0.000  success: 0.000
+2020-04-13 14:42:35,083 update: 19	fps: 40.984	
+2020-04-13 14:42:35,084 update: 19	env-time: 30.785s	pth-time: 30.981s	frames: 2560.0
+2020-04-13 14:42:35,084 Average window size: 20  distance_to_goal: 2.309  episode_num: 3.108  length: 4.096  reward: -0.060  spl: 0.000  success: 0.000
+2020-04-13 14:42:38,239 update: 20	fps: 40.963	
+2020-04-13 14:42:38,239 update: 20	env-time: 32.358s	pth-time: 32.538s	frames: 2688.0
+2020-04-13 14:42:38,241 Average window size: 21  distance_to_goal: 2.307  episode_num: 3.083  length: 4.078  reward: -0.063  spl: 0.000  success: 0.000
+2020-04-13 14:42:41,279 update: 21	fps: 41.014	
+2020-04-13 14:42:41,280 update: 21	env-time: 33.826s	pth-time: 34.084s	frames: 2816.0
+2020-04-13 14:42:41,280 Average window size: 22  distance_to_goal: 2.310  episode_num: 3.091  length: 4.087  reward: -0.064  spl: 0.000  success: 0.000
+2020-04-13 14:42:44,388 update: 22	fps: 41.021	
+2020-04-13 14:42:44,388 update: 22	env-time: 35.352s	pth-time: 35.641s	frames: 2944.0
+2020-04-13 14:42:44,388 Average window size: 23  distance_to_goal: 2.312  episode_num: 3.087  length: 4.087  reward: -0.066  spl: 0.000  success: 0.000
+2020-04-13 14:42:47,507 update: 23	fps: 41.022	
+2020-04-13 14:42:47,507 update: 23	env-time: 36.896s	pth-time: 37.190s	frames: 3072.0
+2020-04-13 14:42:47,507 Average window size: 24  distance_to_goal: 2.315  episode_num: 3.083  length: 4.083  reward: -0.069  spl: 0.000  success: 0.000
+2020-04-13 14:42:50,639 update: 24	fps: 41.015	
+2020-04-13 14:42:50,640 update: 24	env-time: 38.447s	pth-time: 38.743s	frames: 3200.0
+2020-04-13 14:42:50,640 Average window size: 25  distance_to_goal: 2.314  episode_num: 3.080  length: 4.077  reward: -0.069  spl: 0.000  success: 0.000
+2020-04-13 14:42:53,894 update: 25	fps: 40.948	
+2020-04-13 14:42:53,895 update: 25	env-time: 40.112s	pth-time: 40.307s	frames: 3328.0
+2020-04-13 14:42:53,895 Average window size: 26  distance_to_goal: 2.315  episode_num: 3.082  length: 4.078  reward: -0.070  spl: 0.000  success: 0.000
+2020-04-13 14:42:56,992 update: 26	fps: 40.961	
+2020-04-13 14:42:56,992 update: 26	env-time: 41.628s	pth-time: 41.860s	frames: 3456.0
+2020-04-13 14:42:56,992 Average window size: 27  distance_to_goal: 2.314  episode_num: 3.104  length: 4.101  reward: -0.071  spl: 0.000  success: 0.000
+2020-04-13 14:43:00,228 update: 27	fps: 40.909	
+2020-04-13 14:43:00,229 update: 27	env-time: 43.296s	pth-time: 43.404s	frames: 3584.0
+2020-04-13 14:43:00,231 Average window size: 28  distance_to_goal: 2.316  episode_num: 3.061  length: 4.052  reward: -0.072  spl: 0.000  success: 0.000
+2020-04-13 14:43:03,321 update: 28	fps: 40.925	
+2020-04-13 14:43:03,322 update: 28	env-time: 44.814s	pth-time: 44.950s	frames: 3712.0
+2020-04-13 14:43:03,322 Average window size: 29  distance_to_goal: 2.318  episode_num: 3.073  length: 4.072  reward: -0.076  spl: 0.000  success: 0.000
+2020-04-13 14:43:06,445 update: 29	fps: 40.927	
+2020-04-13 14:43:06,446 update: 29	env-time: 46.353s	pth-time: 46.507s	frames: 3840.0
+2020-04-13 14:43:06,446 Average window size: 30  distance_to_goal: 2.310  episode_num: 3.066  length: 4.065  reward: -0.075  spl: 0.000  success: 0.000
+2020-04-13 14:43:09,513 update: 30	fps: 40.952	
+2020-04-13 14:43:09,513 update: 30	env-time: 47.816s	pth-time: 48.085s	frames: 3968.0
+2020-04-13 14:43:09,514 Average window size: 31  distance_to_goal: 2.310  episode_num: 3.081  length: 4.080  reward: -0.074  spl: 0.000  success: 0.000
+2020-04-13 14:43:12,560 update: 31	fps: 40.984	
+2020-04-13 14:43:12,561 update: 31	env-time: 49.262s	pth-time: 49.660s	frames: 4096.0
+2020-04-13 14:43:12,561 Average window size: 32  distance_to_goal: 2.306  episode_num: 3.108  length: 4.107  reward: -0.074  spl: 0.000  success: 0.000
+2020-04-13 14:43:15,853 update: 32	fps: 40.917	
+2020-04-13 14:43:15,854 update: 32	env-time: 50.973s	pth-time: 51.215s	frames: 4224.0
+2020-04-13 14:43:15,854 Average window size: 33  distance_to_goal: 2.315  episode_num: 3.096  length: 4.094  reward: -0.074  spl: 0.000  success: 0.000
+2020-04-13 14:43:18,804 update: 33	fps: 40.985	
+2020-04-13 14:43:18,805 update: 33	env-time: 52.347s	pth-time: 52.765s	frames: 4352.0
+2020-04-13 14:43:18,805 Average window size: 34  distance_to_goal: 2.313  episode_num: 3.129  length: 4.127  reward: -0.072  spl: 0.000  success: 0.000
+2020-04-13 14:43:21,871 update: 34	fps: 41.006	
+2020-04-13 14:43:21,872 update: 34	env-time: 53.855s	pth-time: 54.298s	frames: 4480.0
+2020-04-13 14:43:21,872 Average window size: 35  distance_to_goal: 2.318  episode_num: 3.129  length: 4.120  reward: -0.071  spl: 0.000  success: 0.000
+2020-04-13 14:43:24,891 update: 35	fps: 41.043	
+2020-04-13 14:43:24,892 update: 35	env-time: 55.306s	pth-time: 55.840s	frames: 4608.0
+2020-04-13 14:43:24,892 Average window size: 36  distance_to_goal: 2.317  episode_num: 3.140  length: 4.140  reward: -0.068  spl: 0.000  success: 0.000
+2020-04-13 14:43:28,071 update: 36	fps: 41.022	
+2020-04-13 14:43:28,071 update: 36	env-time: 56.904s	pth-time: 57.397s	frames: 4736.0
+2020-04-13 14:43:28,071 Average window size: 37  distance_to_goal: 2.315  episode_num: 3.133  length: 4.131  reward: -0.067  spl: 0.000  success: 0.000
+2020-04-13 14:43:31,231 update: 37	fps: 41.008	
+2020-04-13 14:43:31,231 update: 37	env-time: 58.461s	pth-time: 58.975s	frames: 4864.0
+2020-04-13 14:43:31,232 Average window size: 38  distance_to_goal: 2.319  episode_num: 3.136  length: 4.136  reward: -0.067  spl: 0.000  success: 0.000
+2020-04-13 14:43:34,539 update: 38	fps: 40.945	
+2020-04-13 14:43:34,539 update: 38	env-time: 60.136s	pth-time: 60.580s	frames: 4992.0
+2020-04-13 14:43:34,539 Average window size: 39  distance_to_goal: 2.320  episode_num: 3.133  length: 4.123  reward: -0.067  spl: 0.000  success: 0.000
+2020-04-13 14:43:37,669 update: 39	fps: 40.944	
+2020-04-13 14:43:37,669 update: 39	env-time: 61.672s	pth-time: 62.150s	frames: 5120.0
+2020-04-13 14:43:37,669 Average window size: 40  distance_to_goal: 2.324  episode_num: 3.129  length: 4.128  reward: -0.069  spl: 0.000  success: 0.000
+2020-04-13 14:43:40,696 update: 40	fps: 40.975	
+2020-04-13 14:43:40,696 update: 40	env-time: 63.147s	pth-time: 63.675s	frames: 5248.0
+2020-04-13 14:43:40,696 Average window size: 41  distance_to_goal: 2.320  episode_num: 3.139  length: 4.137  reward: -0.068  spl: 0.000  success: 0.000
+2020-04-13 14:43:43,852 update: 41	fps: 40.966	
+2020-04-13 14:43:43,852 update: 41	env-time: 64.729s	pth-time: 65.222s	frames: 5376.0
+2020-04-13 14:43:43,852 Average window size: 42  distance_to_goal: 2.325  episode_num: 3.129  length: 4.127  reward: -0.069  spl: 0.000  success: 0.000
+2020-04-13 14:43:47,054 update: 42	fps: 40.942	
+2020-04-13 14:43:47,055 update: 42	env-time: 66.357s	pth-time: 66.769s	frames: 5504.0
+2020-04-13 14:43:47,055 Average window size: 43  distance_to_goal: 2.324  episode_num: 3.120  length: 4.119  reward: -0.068  spl: 0.000  success: 0.000
+2020-04-13 14:43:50,207 update: 43	fps: 40.934	
+2020-04-13 14:43:50,207 update: 43	env-time: 67.961s	pth-time: 68.294s	frames: 5632.0
+2020-04-13 14:43:50,208 Average window size: 44  distance_to_goal: 2.321  episode_num: 3.104  length: 4.104  reward: -0.068  spl: 0.000  success: 0.000
+2020-04-13 14:43:53,450 update: 44	fps: 40.900	
+2020-04-13 14:43:53,450 update: 44	env-time: 69.640s	pth-time: 69.833s	frames: 5760.0
+2020-04-13 14:43:53,451 Average window size: 45  distance_to_goal: 2.318  episode_num: 3.102  length: 4.101  reward: -0.067  spl: 0.000  success: 0.000
+2020-04-13 14:43:56,585 update: 45	fps: 40.899	
+2020-04-13 14:43:56,586 update: 45	env-time: 71.202s	pth-time: 71.380s	frames: 5888.0
+2020-04-13 14:43:56,586 Average window size: 46  distance_to_goal: 2.314  episode_num: 3.094  length: 4.091  reward: -0.067  spl: 0.000  success: 0.000
+2020-04-13 14:43:59,756 update: 46	fps: 40.887	
+2020-04-13 14:43:59,757 update: 46	env-time: 72.787s	pth-time: 72.940s	frames: 6016.0
+2020-04-13 14:43:59,759 Average window size: 47  distance_to_goal: 2.317  episode_num: 3.083  length: 4.075  reward: -0.066  spl: 0.000  success: 0.000
+2020-04-13 14:44:02,771 update: 47	fps: 40.919	
+2020-04-13 14:44:02,772 update: 47	env-time: 74.227s	pth-time: 74.487s	frames: 6144.0
+2020-04-13 14:44:02,772 Average window size: 48  distance_to_goal: 2.314  episode_num: 3.098  length: 4.097  reward: -0.067  spl: 0.000  success: 0.000
+2020-04-13 14:44:05,825 update: 48	fps: 40.938	
+2020-04-13 14:44:05,826 update: 48	env-time: 75.713s	pth-time: 76.028s	frames: 6272.0
+2020-04-13 14:44:05,827 Average window size: 49  distance_to_goal: 2.312  episode_num: 3.104  length: 4.099  reward: -0.066  spl: 0.000  success: 0.000
+2020-04-13 14:44:08,914 update: 49	fps: 40.948	
+2020-04-13 14:44:08,915 update: 49	env-time: 77.226s	pth-time: 77.579s	frames: 6400.0
+2020-04-13 14:44:08,915 Average window size: 50  distance_to_goal: 2.309  episode_num: 3.107  length: 4.103  reward: -0.066  spl: 0.000  success: 0.000
+2020-04-13 14:44:12,087 update: 50	fps: 40.936	
+2020-04-13 14:44:12,087 update: 50	env-time: 78.818s	pth-time: 79.133s	frames: 6528.0
+2020-04-13 14:44:12,088 Average window size: 50  distance_to_goal: 2.308  episode_num: 3.086  length: 4.087  reward: -0.064  spl: 0.001  success: 0.001
+2020-04-13 14:44:15,310 update: 51	fps: 40.912	
+2020-04-13 14:44:15,311 update: 51	env-time: 80.433s	pth-time: 80.671s	frames: 6656.0
+2020-04-13 14:44:15,311 Average window size: 50  distance_to_goal: 2.309  episode_num: 3.097  length: 4.097  reward: -0.064  spl: 0.001  success: 0.001
+2020-04-13 14:44:18,355 update: 52	fps: 40.933	
+2020-04-13 14:44:18,356 update: 52	env-time: 81.942s	pth-time: 82.183s	frames: 6784.0
+2020-04-13 14:44:18,356 Average window size: 50  distance_to_goal: 2.307  episode_num: 3.107  length: 4.107  reward: -0.065  spl: 0.001  success: 0.001
+2020-04-13 14:44:21,430 update: 53	fps: 40.945	
+2020-04-13 14:44:21,431 update: 53	env-time: 83.463s	pth-time: 83.713s	frames: 6912.0
+2020-04-13 14:44:21,431 Average window size: 50  distance_to_goal: 2.304  episode_num: 3.073  length: 4.074  reward: -0.062  spl: 0.001  success: 0.001
+2020-04-13 14:44:24,519 update: 54	fps: 40.954	
+2020-04-13 14:44:24,520 update: 54	env-time: 84.982s	pth-time: 85.254s	frames: 7040.0
+2020-04-13 14:44:24,520 Average window size: 50  distance_to_goal: 2.307  episode_num: 3.094  length: 4.091  reward: -0.062  spl: 0.001  success: 0.001
+2020-04-13 14:44:27,520 update: 55	fps: 40.983	
+2020-04-13 14:44:27,520 update: 55	env-time: 86.392s	pth-time: 86.821s	frames: 7168.0
+2020-04-13 14:44:27,520 Average window size: 50  distance_to_goal: 2.305  episode_num: 3.097  length: 4.099  reward: -0.060  spl: 0.001  success: 0.001
+2020-04-13 14:44:30,596 update: 56	fps: 40.994	
+2020-04-13 14:44:30,596 update: 56	env-time: 87.893s	pth-time: 88.370s	frames: 7296.0
+2020-04-13 14:44:30,596 Average window size: 50  distance_to_goal: 2.301  episode_num: 3.091  length: 4.095  reward: -0.060  spl: 0.001  success: 0.001
+2020-04-13 14:44:33,756 update: 57	fps: 40.986	
+2020-04-13 14:44:33,756 update: 57	env-time: 89.472s	pth-time: 89.927s	frames: 7424.0
+2020-04-13 14:44:33,757 Average window size: 50  distance_to_goal: 2.300  episode_num: 3.091  length: 4.094  reward: -0.062  spl: 0.001  success: 0.001
+2020-04-13 14:44:36,876 update: 58	fps: 40.986	
+2020-04-13 14:44:36,877 update: 58	env-time: 91.024s	pth-time: 91.469s	frames: 7552.0
+2020-04-13 14:44:36,877 Average window size: 50  distance_to_goal: 2.303  episode_num: 3.091  length: 4.091  reward: -0.062  spl: 0.001  success: 0.001
+2020-04-13 14:44:39,958 update: 59	fps: 40.995	
+2020-04-13 14:44:39,959 update: 59	env-time: 92.515s	pth-time: 93.032s	frames: 7680.0
+2020-04-13 14:44:39,959 Average window size: 50  distance_to_goal: 2.301  episode_num: 3.094  length: 4.095  reward: -0.061  spl: 0.001  success: 0.001
+2020-04-13 14:44:43,015 update: 60	fps: 41.009	
+2020-04-13 14:44:43,016 update: 60	env-time: 93.996s	pth-time: 94.582s	frames: 7808.0
+2020-04-13 14:44:43,016 Average window size: 50  distance_to_goal: 2.301  episode_num: 3.102  length: 4.103  reward: -0.061  spl: 0.001  success: 0.001
+2020-04-13 14:44:46,354 update: 61	fps: 40.963	
+2020-04-13 14:44:46,354 update: 61	env-time: 95.763s	pth-time: 96.129s	frames: 7936.0
+2020-04-13 14:44:46,354 Average window size: 50  distance_to_goal: 2.301  episode_num: 3.075  length: 4.076  reward: -0.062  spl: 0.001  success: 0.001
+2020-04-13 14:44:49,307 update: 62	fps: 40.999	
+2020-04-13 14:44:49,308 update: 62	env-time: 97.141s	pth-time: 97.678s	frames: 8064.0
+2020-04-13 14:44:49,308 Average window size: 50  distance_to_goal: 2.301  episode_num: 3.102  length: 4.104  reward: -0.063  spl: 0.001  success: 0.001
+2020-04-13 14:44:52,652 update: 63	fps: 40.953	
+2020-04-13 14:44:52,652 update: 63	env-time: 98.920s	pth-time: 99.217s	frames: 8192.0
+2020-04-13 14:44:52,652 Average window size: 50  distance_to_goal: 2.305  episode_num: 3.094  length: 4.086  reward: -0.064  spl: 0.001  success: 0.001
+2020-04-13 14:44:55,803 update: 64	fps: 40.948	
+2020-04-13 14:44:55,804 update: 64	env-time: 100.496s	pth-time: 100.766s	frames: 8320.0
+2020-04-13 14:44:55,804 Average window size: 50  distance_to_goal: 2.302  episode_num: 3.083  length: 4.088  reward: -0.065  spl: 0.001  success: 0.001
+2020-04-13 14:44:58,996 update: 65	fps: 40.935	
+2020-04-13 14:44:58,996 update: 65	env-time: 102.110s	pth-time: 102.318s	frames: 8448.0
+2020-04-13 14:44:58,997 Average window size: 50  distance_to_goal: 2.297  episode_num: 3.067  length: 4.069  reward: -0.063  spl: 0.001  success: 0.001
+2020-04-13 14:45:02,069 update: 66	fps: 40.945	
+2020-04-13 14:45:02,070 update: 66	env-time: 103.628s	pth-time: 103.849s	frames: 8576.0
+2020-04-13 14:45:02,070 Average window size: 50  distance_to_goal: 2.298  episode_num: 3.060  length: 4.054  reward: -0.063  spl: 0.001  success: 0.001
+2020-04-13 14:45:05,095 update: 67	fps: 40.965	
+2020-04-13 14:45:05,095 update: 67	env-time: 105.074s	pth-time: 105.403s	frames: 8704.0
+2020-04-13 14:45:05,095 Average window size: 50  distance_to_goal: 2.296  episode_num: 3.067  length: 4.068  reward: -0.063  spl: 0.001  success: 0.001
+2020-04-13 14:45:08,331 update: 68	fps: 40.943	
+2020-04-13 14:45:08,332 update: 68	env-time: 106.719s	pth-time: 106.970s	frames: 8832.0
+2020-04-13 14:45:08,332 Average window size: 50  distance_to_goal: 2.300  episode_num: 3.039  length: 4.042  reward: -0.063  spl: 0.001  success: 0.001
+2020-04-13 14:45:11,459 update: 69	fps: 40.943	
+2020-04-13 14:45:11,460 update: 69	env-time: 108.259s	pth-time: 108.531s	frames: 8960.0
+2020-04-13 14:45:11,460 Average window size: 50  distance_to_goal: 2.301  episode_num: 3.057  length: 4.059  reward: -0.061  spl: 0.001  success: 0.001
+2020-04-13 14:45:14,567 update: 70	fps: 40.947	
+2020-04-13 14:45:14,568 update: 70	env-time: 109.795s	pth-time: 110.078s	frames: 9088.0
+2020-04-13 14:45:14,568 Average window size: 50  distance_to_goal: 2.298  episode_num: 3.054  length: 4.056  reward: -0.060  spl: 0.001  success: 0.001
+2020-04-13 14:45:17,684 update: 71	fps: 40.948	
+2020-04-13 14:45:17,685 update: 71	env-time: 111.345s	pth-time: 111.619s	frames: 9216.0
+2020-04-13 14:45:17,685 Average window size: 50  distance_to_goal: 2.297  episode_num: 3.046  length: 4.046  reward: -0.060  spl: 0.001  success: 0.001
+2020-04-13 14:45:20,818 update: 72	fps: 40.947	
+2020-04-13 14:45:20,818 update: 72	env-time: 112.922s	pth-time: 113.148s	frames: 9344.0
+2020-04-13 14:45:20,818 Average window size: 50  distance_to_goal: 2.296  episode_num: 3.041  length: 4.041  reward: -0.059  spl: 0.001  success: 0.001
+2020-04-13 14:45:23,996 update: 73	fps: 40.938	
+2020-04-13 14:45:23,996 update: 73	env-time: 114.501s	pth-time: 114.719s	frames: 9472.0
+2020-04-13 14:45:23,996 Average window size: 50  distance_to_goal: 2.293  episode_num: 3.039  length: 4.039  reward: -0.059  spl: 0.001  success: 0.001
+2020-04-13 14:45:27,177 update: 74	fps: 40.928	
+2020-04-13 14:45:27,178 update: 74	env-time: 116.095s	pth-time: 116.280s	frames: 9600.0
+2020-04-13 14:45:27,178 Average window size: 50  distance_to_goal: 2.290  episode_num: 3.028  length: 4.030  reward: -0.058  spl: 0.000  success: 0.001
+2020-04-13 14:45:30,416 update: 75	fps: 40.909	
+2020-04-13 14:45:30,416 update: 75	env-time: 117.767s	pth-time: 117.820s	frames: 9728.0
+2020-04-13 14:45:30,416 Average window size: 50  distance_to_goal: 2.291  episode_num: 3.013  length: 4.011  reward: -0.057  spl: 0.000  success: 0.001
+2020-04-13 14:45:33,534 update: 76	fps: 40.911	
+2020-04-13 14:45:33,534 update: 76	env-time: 119.290s	pth-time: 119.391s	frames: 9856.0
+2020-04-13 14:45:33,535 Average window size: 50  distance_to_goal: 2.290  episode_num: 3.036  length: 4.036  reward: -0.056  spl: 0.001  success: 0.001
+2020-04-13 14:45:36,593 update: 77	fps: 40.922	
+2020-04-13 14:45:36,594 update: 77	env-time: 120.754s	pth-time: 120.961s	frames: 9984.0
+2020-04-13 14:45:36,594 Average window size: 50  distance_to_goal: 2.287  episode_num: 3.036  length: 4.035  reward: -0.053  spl: 0.001  success: 0.001
+2020-04-13 14:45:39,810 update: 78	fps: 40.908	
+2020-04-13 14:45:39,810 update: 78	env-time: 122.393s	pth-time: 122.512s	frames: 10112.0
+2020-04-13 14:45:39,810 Average window size: 50  distance_to_goal: 2.291  episode_num: 3.026  length: 4.026  reward: -0.053  spl: 0.000  success: 0.001
+2020-04-13 14:45:42,992 update: 79	fps: 40.899	
+2020-04-13 14:45:42,993 update: 79	env-time: 123.977s	pth-time: 124.085s	frames: 10240.0
+2020-04-13 14:45:42,993 Average window size: 50  distance_to_goal: 2.290  episode_num: 3.010  length: 4.011  reward: -0.054  spl: 0.000  success: 0.001
+2020-04-13 14:45:45,995 update: 80	fps: 40.919	
+2020-04-13 14:45:45,996 update: 80	env-time: 125.411s	pth-time: 125.627s	frames: 10368.0
+2020-04-13 14:45:45,996 Average window size: 50  distance_to_goal: 2.290  episode_num: 3.005  length: 4.004  reward: -0.055  spl: 0.000  success: 0.001
+2020-04-13 14:45:49,170 update: 81	fps: 40.912	
+2020-04-13 14:45:49,171 update: 81	env-time: 127.009s	pth-time: 127.176s	frames: 10496.0
+2020-04-13 14:45:49,171 Average window size: 50  distance_to_goal: 2.282  episode_num: 3.000  length: 3.997  reward: -0.054  spl: 0.000  success: 0.001
+2020-04-13 14:45:52,255 update: 82	fps: 40.919	
+2020-04-13 14:45:52,256 update: 82	env-time: 128.537s	pth-time: 128.708s	frames: 10624.0
+2020-04-13 14:45:52,258 Average window size: 50  distance_to_goal: 2.285  episode_num: 2.995  length: 3.996  reward: -0.055  spl: 0.000  success: 0.001
+2020-04-13 14:45:55,500 update: 83	fps: 40.901	
+2020-04-13 14:45:55,501 update: 83	env-time: 130.205s	pth-time: 130.257s	frames: 10752.0
+2020-04-13 14:45:55,501 Average window size: 50  distance_to_goal: 2.278  episode_num: 2.970  length: 3.976  reward: -0.055  spl: 0.000  success: 0.001
+2020-04-13 14:45:58,575 update: 84	fps: 40.909	
+2020-04-13 14:45:58,576 update: 84	env-time: 131.712s	pth-time: 131.798s	frames: 10880.0
+2020-04-13 14:45:58,576 Average window size: 50  distance_to_goal: 2.279  episode_num: 2.962  length: 3.962  reward: -0.058  spl: 0.000  success: 0.001
+2020-04-13 14:46:01,623 update: 85	fps: 40.921	
+2020-04-13 14:46:01,623 update: 85	env-time: 133.185s	pth-time: 133.347s	frames: 11008.0
+2020-04-13 14:46:01,624 Average window size: 50  distance_to_goal: 2.280  episode_num: 2.975  length: 3.976  reward: -0.060  spl: 0.000  success: 0.001
+2020-04-13 14:46:04,593 update: 86	fps: 40.945	
+2020-04-13 14:46:04,594 update: 86	env-time: 134.592s	pth-time: 134.884s	frames: 11136.0
+2020-04-13 14:46:04,594 Average window size: 50  distance_to_goal: 2.277  episode_num: 2.987  length: 3.987  reward: -0.061  spl: 0.000  success: 0.001
+2020-04-13 14:46:07,554 update: 87	fps: 40.970	
+2020-04-13 14:46:07,554 update: 87	env-time: 136.002s	pth-time: 136.410s	frames: 11264.0
+2020-04-13 14:46:07,555 Average window size: 50  distance_to_goal: 2.275  episode_num: 3.003  length: 4.001  reward: -0.061  spl: 0.000  success: 0.001
+2020-04-13 14:46:10,839 update: 88	fps: 40.946	
+2020-04-13 14:46:10,840 update: 88	env-time: 137.716s	pth-time: 137.954s	frames: 11392.0
+2020-04-13 14:46:10,840 Average window size: 50  distance_to_goal: 2.269  episode_num: 2.997  length: 3.997  reward: -0.061  spl: 0.000  success: 0.001
+2020-04-13 14:46:13,836 update: 89	fps: 40.965	
+2020-04-13 14:46:13,837 update: 89	env-time: 139.169s	pth-time: 139.472s	frames: 11520.0
+2020-04-13 14:46:13,837 Average window size: 50  distance_to_goal: 2.274  episode_num: 2.995  length: 3.994  reward: -0.062  spl: 0.000  success: 0.001
+2020-04-13 14:46:16,900 update: 90	fps: 40.974	
+2020-04-13 14:46:16,900 update: 90	env-time: 140.661s	pth-time: 141.018s	frames: 11648.0
+2020-04-13 14:46:16,900 Average window size: 50  distance_to_goal: 2.269  episode_num: 3.015  length: 4.015  reward: -0.063  spl: 0.000  success: 0.001
+2020-04-13 14:46:20,106 update: 91	fps: 40.962	
+2020-04-13 14:46:20,107 update: 91	env-time: 142.270s	pth-time: 142.591s	frames: 11776.0
+2020-04-13 14:46:20,109 Average window size: 50  distance_to_goal: 2.266  episode_num: 3.013  length: 4.010  reward: -0.063  spl: 0.000  success: 0.001
+2020-04-13 14:46:23,230 update: 92	fps: 40.962	
+2020-04-13 14:46:23,230 update: 92	env-time: 143.820s	pth-time: 144.140s	frames: 11904.0
+2020-04-13 14:46:23,230 Average window size: 50  distance_to_goal: 2.269  episode_num: 3.018  length: 4.017  reward: -0.063  spl: 0.000  success: 0.001
+2020-04-13 14:46:26,332 update: 93	fps: 40.965	
+2020-04-13 14:46:26,333 update: 93	env-time: 145.352s	pth-time: 145.684s	frames: 12032.0
+2020-04-13 14:46:26,333 Average window size: 50  distance_to_goal: 2.269  episode_num: 3.015  length: 4.017  reward: -0.062  spl: 0.000  success: 0.001
+2020-04-13 14:46:29,287 update: 94	fps: 40.989	
+2020-04-13 14:46:29,287 update: 94	env-time: 146.750s	pth-time: 147.215s	frames: 12160.0
+2020-04-13 14:46:29,287 Average window size: 50  distance_to_goal: 2.273  episode_num: 3.039  length: 4.041  reward: -0.062  spl: 0.001  success: 0.001
+2020-04-13 14:46:32,650 update: 95	fps: 40.956	
+2020-04-13 14:46:32,650 update: 95	env-time: 148.507s	pth-time: 148.794s	frames: 12288.0
+2020-04-13 14:46:32,650 Average window size: 50  distance_to_goal: 2.268  episode_num: 3.044  length: 4.051  reward: -0.064  spl: 0.001  success: 0.001
+2020-04-13 14:46:35,765 update: 96	fps: 40.957	
+2020-04-13 14:46:35,765 update: 96	env-time: 150.040s	pth-time: 150.351s	frames: 12416.0
+2020-04-13 14:46:35,765 Average window size: 50  distance_to_goal: 2.273  episode_num: 3.031  length: 4.028  reward: -0.064  spl: 0.000  success: 0.001
+2020-04-13 14:46:38,906 update: 97	fps: 40.955	
+2020-04-13 14:46:38,906 update: 97	env-time: 151.601s	pth-time: 151.902s	frames: 12544.0
+2020-04-13 14:46:38,906 Average window size: 50  distance_to_goal: 2.273  episode_num: 3.023  length: 4.028  reward: -0.065  spl: 0.000  success: 0.001
+2020-04-13 14:46:41,919 update: 98	fps: 40.970	
+2020-04-13 14:46:41,919 update: 98	env-time: 153.071s	pth-time: 153.422s	frames: 12672.0
+2020-04-13 14:46:41,920 Average window size: 50  distance_to_goal: 2.277  episode_num: 3.031  length: 4.035  reward: -0.066  spl: 0.000  success: 0.001
+2020-04-13 14:46:44,930 update: 99	fps: 40.985	
+2020-04-13 14:46:44,930 update: 99	env-time: 154.508s	pth-time: 154.972s	frames: 12800.0
+2020-04-13 14:46:44,930 Average window size: 50  distance_to_goal: 2.280  episode_num: 3.057  length: 4.056  reward: -0.069  spl: 0.000  success: 0.000
+2020-04-13 14:46:48,111 update: 100	fps: 40.977	
+2020-04-13 14:46:48,112 update: 100	env-time: 156.088s	pth-time: 156.550s	frames: 12928.0
+2020-04-13 14:46:48,112 Average window size: 50  distance_to_goal: 2.277  episode_num: 3.046  length: 4.046  reward: -0.068  spl: 0.000  success: 0.000
+2020-04-13 14:46:51,333 update: 101	fps: 40.965	
+2020-04-13 14:46:51,333 update: 101	env-time: 157.688s	pth-time: 158.099s	frames: 13056.0
+2020-04-13 14:46:51,333 Average window size: 50  distance_to_goal: 2.278  episode_num: 3.052  length: 4.056  reward: -0.069  spl: 0.000  success: 0.000
+2020-04-13 14:46:54,559 update: 102	fps: 40.952	
+2020-04-13 14:46:54,560 update: 102	env-time: 159.335s	pth-time: 159.654s	frames: 13184.0
+2020-04-13 14:46:54,560 Average window size: 50  distance_to_goal: 2.279  episode_num: 3.039  length: 4.039  reward: -0.071  spl: 0.000  success: 0.000
+2020-04-13 14:46:57,513 update: 103	fps: 40.973	
+2020-04-13 14:46:57,513 update: 103	env-time: 160.711s	pth-time: 161.207s	frames: 13312.0
+2020-04-13 14:46:57,513 Average window size: 50  distance_to_goal: 2.278  episode_num: 3.057  length: 4.058  reward: -0.073  spl: 0.000  success: 0.000
+2020-04-13 14:47:00,741 update: 104	fps: 40.960	
+2020-04-13 14:47:00,742 update: 104	env-time: 162.361s	pth-time: 162.762s	frames: 13440.0
+2020-04-13 14:47:00,742 Average window size: 50  distance_to_goal: 2.277  episode_num: 3.026  length: 4.026  reward: -0.073  spl: 0.000  success: 0.000
+2020-04-13 14:47:03,834 update: 105	fps: 40.964	
+2020-04-13 14:47:03,834 update: 105	env-time: 163.891s	pth-time: 164.299s	frames: 13568.0
+2020-04-13 14:47:03,834 Average window size: 50  distance_to_goal: 2.277  episode_num: 3.039  length: 4.039  reward: -0.073  spl: 0.000  success: 0.000
+2020-04-13 14:47:06,949 update: 106	fps: 40.966	
+2020-04-13 14:47:06,950 update: 106	env-time: 165.421s	pth-time: 165.859s	frames: 13696.0
+2020-04-13 14:47:06,950 Average window size: 50  distance_to_goal: 2.277  episode_num: 3.039  length: 4.038  reward: -0.073  spl: 0.000  success: 0.000
+2020-04-13 14:47:10,229 update: 107	fps: 40.947	
+2020-04-13 14:47:10,230 update: 107	env-time: 167.114s	pth-time: 167.419s	frames: 13824.0
+2020-04-13 14:47:10,230 Average window size: 50  distance_to_goal: 2.275  episode_num: 3.026  length: 4.028  reward: -0.073  spl: 0.000  success: 0.000
+2020-04-13 14:47:13,439 update: 108	fps: 40.937	
+2020-04-13 14:47:13,439 update: 108	env-time: 168.743s	pth-time: 168.974s	frames: 13952.0
+2020-04-13 14:47:13,440 Average window size: 50  distance_to_goal: 2.275  episode_num: 3.028  length: 4.031  reward: -0.072  spl: 0.000  success: 0.000
+2020-04-13 14:47:16,441 update: 109	fps: 40.951	
+2020-04-13 14:47:16,442 update: 109	env-time: 170.184s	pth-time: 170.511s	frames: 14080.0
+2020-04-13 14:47:16,442 Average window size: 50  distance_to_goal: 2.276  episode_num: 3.039  length: 4.038  reward: -0.073  spl: 0.000  success: 0.000
+2020-04-13 14:47:19,431 update: 110	fps: 40.967	
+2020-04-13 14:47:19,432 update: 110	env-time: 171.587s	pth-time: 172.073s	frames: 14208.0
+2020-04-13 14:47:19,432 Average window size: 50  distance_to_goal: 2.278  episode_num: 3.091  length: 4.076  reward: -0.072  spl: 0.000  success: 0.000
+2020-04-13 14:47:22,679 update: 111	fps: 40.953	
+2020-04-13 14:47:22,679 update: 111	env-time: 173.237s	pth-time: 173.644s	frames: 14336.0
+2020-04-13 14:47:22,680 Average window size: 50  distance_to_goal: 2.284  episode_num: 3.057  length: 4.056  reward: -0.072  spl: 0.000  success: 0.000
+2020-04-13 14:47:25,850 update: 112	fps: 40.948	
+2020-04-13 14:47:25,850 update: 112	env-time: 174.819s	pth-time: 175.208s	frames: 14464.0
+2020-04-13 14:47:25,850 Average window size: 50  distance_to_goal: 2.284  episode_num: 3.067  length: 4.076  reward: -0.073  spl: 0.000  success: 0.000
+2020-04-13 14:47:28,968 update: 113	fps: 40.949	
+2020-04-13 14:47:28,968 update: 113	env-time: 176.354s	pth-time: 176.764s	frames: 14592.0
+2020-04-13 14:47:28,969 Average window size: 50  distance_to_goal: 2.282  episode_num: 3.073  length: 4.071  reward: -0.072  spl: 0.000  success: 0.000
+2020-04-13 14:47:32,283 update: 114	fps: 40.927	
+2020-04-13 14:47:32,284 update: 114	env-time: 178.075s	pth-time: 178.333s	frames: 14720.0
+2020-04-13 14:47:32,284 Average window size: 50  distance_to_goal: 2.284  episode_num: 3.075  length: 4.075  reward: -0.073  spl: 0.000  success: 0.000
+2020-04-13 14:47:35,307 update: 115	fps: 40.939	
+2020-04-13 14:47:35,307 update: 115	env-time: 179.550s	pth-time: 179.857s	frames: 14848.0
+2020-04-13 14:47:35,307 Average window size: 50  distance_to_goal: 2.284  episode_num: 3.078  length: 4.083  reward: -0.073  spl: 0.000  success: 0.000
+2020-04-13 14:47:38,591 update: 116	fps: 40.921	
+2020-04-13 14:47:38,592 update: 116	env-time: 181.278s	pth-time: 181.388s	frames: 14976.0
+2020-04-13 14:47:38,592 Average window size: 50  distance_to_goal: 2.280  episode_num: 3.041  length: 4.043  reward: -0.072  spl: 0.000  success: 0.000
+2020-04-13 14:47:41,765 update: 117	fps: 40.916	
+2020-04-13 14:47:41,765 update: 117	env-time: 182.906s	pth-time: 182.908s	frames: 15104.0
+2020-04-13 14:47:41,765 Average window size: 50  distance_to_goal: 2.276  episode_num: 3.052  length: 4.053  reward: -0.072  spl: 0.000  success: 0.000
+2020-04-13 14:47:44,933 update: 118	fps: 40.912	
+2020-04-13 14:47:44,934 update: 118	env-time: 184.511s	pth-time: 184.447s	frames: 15232.0
+2020-04-13 14:47:44,934 Average window size: 50  distance_to_goal: 2.277  episode_num: 3.041  length: 4.041  reward: -0.074  spl: 0.000  success: 0.000
+2020-04-13 14:47:48,174 update: 119	fps: 40.900	
+2020-04-13 14:47:48,175 update: 119	env-time: 186.183s	pth-time: 185.988s	frames: 15360.0
+2020-04-13 14:47:48,175 Average window size: 50  distance_to_goal: 2.275  episode_num: 3.021  length: 4.021  reward: -0.073  spl: 0.000  success: 0.000
+2020-04-13 14:47:51,663 update: 120	fps: 40.861	
+2020-04-13 14:47:51,664 update: 120	env-time: 188.061s	pth-time: 187.572s	frames: 15488.0
+2020-04-13 14:47:51,665 Average window size: 50  distance_to_goal: 2.275  episode_num: 3.005  length: 4.005  reward: -0.071  spl: 0.000  success: 0.000
+2020-04-13 14:47:54,836 update: 121	fps: 40.856	
+2020-04-13 14:47:54,836 update: 121	env-time: 189.666s	pth-time: 189.115s	frames: 15616.0
+2020-04-13 14:47:54,836 Average window size: 50  distance_to_goal: 2.273  episode_num: 3.005  length: 4.005  reward: -0.070  spl: 0.000  success: 0.000
+2020-04-13 14:47:58,050 update: 122	fps: 40.848	
+2020-04-13 14:47:58,050 update: 122	env-time: 191.293s	pth-time: 190.676s	frames: 15744.0
+2020-04-13 14:47:58,051 Average window size: 50  distance_to_goal: 2.274  episode_num: 3.000  length: 4.001  reward: -0.069  spl: 0.000  success: 0.000
+2020-04-13 14:48:01,165 update: 123	fps: 40.850	
+2020-04-13 14:48:01,165 update: 123	env-time: 192.837s	pth-time: 192.224s	frames: 15872.0
+2020-04-13 14:48:01,166 Average window size: 50  distance_to_goal: 2.276  episode_num: 3.008  length: 4.004  reward: -0.069  spl: 0.000  success: 0.000
+2020-04-13 14:48:04,369 update: 124	fps: 40.842	
+2020-04-13 14:48:04,370 update: 124	env-time: 194.435s	pth-time: 193.805s	frames: 16000.0
+2020-04-13 14:48:04,370 Average window size: 50  distance_to_goal: 2.276  episode_num: 2.997  length: 3.996  reward: -0.068  spl: 0.000  success: 0.000
+2020-04-13 14:48:07,590 update: 125	fps: 40.833	
+2020-04-13 14:48:07,592 update: 125	env-time: 196.053s	pth-time: 195.385s	frames: 16128.0
+2020-04-13 14:48:07,592 Average window size: 50  distance_to_goal: 2.270  episode_num: 3.003  length: 4.008  reward: -0.069  spl: 0.000  success: 0.000
+2020-04-13 14:48:11,087 update: 126	fps: 40.796	
+2020-04-13 14:48:11,088 update: 126	env-time: 197.879s	pth-time: 197.025s	frames: 16256.0
+2020-04-13 14:48:11,088 Average window size: 50  distance_to_goal: 2.273  episode_num: 2.985  length: 3.983  reward: -0.070  spl: 0.000  success: 0.000
+2020-04-13 14:48:14,291 update: 127	fps: 40.789	
+2020-04-13 14:48:14,292 update: 127	env-time: 199.499s	pth-time: 198.583s	frames: 16384.0
+2020-04-13 14:48:14,292 Average window size: 50  distance_to_goal: 2.273  episode_num: 2.990  length: 3.990  reward: -0.068  spl: 0.000  success: 0.000
+2020-04-13 14:48:17,360 update: 128	fps: 40.796	
+2020-04-13 14:48:17,360 update: 128	env-time: 201.003s	pth-time: 200.122s	frames: 16512.0
+2020-04-13 14:48:17,361 Average window size: 50  distance_to_goal: 2.276  episode_num: 3.005  length: 3.998  reward: -0.069  spl: 0.000  success: 0.000
+2020-04-13 14:48:20,530 update: 129	fps: 40.793	
+2020-04-13 14:48:20,531 update: 129	env-time: 202.603s	pth-time: 201.666s	frames: 16640.0
+2020-04-13 14:48:20,531 Average window size: 50  distance_to_goal: 2.277  episode_num: 2.987  length: 3.987  reward: -0.070  spl: 0.000  success: 0.000
+2020-04-13 14:48:23,648 update: 130	fps: 40.795	
+2020-04-13 14:48:23,648 update: 130	env-time: 204.135s	pth-time: 203.226s	frames: 16768.0
+2020-04-13 14:48:23,648 Average window size: 50  distance_to_goal: 2.280  episode_num: 3.000  length: 4.003  reward: -0.069  spl: 0.000  success: 0.000
+2020-04-13 14:48:26,733 update: 131	fps: 40.800	
+2020-04-13 14:48:26,733 update: 131	env-time: 205.645s	pth-time: 204.776s	frames: 16896.0
+2020-04-13 14:48:26,734 Average window size: 50  distance_to_goal: 2.276  episode_num: 2.985  length: 3.975  reward: -0.069  spl: 0.000  success: 0.000
+2020-04-13 14:48:30,124 update: 132	fps: 40.776	
+2020-04-13 14:48:30,125 update: 132	env-time: 207.397s	pth-time: 206.388s	frames: 17024.0
+2020-04-13 14:48:30,126 Average window size: 50  distance_to_goal: 2.278  episode_num: 3.015  length: 4.009  reward: -0.070  spl: 0.000  success: 0.000
+2020-04-13 14:48:33,292 update: 133	fps: 40.773	
+2020-04-13 14:48:33,293 update: 133	env-time: 208.965s	pth-time: 207.962s	frames: 17152.0
+2020-04-13 14:48:33,293 Average window size: 50  distance_to_goal: 2.276  episode_num: 3.021  length: 4.012  reward: -0.069  spl: 0.000  success: 0.000
+2020-04-13 14:48:36,589 update: 134	fps: 40.758	
+2020-04-13 14:48:36,589 update: 134	env-time: 210.671s	pth-time: 209.527s	frames: 17280.0
+2020-04-13 14:48:36,589 Average window size: 50  distance_to_goal: 2.275  episode_num: 2.992  length: 3.992  reward: -0.066  spl: 0.000  success: 0.000
+2020-04-13 14:48:39,696 update: 135	fps: 40.761	
+2020-04-13 14:48:39,696 update: 135	env-time: 212.203s	pth-time: 211.075s	frames: 17408.0
+2020-04-13 14:48:39,696 Average window size: 50  distance_to_goal: 2.272  episode_num: 2.982  length: 3.981  reward: -0.064  spl: 0.000  success: 0.000
+2020-04-13 14:48:42,702 update: 136	fps: 40.774	
+2020-04-13 14:48:42,703 update: 136	env-time: 213.631s	pth-time: 212.627s	frames: 17536.0
+2020-04-13 14:48:42,703 Average window size: 50  distance_to_goal: 2.273  episode_num: 2.982  length: 3.987  reward: -0.063  spl: 0.000  success: 0.000
+2020-04-13 14:48:45,856 update: 137	fps: 40.772	
+2020-04-13 14:48:45,856 update: 137	env-time: 215.215s	pth-time: 214.172s	frames: 17664.0
+2020-04-13 14:48:45,856 Average window size: 50  distance_to_goal: 2.275  episode_num: 2.990  length: 3.990  reward: -0.062  spl: 0.000  success: 0.000
+2020-04-13 14:48:49,405 update: 138	fps: 40.734	
+2020-04-13 14:48:49,405 update: 138	env-time: 217.149s	pth-time: 215.763s	frames: 17792.0
+2020-04-13 14:48:49,407 Average window size: 50  distance_to_goal: 2.272  episode_num: 2.965  length: 3.966  reward: -0.060  spl: 0.000  success: 0.000
+2020-04-13 14:48:52,708 update: 139	fps: 40.719	
+2020-04-13 14:48:52,709 update: 139	env-time: 218.820s	pth-time: 217.365s	frames: 17920.0
+2020-04-13 14:48:52,709 Average window size: 50  distance_to_goal: 2.272  episode_num: 2.957  length: 3.958  reward: -0.058  spl: 0.000  success: 0.000
+2020-04-13 14:48:55,983 update: 140	fps: 40.707	
+2020-04-13 14:48:55,984 update: 140	env-time: 220.518s	pth-time: 218.917s	frames: 18048.0
+2020-04-13 14:48:55,984 Average window size: 50  distance_to_goal: 2.276  episode_num: 2.945  length: 3.948  reward: -0.059  spl: 0.000  success: 0.000
+2020-04-13 14:48:58,994 update: 141	fps: 40.719	
+2020-04-13 14:48:58,995 update: 141	env-time: 221.982s	pth-time: 220.438s	frames: 18176.0
+2020-04-13 14:48:58,995 Average window size: 50  distance_to_goal: 2.273  episode_num: 2.960  length: 3.958  reward: -0.059  spl: 0.000  success: 0.000
+2020-04-13 14:49:02,191 update: 142	fps: 40.714	
+2020-04-13 14:49:02,192 update: 142	env-time: 223.579s	pth-time: 222.011s	frames: 18304.0
+2020-04-13 14:49:02,192 Average window size: 50  distance_to_goal: 2.275  episode_num: 2.962  length: 3.960  reward: -0.061  spl: 0.000  success: 0.000
+2020-04-13 14:49:05,391 update: 143	fps: 40.709	
+2020-04-13 14:49:05,391 update: 143	env-time: 225.201s	pth-time: 223.561s	frames: 18432.0
+2020-04-13 14:49:05,391 Average window size: 50  distance_to_goal: 2.275  episode_num: 2.940  length: 3.938  reward: -0.060  spl: 0.000  success: 0.000
+2020-04-13 14:49:09,040 update: 144	fps: 40.664	
+2020-04-13 14:49:09,041 update: 144	env-time: 227.195s	pth-time: 225.187s	frames: 18560.0
+2020-04-13 14:49:09,041 Average window size: 50  distance_to_goal: 2.280  episode_num: 2.920  length: 3.919  reward: -0.060  spl: 0.000  success: 0.000
+2020-04-13 14:49:12,255 update: 145	fps: 40.658	
+2020-04-13 14:49:12,255 update: 145	env-time: 228.804s	pth-time: 226.768s	frames: 18688.0
+2020-04-13 14:49:12,255 Average window size: 50  distance_to_goal: 2.275  episode_num: 2.925  length: 3.928  reward: -0.059  spl: 0.000  success: 0.000
+2020-04-13 14:49:15,305 update: 146	fps: 40.667	
+2020-04-13 14:49:15,306 update: 146	env-time: 230.284s	pth-time: 228.312s	frames: 18816.0
+2020-04-13 14:49:15,306 Average window size: 50  distance_to_goal: 2.279  episode_num: 2.935  length: 3.932  reward: -0.058  spl: 0.000  success: 0.000
+2020-04-13 14:49:18,509 update: 147	fps: 40.662	
+2020-04-13 14:49:18,509 update: 147	env-time: 231.894s	pth-time: 229.879s	frames: 18944.0
+2020-04-13 14:49:18,509 Average window size: 50  distance_to_goal: 2.278  episode_num: 2.915  length: 3.915  reward: -0.058  spl: 0.000  success: 0.000
+2020-04-13 14:49:21,659 update: 148	fps: 40.662	
+2020-04-13 14:49:21,660 update: 148	env-time: 233.476s	pth-time: 231.420s	frames: 19072.0
+2020-04-13 14:49:21,660 Average window size: 50  distance_to_goal: 2.280  episode_num: 2.903  length: 3.905  reward: -0.056  spl: 0.000  success: 0.000
+2020-04-13 14:49:24,998 update: 149	fps: 40.645	
+2020-04-13 14:49:24,998 update: 149	env-time: 235.237s	pth-time: 232.971s	frames: 19200.0
+2020-04-13 14:49:24,998 Average window size: 50  distance_to_goal: 2.280  episode_num: 2.884  length: 3.883  reward: -0.056  spl: 0.000  success: 0.000
+2020-04-13 14:49:28,392 update: 150	fps: 40.624	
+2020-04-13 14:49:28,392 update: 150	env-time: 237.030s	pth-time: 234.546s	frames: 19328.0
+2020-04-13 14:49:28,393 Average window size: 50  distance_to_goal: 2.279  episode_num: 2.874  length: 3.875  reward: -0.055  spl: 0.000  success: 0.000
+2020-04-13 14:49:31,916 update: 151	fps: 40.593	
+2020-04-13 14:49:31,916 update: 151	env-time: 238.873s	pth-time: 236.153s	frames: 19456.0
+2020-04-13 14:49:31,918 Average window size: 50  distance_to_goal: 2.281  episode_num: 2.867  length: 3.867  reward: -0.054  spl: 0.000  success: 0.000
+2020-04-13 14:49:35,055 update: 152	fps: 40.594	
+2020-04-13 14:49:35,055 update: 152	env-time: 240.449s	pth-time: 237.688s	frames: 19584.0
+2020-04-13 14:49:35,056 Average window size: 50  distance_to_goal: 2.279  episode_num: 2.848  length: 3.847  reward: -0.052  spl: 0.000  success: 0.000
+2020-04-13 14:49:38,190 update: 153	fps: 40.596	
+2020-04-13 14:49:38,190 update: 153	env-time: 241.984s	pth-time: 239.261s	frames: 19712.0
+2020-04-13 14:49:38,190 Average window size: 50  distance_to_goal: 2.283  episode_num: 2.862  length: 3.862  reward: -0.053  spl: 0.000  success: 0.000
+2020-04-13 14:49:41,351 update: 154	fps: 40.595	
+2020-04-13 14:49:41,351 update: 154	env-time: 243.568s	pth-time: 240.812s	frames: 19840.0
+2020-04-13 14:49:41,351 Average window size: 50  distance_to_goal: 2.284  episode_num: 2.850  length: 3.843  reward: -0.052  spl: 0.000  success: 0.000
+2020-04-13 14:49:44,415 update: 155	fps: 40.602	
+2020-04-13 14:49:44,415 update: 155	env-time: 245.065s	pth-time: 242.353s	frames: 19968.0
+2020-04-13 14:49:44,415 Average window size: 50  distance_to_goal: 2.284  episode_num: 2.853  length: 3.854  reward: -0.051  spl: 0.000  success: 0.000
+2020-04-13 14:49:47,943 update: 156	fps: 40.571	
+2020-04-13 14:49:47,944 update: 156	env-time: 246.970s	pth-time: 243.949s	frames: 20096.0
+2020-04-13 14:49:47,944 Average window size: 50  distance_to_goal: 2.288  episode_num: 2.855  length: 3.854  reward: -0.052  spl: 0.000  success: 0.000
+2020-04-13 14:49:51,183 update: 157	fps: 40.565	
+2020-04-13 14:49:51,184 update: 157	env-time: 248.601s	pth-time: 245.531s	frames: 20224.0
+2020-04-13 14:49:51,184 Average window size: 50  distance_to_goal: 2.288  episode_num: 2.850  length: 3.850  reward: -0.054  spl: 0.000  success: 0.000
+2020-04-13 14:49:54,240 update: 158	fps: 40.572	
+2020-04-13 14:49:54,241 update: 158	env-time: 250.091s	pth-time: 247.070s	frames: 20352.0
+2020-04-13 14:49:54,241 Average window size: 50  distance_to_goal: 2.288  episode_num: 2.845  length: 3.847  reward: -0.052  spl: 0.000  success: 0.000
+2020-04-13 14:49:57,465 update: 159	fps: 40.567	
+2020-04-13 14:49:57,465 update: 159	env-time: 251.737s	pth-time: 248.625s	frames: 20480.0
+2020-04-13 14:49:57,465 Average window size: 50  distance_to_goal: 2.292  episode_num: 2.820  length: 3.833  reward: -0.054  spl: 0.000  success: 0.000
+2020-04-13 14:50:00,601 update: 160	fps: 40.568	
+2020-04-13 14:50:00,601 update: 160	env-time: 253.305s	pth-time: 250.167s	frames: 20608.0
+2020-04-13 14:50:00,601 Average window size: 50  distance_to_goal: 2.285  episode_num: 2.831  length: 3.831  reward: -0.052  spl: 0.000  success: 0.000
+2020-04-13 14:50:03,696 update: 161	fps: 40.573	
+2020-04-13 14:50:03,697 update: 161	env-time: 254.836s	pth-time: 251.706s	frames: 20736.0
+2020-04-13 14:50:03,697 Average window size: 50  distance_to_goal: 2.280  episode_num: 2.843  length: 3.841  reward: -0.051  spl: 0.000  success: 0.000
+2020-04-13 14:50:07,184 update: 162	fps: 40.547	
+2020-04-13 14:50:07,185 update: 162	env-time: 256.706s	pth-time: 253.295s	frames: 20864.0
+2020-04-13 14:50:07,185 Average window size: 50  distance_to_goal: 2.279  episode_num: 2.836  length: 3.835  reward: -0.051  spl: 0.000  success: 0.000
+2020-04-13 14:50:10,526 update: 163	fps: 40.532	
+2020-04-13 14:50:10,526 update: 163	env-time: 258.424s	pth-time: 254.891s	frames: 20992.0
+2020-04-13 14:50:10,527 Average window size: 50  distance_to_goal: 2.279  episode_num: 2.838  length: 3.833  reward: -0.052  spl: 0.000  success: 0.000
+2020-04-13 14:50:13,606 update: 164	fps: 40.538	
+2020-04-13 14:50:13,606 update: 164	env-time: 259.953s	pth-time: 256.417s	frames: 21120.0
+2020-04-13 14:50:13,606 Average window size: 50  distance_to_goal: 2.277  episode_num: 2.838  length: 3.838  reward: -0.050  spl: 0.000  success: 0.000
+2020-04-13 14:50:16,837 update: 165	fps: 40.533	
+2020-04-13 14:50:16,838 update: 165	env-time: 261.636s	pth-time: 257.941s	frames: 21248.0
+2020-04-13 14:50:16,838 Average window size: 50  distance_to_goal: 2.279  episode_num: 2.850  length: 3.851  reward: -0.050  spl: 0.000  success: 0.000
+2020-04-13 14:50:19,882 update: 166	fps: 40.541	
+2020-04-13 14:50:19,883 update: 166	env-time: 263.117s	pth-time: 259.478s	frames: 21376.0
+2020-04-13 14:50:19,883 Average window size: 50  distance_to_goal: 2.283  episode_num: 2.867  length: 3.866  reward: -0.050  spl: 0.000  success: 0.000
+2020-04-13 14:50:23,113 update: 167	fps: 40.536	
+2020-04-13 14:50:23,114 update: 167	env-time: 264.767s	pth-time: 261.033s	frames: 21504.0
+2020-04-13 14:50:23,114 Average window size: 50  distance_to_goal: 2.281  episode_num: 2.864  length: 3.863  reward: -0.050  spl: 0.000  success: 0.000
+2020-04-13 14:50:26,523 update: 168	fps: 40.517	
+2020-04-13 14:50:26,524 update: 168	env-time: 266.549s	pth-time: 262.632s	frames: 21632.0
+2020-04-13 14:50:26,524 Average window size: 50  distance_to_goal: 2.283  episode_num: 2.879  length: 3.876  reward: -0.050  spl: 0.000  success: 0.000
+2020-04-13 14:50:29,759 update: 169	fps: 40.511	
+2020-04-13 14:50:29,759 update: 169	env-time: 268.160s	pth-time: 264.227s	frames: 21760.0
+2020-04-13 14:50:29,759 Average window size: 50  distance_to_goal: 2.278  episode_num: 2.905  length: 3.905  reward: -0.050  spl: 0.000  success: 0.000
+2020-04-13 14:50:33,003 update: 170	fps: 40.505	
+2020-04-13 14:50:33,004 update: 170	env-time: 269.837s	pth-time: 265.770s	frames: 21888.0
+2020-04-13 14:50:33,004 Average window size: 50  distance_to_goal: 2.282  episode_num: 2.891  length: 3.891  reward: -0.050  spl: 0.000  success: 0.000
+2020-04-13 14:50:36,124 update: 171	fps: 40.507	
+2020-04-13 14:50:36,124 update: 171	env-time: 271.408s	pth-time: 267.295s	frames: 22016.0
+2020-04-13 14:50:36,125 Average window size: 50  distance_to_goal: 2.286  episode_num: 2.893  length: 3.890  reward: -0.050  spl: 0.000  success: 0.000
+2020-04-13 14:50:39,393 update: 172	fps: 40.499	
+2020-04-13 14:50:39,393 update: 172	env-time: 273.103s	pth-time: 268.843s	frames: 22144.0
+2020-04-13 14:50:39,394 Average window size: 50  distance_to_goal: 2.285  episode_num: 2.879  length: 3.882  reward: -0.049  spl: 0.001  success: 0.001
+2020-04-13 14:50:42,355 update: 173	fps: 40.514	
+2020-04-13 14:50:42,355 update: 173	env-time: 274.504s	pth-time: 270.378s	frames: 22272.0
+2020-04-13 14:50:42,355 Average window size: 50  distance_to_goal: 2.285  episode_num: 2.913  length: 3.915  reward: -0.050  spl: 0.001  success: 0.001
+2020-04-13 14:50:45,739 update: 174	fps: 40.498	
+2020-04-13 14:50:45,740 update: 174	env-time: 276.262s	pth-time: 271.979s	frames: 22400.0
+2020-04-13 14:50:45,740 Average window size: 50  distance_to_goal: 2.290  episode_num: 2.908  length: 3.908  reward: -0.051  spl: 0.001  success: 0.001
+2020-04-13 14:50:49,018 update: 175	fps: 40.489	
+2020-04-13 14:50:49,018 update: 175	env-time: 277.919s	pth-time: 273.573s	frames: 22528.0
+2020-04-13 14:50:49,018 Average window size: 50  distance_to_goal: 2.289  episode_num: 2.918  length: 3.919  reward: -0.052  spl: 0.001  success: 0.001
+2020-04-13 14:50:52,170 update: 176	fps: 40.490	
+2020-04-13 14:50:52,170 update: 176	env-time: 279.517s	pth-time: 275.100s	frames: 22656.0
+2020-04-13 14:50:52,171 Average window size: 50  distance_to_goal: 2.289  episode_num: 2.922  length: 3.922  reward: -0.053  spl: 0.001  success: 0.001
+2020-04-13 14:50:55,170 update: 177	fps: 40.501	
+2020-04-13 14:50:55,170 update: 177	env-time: 280.980s	pth-time: 276.611s	frames: 22784.0
+2020-04-13 14:50:55,171 Average window size: 50  distance_to_goal: 2.288  episode_num: 2.927  length: 3.933  reward: -0.053  spl: 0.001  success: 0.001
+2020-04-13 14:50:58,345 update: 178	fps: 40.500	
+2020-04-13 14:50:58,346 update: 178	env-time: 282.582s	pth-time: 278.160s	frames: 22912.0
+2020-04-13 14:50:58,346 Average window size: 50  distance_to_goal: 2.291  episode_num: 2.927  length: 3.929  reward: -0.052  spl: 0.001  success: 0.001
+2020-04-13 14:51:01,540 update: 179	fps: 40.498	
+2020-04-13 14:51:01,541 update: 179	env-time: 284.202s	pth-time: 279.710s	frames: 23040.0
+2020-04-13 14:51:01,541 Average window size: 50  distance_to_goal: 2.290  episode_num: 2.920  length: 3.921  reward: -0.052  spl: 0.001  success: 0.001
+2020-04-13 14:51:04,738 update: 180	fps: 40.495	
+2020-04-13 14:51:04,738 update: 180	env-time: 285.835s	pth-time: 281.248s	frames: 23168.0
+2020-04-13 14:51:04,739 Average window size: 50  distance_to_goal: 2.291  episode_num: 2.918  length: 3.927  reward: -0.052  spl: 0.001  success: 0.001
+2020-04-13 14:51:08,005 update: 181	fps: 40.488	
+2020-04-13 14:51:08,006 update: 181	env-time: 287.490s	pth-time: 282.834s	frames: 23296.0
+2020-04-13 14:51:08,006 Average window size: 50  distance_to_goal: 2.292  episode_num: 2.927  length: 3.930  reward: -0.052  spl: 0.001  success: 0.001
+2020-04-13 14:51:11,291 update: 182	fps: 40.479	
+2020-04-13 14:51:11,292 update: 182	env-time: 289.163s	pth-time: 284.422s	frames: 23424.0
+2020-04-13 14:51:11,292 Average window size: 50  distance_to_goal: 2.293  episode_num: 2.915  length: 3.923  reward: -0.051  spl: 0.001  success: 0.001
+2020-04-13 14:51:14,365 update: 183	fps: 40.485	
+2020-04-13 14:51:14,366 update: 183	env-time: 290.656s	pth-time: 285.979s	frames: 23552.0
+2020-04-13 14:51:14,366 Average window size: 50  distance_to_goal: 2.293  episode_num: 2.942  length: 3.942  reward: -0.051  spl: 0.001  success: 0.001
+2020-04-13 14:51:17,434 update: 184	fps: 40.491	
+2020-04-13 14:51:17,435 update: 184	env-time: 292.165s	pth-time: 287.512s	frames: 23680.0
+2020-04-13 14:51:17,435 Average window size: 50  distance_to_goal: 2.293  episode_num: 2.940  length: 3.939  reward: -0.050  spl: 0.001  success: 0.001
+2020-04-13 14:51:20,648 update: 185	fps: 40.488	
+2020-04-13 14:51:20,649 update: 185	env-time: 293.804s	pth-time: 289.060s	frames: 23808.0
+2020-04-13 14:51:20,649 Average window size: 50  distance_to_goal: 2.291  episode_num: 2.922  length: 3.926  reward: -0.052  spl: 0.001  success: 0.001
+2020-04-13 14:51:23,824 update: 186	fps: 40.487	
+2020-04-13 14:51:23,825 update: 186	env-time: 295.399s	pth-time: 290.615s	frames: 23936.0
+2020-04-13 14:51:23,825 Average window size: 50  distance_to_goal: 2.292  episode_num: 2.918  length: 3.917  reward: -0.052  spl: 0.001  success: 0.001
+2020-04-13 14:51:27,333 update: 187	fps: 40.463	
+2020-04-13 14:51:27,334 update: 187	env-time: 297.270s	pth-time: 292.224s	frames: 24064.0
+2020-04-13 14:51:27,334 Average window size: 50  distance_to_goal: 2.291  episode_num: 2.920  length: 3.919  reward: -0.052  spl: 0.001  success: 0.001
+2020-04-13 14:51:30,615 update: 188	fps: 40.455	
+2020-04-13 14:51:30,615 update: 188	env-time: 298.931s	pth-time: 293.817s	frames: 24192.0
+2020-04-13 14:51:30,615 Average window size: 50  distance_to_goal: 2.289  episode_num: 2.910  length: 3.908  reward: -0.051  spl: 0.001  success: 0.001
+2020-04-13 14:51:33,734 update: 189	fps: 40.458	
+2020-04-13 14:51:33,734 update: 189	env-time: 300.472s	pth-time: 295.370s	frames: 24320.0
+2020-04-13 14:51:33,735 Average window size: 50  distance_to_goal: 2.287  episode_num: 2.935  length: 3.934  reward: -0.052  spl: 0.001  success: 0.001
+2020-04-13 14:51:36,793 update: 190	fps: 40.465	
+2020-04-13 14:51:36,794 update: 190	env-time: 301.936s	pth-time: 296.939s	frames: 24448.0
+2020-04-13 14:51:36,794 Average window size: 50  distance_to_goal: 2.290  episode_num: 2.937  length: 3.937  reward: -0.052  spl: 0.001  success: 0.001
+2020-04-13 14:51:39,988 update: 191	fps: 40.463	
+2020-04-13 14:51:39,989 update: 191	env-time: 303.546s	pth-time: 298.499s	frames: 24576.0
+2020-04-13 14:51:39,989 Average window size: 50  distance_to_goal: 2.292  episode_num: 2.930  length: 3.931  reward: -0.052  spl: 0.001  success: 0.001
+2020-04-13 14:51:43,094 update: 192	fps: 40.467	
+2020-04-13 14:51:43,094 update: 192	env-time: 305.081s	pth-time: 300.043s	frames: 24704.0
+2020-04-13 14:51:43,095 Average window size: 50  distance_to_goal: 2.288  episode_num: 2.937  length: 3.938  reward: -0.051  spl: 0.001  success: 0.001
+2020-04-13 14:51:46,294 update: 193	fps: 40.464	
+2020-04-13 14:51:46,295 update: 193	env-time: 306.665s	pth-time: 301.633s	frames: 24832.0
+2020-04-13 14:51:46,297 Average window size: 50  distance_to_goal: 2.287  episode_num: 2.972  length: 3.971  reward: -0.051  spl: 0.001  success: 0.001
+2020-04-13 14:51:49,552 update: 194	fps: 40.458	
+2020-04-13 14:51:49,552 update: 194	env-time: 308.284s	pth-time: 303.241s	frames: 24960.0
+2020-04-13 14:51:49,553 Average window size: 50  distance_to_goal: 2.292  episode_num: 2.970  length: 3.969  reward: -0.052  spl: 0.001  success: 0.001
+2020-04-13 14:51:52,814 update: 195	fps: 40.452	
+2020-04-13 14:51:52,815 update: 195	env-time: 309.973s	pth-time: 304.788s	frames: 25088.0
+2020-04-13 14:51:52,815 Average window size: 50  distance_to_goal: 2.287  episode_num: 2.947  length: 3.950  reward: -0.051  spl: 0.001  success: 0.001
+2020-04-13 14:51:55,812 update: 196	fps: 40.463	
+2020-04-13 14:51:55,812 update: 196	env-time: 311.408s	pth-time: 306.323s	frames: 25216.0
+2020-04-13 14:51:55,812 Average window size: 50  distance_to_goal: 2.286  episode_num: 2.970  length: 3.966  reward: -0.051  spl: 0.001  success: 0.001
+2020-04-13 14:51:58,821 update: 197	fps: 40.473	
+2020-04-13 14:51:58,822 update: 197	env-time: 312.873s	pth-time: 307.841s	frames: 25344.0
+2020-04-13 14:51:58,822 Average window size: 50  distance_to_goal: 2.278  episode_num: 2.980  length: 3.977  reward: -0.052  spl: 0.001  success: 0.001
+2020-04-13 14:52:01,736 update: 198	fps: 40.489	
+2020-04-13 14:52:01,737 update: 198	env-time: 314.229s	pth-time: 309.375s	frames: 25472.0
+2020-04-13 14:52:01,737 Average window size: 50  distance_to_goal: 2.278  episode_num: 3.036  length: 4.036  reward: -0.053  spl: 0.001  success: 0.001
+2020-04-13 14:52:04,872 update: 199	fps: 40.490	
+2020-04-13 14:52:04,874 update: 199	env-time: 315.809s	pth-time: 310.904s	frames: 25600.0
+2020-04-13 14:52:04,874 Average window size: 50  distance_to_goal: 2.279  episode_num: 3.033  length: 4.033  reward: -0.054  spl: 0.001  success: 0.001
+2020-04-13 14:52:08,222 update: 200	fps: 40.478	
+2020-04-13 14:52:08,223 update: 200	env-time: 317.513s	pth-time: 312.522s	frames: 25728.0
+2020-04-13 14:52:08,224 Average window size: 50  distance_to_goal: 2.278  episode_num: 3.060  length: 4.059  reward: -0.054  spl: 0.001  success: 0.001
+2020-04-13 14:52:11,485 update: 201	fps: 40.472	
+2020-04-13 14:52:11,485 update: 201	env-time: 319.128s	pth-time: 314.094s	frames: 25856.0
+2020-04-13 14:52:11,486 Average window size: 50  distance_to_goal: 2.277  episode_num: 3.067  length: 4.069  reward: -0.054  spl: 0.001  success: 0.001
+2020-04-13 14:52:14,600 update: 202	fps: 40.475	
+2020-04-13 14:52:14,600 update: 202	env-time: 320.649s	pth-time: 315.661s	frames: 25984.0
+2020-04-13 14:52:14,600 Average window size: 50  distance_to_goal: 2.276  episode_num: 3.065  length: 4.067  reward: -0.054  spl: 0.001  success: 0.001
+2020-04-13 14:52:17,887 update: 203	fps: 40.467	
+2020-04-13 14:52:17,887 update: 203	env-time: 322.344s	pth-time: 317.226s	frames: 26112.0
+2020-04-13 14:52:17,889 Average window size: 50  distance_to_goal: 2.280  episode_num: 3.046  length: 4.050  reward: -0.056  spl: 0.001  success: 0.001
+2020-04-13 14:52:21,017 update: 204	fps: 40.469	
+2020-04-13 14:52:21,018 update: 204	env-time: 323.885s	pth-time: 318.788s	frames: 26240.0
+2020-04-13 14:52:21,018 Average window size: 50  distance_to_goal: 2.277  episode_num: 3.039  length: 4.038  reward: -0.055  spl: 0.001  success: 0.001
+2020-04-13 14:52:24,049 update: 205	fps: 40.477	
+2020-04-13 14:52:24,049 update: 205	env-time: 325.344s	pth-time: 320.338s	frames: 26368.0
+2020-04-13 14:52:24,049 Average window size: 50  distance_to_goal: 2.274  episode_num: 3.065  length: 4.065  reward: -0.056  spl: 0.001  success: 0.001
+2020-04-13 14:52:27,196 update: 206	fps: 40.478	
+2020-04-13 14:52:27,196 update: 206	env-time: 326.915s	pth-time: 321.889s	frames: 26496.0
+2020-04-13 14:52:27,197 Average window size: 50  distance_to_goal: 2.271  episode_num: 3.060  length: 4.059  reward: -0.055  spl: 0.001  success: 0.001
+2020-04-13 14:52:30,901 update: 207	fps: 40.445	
+2020-04-13 14:52:30,902 update: 207	env-time: 328.953s	pth-time: 323.529s	frames: 26624.0
+2020-04-13 14:52:30,902 Average window size: 50  distance_to_goal: 2.270  episode_num: 3.021  length: 4.021  reward: -0.054  spl: 0.001  success: 0.001
+2020-04-13 14:52:34,124 update: 208	fps: 40.441	
+2020-04-13 14:52:34,125 update: 208	env-time: 330.612s	pth-time: 325.068s	frames: 26752.0
+2020-04-13 14:52:34,125 Average window size: 50  distance_to_goal: 2.267  episode_num: 3.018  length: 4.016  reward: -0.053  spl: 0.001  success: 0.001
+2020-04-13 14:52:37,191 update: 209	fps: 40.447	
+2020-04-13 14:52:37,191 update: 209	env-time: 332.117s	pth-time: 326.604s	frames: 26880.0
+2020-04-13 14:52:37,192 Average window size: 50  distance_to_goal: 2.269  episode_num: 3.026  length: 4.020  reward: -0.054  spl: 0.001  success: 0.001
+2020-04-13 14:52:40,318 update: 210	fps: 40.449	
+2020-04-13 14:52:40,319 update: 210	env-time: 333.684s	pth-time: 328.137s	frames: 27008.0
+2020-04-13 14:52:40,320 Average window size: 50  distance_to_goal: 2.271  episode_num: 3.018  length: 4.020  reward: -0.055  spl: 0.001  success: 0.001
+2020-04-13 14:52:43,289 update: 211	fps: 40.461	
+2020-04-13 14:52:43,289 update: 211	env-time: 335.056s	pth-time: 329.708s	frames: 27136.0
+2020-04-13 14:52:43,290 Average window size: 50  distance_to_goal: 2.271  episode_num: 3.057  length: 4.059  reward: -0.057  spl: 0.001  success: 0.001
+2020-04-13 14:52:46,471 update: 212	fps: 40.460	
+2020-04-13 14:52:46,471 update: 212	env-time: 336.645s	pth-time: 331.275s	frames: 27264.0
+2020-04-13 14:52:46,471 Average window size: 50  distance_to_goal: 2.272  episode_num: 3.054  length: 4.058  reward: -0.056  spl: 0.001  success: 0.001
+2020-04-13 14:52:49,715 update: 213	fps: 40.455	
+2020-04-13 14:52:49,716 update: 213	env-time: 338.266s	pth-time: 332.870s	frames: 27392.0
+2020-04-13 14:52:49,717 Average window size: 50  distance_to_goal: 2.276  episode_num: 3.065  length: 4.065  reward: -0.057  spl: 0.001  success: 0.001
+2020-04-13 14:52:53,078 update: 214	fps: 40.443	
+2020-04-13 14:52:53,078 update: 214	env-time: 340.010s	pth-time: 334.460s	frames: 27520.0
+2020-04-13 14:52:53,078 Average window size: 50  distance_to_goal: 2.275  episode_num: 3.060  length: 4.060  reward: -0.058  spl: 0.001  success: 0.001
+2020-04-13 14:52:56,263 update: 215	fps: 40.442	
+2020-04-13 14:52:56,264 update: 215	env-time: 341.637s	pth-time: 335.991s	frames: 27648.0
+2020-04-13 14:52:56,264 Average window size: 50  distance_to_goal: 2.273  episode_num: 3.041  length: 4.041  reward: -0.057  spl: 0.001  success: 0.001
+2020-04-13 14:52:59,463 update: 216	fps: 40.440	
+2020-04-13 14:52:59,463 update: 216	env-time: 343.240s	pth-time: 337.562s	frames: 27776.0
+2020-04-13 14:52:59,463 Average window size: 50  distance_to_goal: 2.272  episode_num: 3.041  length: 4.042  reward: -0.056  spl: 0.001  success: 0.001
+2020-04-13 14:53:02,578 update: 217	fps: 40.443	
+2020-04-13 14:53:02,578 update: 217	env-time: 344.787s	pth-time: 339.103s	frames: 27904.0
+2020-04-13 14:53:02,579 Average window size: 50  distance_to_goal: 2.274  episode_num: 3.046  length: 4.043  reward: -0.056  spl: 0.001  success: 0.001
+2020-04-13 14:53:05,680 update: 218	fps: 40.447	
+2020-04-13 14:53:05,681 update: 218	env-time: 346.330s	pth-time: 340.637s	frames: 28032.0
+2020-04-13 14:53:05,681 Average window size: 50  distance_to_goal: 2.272  episode_num: 3.039  length: 4.035  reward: -0.056  spl: 0.001  success: 0.001
+2020-04-13 14:53:09,131 update: 219	fps: 40.430	
+2020-04-13 14:53:09,132 update: 219	env-time: 348.121s	pth-time: 342.269s	frames: 28160.0
+2020-04-13 14:53:09,132 Average window size: 50  distance_to_goal: 2.273  episode_num: 3.062  length: 4.062  reward: -0.057  spl: 0.001  success: 0.001
+2020-04-13 14:53:12,373 update: 220	fps: 40.426	
+2020-04-13 14:53:12,374 update: 220	env-time: 349.766s	pth-time: 343.840s	frames: 28288.0
+2020-04-13 14:53:12,374 Average window size: 50  distance_to_goal: 2.273  episode_num: 3.062  length: 4.067  reward: -0.058  spl: 0.001  success: 0.001
+2020-04-13 14:53:15,427 update: 221	fps: 40.432	
+2020-04-13 14:53:15,428 update: 221	env-time: 351.254s	pth-time: 345.379s	frames: 28416.0
+2020-04-13 14:53:15,428 Average window size: 50  distance_to_goal: 2.270  episode_num: 3.086  length: 4.079  reward: -0.058  spl: 0.000  success: 0.000
+2020-04-13 14:53:18,702 update: 222	fps: 40.426	
+2020-04-13 14:53:18,702 update: 222	env-time: 352.939s	pth-time: 346.944s	frames: 28544.0
+2020-04-13 14:53:18,702 Average window size: 50  distance_to_goal: 2.270  episode_num: 3.044  length: 4.046  reward: -0.058  spl: 0.000  success: 0.000
+2020-04-13 14:53:21,953 update: 223	fps: 40.421	
+2020-04-13 14:53:21,954 update: 223	env-time: 354.592s	pth-time: 348.515s	frames: 28672.0
+2020-04-13 14:53:21,954 Average window size: 50  distance_to_goal: 2.266  episode_num: 3.028  length: 4.023  reward: -0.057  spl: 0.000  success: 0.000
+2020-04-13 14:53:25,080 update: 224	fps: 40.423	
+2020-04-13 14:53:25,081 update: 224	env-time: 356.138s	pth-time: 350.072s	frames: 28800.0
+2020-04-13 14:53:25,081 Average window size: 50  distance_to_goal: 2.265  episode_num: 3.031  length: 4.032  reward: -0.056  spl: 0.000  success: 0.000
+2020-04-13 14:53:28,506 update: 225	fps: 40.409	
+2020-04-13 14:53:28,506 update: 225	env-time: 357.908s	pth-time: 351.699s	frames: 28928.0
+2020-04-13 14:53:28,506 Average window size: 50  distance_to_goal: 2.263  episode_num: 3.031  length: 4.030  reward: -0.053  spl: 0.000  success: 0.000
+2020-04-13 14:53:31,806 update: 226	fps: 40.401	
+2020-04-13 14:53:31,806 update: 226	env-time: 359.603s	pth-time: 353.278s	frames: 29056.0
+2020-04-13 14:53:31,806 Average window size: 50  distance_to_goal: 2.264  episode_num: 3.005  length: 4.004  reward: -0.052  spl: 0.000  success: 0.000
+2020-04-13 14:53:34,933 update: 227	fps: 40.404	
+2020-04-13 14:53:34,933 update: 227	env-time: 361.140s	pth-time: 354.842s	frames: 29184.0
+2020-04-13 14:53:34,933 Average window size: 50  distance_to_goal: 2.262  episode_num: 3.015  length: 4.012  reward: -0.053  spl: 0.000  success: 0.000
+2020-04-13 14:53:38,148 update: 228	fps: 40.401	
+2020-04-13 14:53:38,148 update: 228	env-time: 362.771s	pth-time: 356.401s	frames: 29312.0
+2020-04-13 14:53:38,149 Average window size: 50  distance_to_goal: 2.260  episode_num: 3.010  length: 4.008  reward: -0.054  spl: 0.000  success: 0.000
+2020-04-13 14:53:41,217 update: 229	fps: 40.406	
+2020-04-13 14:53:41,217 update: 229	env-time: 364.291s	pth-time: 357.926s	frames: 29440.0
+2020-04-13 14:53:41,218 Average window size: 50  distance_to_goal: 2.265  episode_num: 3.008  length: 4.007  reward: -0.054  spl: 0.000  success: 0.000
+2020-04-13 14:53:44,427 update: 230	fps: 40.404	
+2020-04-13 14:53:44,428 update: 230	env-time: 365.934s	pth-time: 359.468s	frames: 29568.0
+2020-04-13 14:53:44,428 Average window size: 50  distance_to_goal: 2.261  episode_num: 2.980  length: 3.983  reward: -0.054  spl: 0.000  success: 0.000
+2020-04-13 14:53:47,702 update: 231	fps: 40.398	
+2020-04-13 14:53:47,703 update: 231	env-time: 367.591s	pth-time: 361.057s	frames: 29696.0
+2020-04-13 14:53:47,703 Average window size: 50  distance_to_goal: 2.262  episode_num: 3.005  length: 4.006  reward: -0.056  spl: 0.000  success: 0.000
+2020-04-13 14:53:50,879 update: 232	fps: 40.398	
+2020-04-13 14:53:50,879 update: 232	env-time: 369.159s	pth-time: 362.638s	frames: 29824.0
+2020-04-13 14:53:50,881 Average window size: 50  distance_to_goal: 2.266  episode_num: 2.997  length: 3.997  reward: -0.057  spl: 0.000  success: 0.000
+2020-04-13 14:53:54,226 update: 233	fps: 40.388	
+2020-04-13 14:53:54,227 update: 233	env-time: 370.899s	pth-time: 364.219s	frames: 29952.0
+2020-04-13 14:53:54,227 Average window size: 50  distance_to_goal: 2.266  episode_num: 2.965  length: 3.966  reward: -0.058  spl: 0.000  success: 0.000
+2020-04-13 14:53:57,365 update: 234	fps: 40.390	
+2020-04-13 14:53:57,366 update: 234	env-time: 372.478s	pth-time: 365.752s	frames: 30080.0
+2020-04-13 14:53:57,366 Average window size: 50  distance_to_goal: 2.267  episode_num: 2.962  length: 3.961  reward: -0.056  spl: 0.000  success: 0.000
+2020-04-13 14:54:00,407 update: 235	fps: 40.396	
+2020-04-13 14:54:00,408 update: 235	env-time: 373.965s	pth-time: 367.280s	frames: 30208.0
+2020-04-13 14:54:00,408 Average window size: 50  distance_to_goal: 2.272  episode_num: 2.970  length: 3.971  reward: -0.056  spl: 0.000  success: 0.000
+2020-04-13 14:54:03,543 update: 236	fps: 40.398	
+2020-04-13 14:54:03,543 update: 236	env-time: 375.508s	pth-time: 368.849s	frames: 30336.0
+2020-04-13 14:54:03,544 Average window size: 50  distance_to_goal: 2.276  episode_num: 2.985  length: 3.983  reward: -0.057  spl: 0.000  success: 0.000
+2020-04-13 14:54:06,956 update: 237	fps: 40.385	
+2020-04-13 14:54:06,956 update: 237	env-time: 377.277s	pth-time: 370.466s	frames: 30464.0
+2020-04-13 14:54:06,956 Average window size: 50  distance_to_goal: 2.278  episode_num: 2.995  length: 3.994  reward: -0.058  spl: 0.000  success: 0.000
+2020-04-13 14:54:10,188 update: 238	fps: 40.382	
+2020-04-13 14:54:10,189 update: 238	env-time: 378.880s	pth-time: 372.067s	frames: 30592.0
+2020-04-13 14:54:10,189 Average window size: 50  distance_to_goal: 2.283  episode_num: 2.997  length: 3.995  reward: -0.058  spl: 0.000  success: 0.000
+2020-04-13 14:54:13,460 update: 239	fps: 40.376	
+2020-04-13 14:54:13,460 update: 239	env-time: 380.531s	pth-time: 373.662s	frames: 30720.0
+2020-04-13 14:54:13,460 Average window size: 50  distance_to_goal: 2.282  episode_num: 2.980  length: 3.983  reward: -0.059  spl: 0.000  success: 0.000
+2020-04-13 14:54:16,739 update: 240	fps: 40.371	
+2020-04-13 14:54:16,739 update: 240	env-time: 382.208s	pth-time: 375.239s	frames: 30848.0
+2020-04-13 14:54:16,739 Average window size: 50  distance_to_goal: 2.281  episode_num: 2.982  length: 3.983  reward: -0.058  spl: 0.000  success: 0.000
+2020-04-13 14:54:20,096 update: 241	fps: 40.361	
+2020-04-13 14:54:20,096 update: 241	env-time: 383.935s	pth-time: 376.843s	frames: 30976.0
+2020-04-13 14:54:20,096 Average window size: 50  distance_to_goal: 2.286  episode_num: 2.975  length: 3.975  reward: -0.058  spl: 0.000  success: 0.000
+2020-04-13 14:57:48,905 agent number of trainable parameters: 14689605
+2020-04-13 14:57:56,317 update: 1	fps: 36.069	
+2020-04-13 14:57:56,317 update: 1	env-time: 3.415s	pth-time: 3.455s	frames: 256.0
+2020-04-13 14:57:56,317 Average window size: 2  distance_to_goal: 3.414  episode_num: 2.459  length: 3.595  reward: -0.074  spl: 0.000  success: 0.000
+2020-04-13 14:57:59,675 update: 2	fps: 36.726	
+2020-04-13 14:57:59,676 update: 2	env-time: 5.042s	pth-time: 5.158s	frames: 384.0
+2020-04-13 14:57:59,677 Average window size: 3  distance_to_goal: 3.530  episode_num: 2.657  length: 3.714  reward: -0.043  spl: 0.000  success: 0.000
+2020-04-13 14:58:03,088 update: 3	fps: 36.917	
+2020-04-13 14:58:03,088 update: 3	env-time: 6.707s	pth-time: 6.874s	frames: 512.0
+2020-04-13 14:58:03,088 Average window size: 4  distance_to_goal: 3.440  episode_num: 2.728  length: 3.777  reward: -0.055  spl: 0.000  success: 0.000
+2020-04-13 14:58:06,452 update: 4	fps: 37.137	
+2020-04-13 14:58:06,453 update: 4	env-time: 8.359s	pth-time: 8.558s	frames: 640.0
+2020-04-13 14:58:06,453 Average window size: 5  distance_to_goal: 3.460  episode_num: 2.710  length: 3.754  reward: -0.063  spl: 0.000  success: 0.000
+2020-04-13 14:58:09,907 update: 5	fps: 37.124	
+2020-04-13 14:58:09,908 update: 5	env-time: 10.080s	pth-time: 10.260s	frames: 768.0
+2020-04-13 14:58:09,908 Average window size: 6  distance_to_goal: 3.476  episode_num: 2.787  length: 3.799  reward: -0.062  spl: 0.000  success: 0.000
+2020-04-13 14:58:13,393 update: 6	fps: 37.065	
+2020-04-13 14:58:13,394 update: 6	env-time: 11.836s	pth-time: 11.960s	frames: 896.0
+2020-04-13 14:58:13,394 Average window size: 7  distance_to_goal: 3.482  episode_num: 2.710  length: 3.729  reward: -0.064  spl: 0.000  success: 0.000
+2020-04-13 14:58:16,683 update: 7	fps: 37.285	
+2020-04-13 14:58:16,684 update: 7	env-time: 13.397s	pth-time: 13.659s	frames: 1024.0
+2020-04-13 14:58:16,684 Average window size: 8  distance_to_goal: 3.500  episode_num: 2.813  length: 3.834  reward: -0.068  spl: 0.000  success: 0.000
+2020-04-13 14:58:20,159 update: 8	fps: 37.233	
+2020-04-13 14:58:20,160 update: 8	env-time: 15.081s	pth-time: 15.421s	frames: 1152.0
+2020-04-13 14:58:20,160 Average window size: 9  distance_to_goal: 3.484  episode_num: 2.879  length: 3.883  reward: -0.065  spl: 0.000  success: 0.000
+2020-04-13 15:02:37,200 agent number of trainable parameters: 14689605
+2020-04-13 15:05:35,432 update: 1	fps: 1.439	
+2020-04-13 15:05:35,434 update: 1	env-time: 3.373s	pth-time: 86.382s	frames: 256.0
+2020-04-13 15:05:35,434 Average window size: 2  distance_to_goal: 3.431  episode_num: 3.267  length: 8.533  reward: -0.011  spl: 0.000  success: 0.000
+2020-04-13 15:06:47,677 agent number of trainable parameters: 14689605
+2020-04-13 15:06:54,975 update: 1	fps: 36.609	
+2020-04-13 15:06:54,976 update: 1	env-time: 3.072s	pth-time: 3.447s	frames: 256.0
+2020-04-13 15:06:54,976 Average window size: 2  distance_to_goal: 3.292  episode_num: 3.571  length: 8.857  reward: -0.002  spl: 0.000  success: 0.000
+2020-04-13 15:06:58,379 update: 2	fps: 36.935	
+2020-04-13 15:06:58,380 update: 2	env-time: 4.755s	pth-time: 5.138s	frames: 384.0
+2020-04-13 15:06:58,381 Average window size: 3  distance_to_goal: 3.244  episode_num: 3.129  length: 8.226  reward: -0.020  spl: 0.000  success: 0.000
+2020-04-13 15:07:01,839 update: 3	fps: 36.951	
+2020-04-13 15:07:01,840 update: 3	env-time: 6.478s	pth-time: 6.846s	frames: 512.0
+2020-04-13 15:07:01,840 Average window size: 4  distance_to_goal: 3.294  episode_num: 2.840  length: 7.680  reward: -0.022  spl: 0.000  success: 0.000
+2020-04-13 15:07:05,184 update: 4	fps: 37.207	
+2020-04-13 15:07:05,184 update: 4	env-time: 8.105s	pth-time: 8.537s	frames: 640.0
+2020-04-13 15:07:05,184 Average window size: 5  distance_to_goal: 3.279  episode_num: 2.850  length: 7.669  reward: -0.038  spl: 0.000  success: 0.000
+2020-04-13 15:07:08,393 update: 5	fps: 37.627	
+2020-04-13 15:07:08,394 update: 5	env-time: 9.582s	pth-time: 10.241s	frames: 768.0
+2020-04-13 15:07:08,394 Average window size: 6  distance_to_goal: 3.308  episode_num: 3.025  length: 8.013  reward: -0.049  spl: 0.000  success: 0.000
+2020-04-13 15:07:11,837 update: 6	fps: 37.562	
+2020-04-13 15:07:11,838 update: 6	env-time: 11.288s	pth-time: 11.949s	frames: 896.0
+2020-04-13 15:07:11,838 Average window size: 7  distance_to_goal: 3.354  episode_num: 3.021  length: 8.000  reward: -0.042  spl: 0.000  success: 0.000
+2020-04-13 15:07:15,092 update: 7	fps: 37.773	
+2020-04-13 15:07:15,093 update: 7	env-time: 12.851s	pth-time: 13.612s	frames: 1024.0
+2020-04-13 15:07:15,093 Average window size: 8  distance_to_goal: 3.369  episode_num: 3.054  length: 8.054  reward: -0.055  spl: 0.000  success: 0.000
+2020-04-13 15:07:18,375 update: 8	fps: 37.905	
+2020-04-13 15:07:18,375 update: 8	env-time: 14.437s	pth-time: 15.278s	frames: 1152.0
+2020-04-13 15:07:18,376 Average window size: 9  distance_to_goal: 3.352  episode_num: 3.047  length: 8.095  reward: -0.055  spl: 0.000  success: 0.000
+2020-04-13 15:07:21,643 update: 9	fps: 38.027	
+2020-04-13 15:07:21,644 update: 9	env-time: 15.991s	pth-time: 16.963s	frames: 1280.0
+2020-04-13 15:07:21,644 Average window size: 10  distance_to_goal: 3.383  episode_num: 3.100  length: 8.206  reward: -0.059  spl: 0.000  success: 0.000
+2020-04-13 15:07:24,906 update: 10	fps: 38.133	
+2020-04-13 15:07:24,907 update: 10	env-time: 17.544s	pth-time: 18.645s	frames: 1408.0
+2020-04-13 15:07:24,908 Average window size: 11  distance_to_goal: 3.385  episode_num: 3.129  length: 8.265  reward: -0.064  spl: 0.000  success: 0.000
+2020-04-13 15:07:28,360 update: 11	fps: 38.041	
+2020-04-13 15:07:28,361 update: 11	env-time: 19.282s	pth-time: 20.331s	frames: 1536.0
+2020-04-13 15:07:28,361 Average window size: 12  distance_to_goal: 3.405  episode_num: 3.069  length: 8.145  reward: -0.060  spl: 0.000  success: 0.000
+2020-04-13 15:07:31,561 update: 12	fps: 38.184	
+2020-04-13 15:07:31,561 update: 12	env-time: 20.749s	pth-time: 22.037s	frames: 1664.0
+2020-04-13 15:07:31,562 Average window size: 13  distance_to_goal: 3.420  episode_num: 3.174  length: 8.353  reward: -0.058  spl: 0.000  success: 0.000
+2020-04-13 15:07:35,076 update: 13	fps: 38.052	
+2020-04-13 15:07:35,077 update: 13	env-time: 22.527s	pth-time: 23.745s	frames: 1792.0
+2020-04-13 15:07:35,077 Average window size: 14  distance_to_goal: 3.439  episode_num: 3.150  length: 8.289  reward: -0.057  spl: 0.000  success: 0.000
+2020-04-13 15:08:02,670 update: 14	fps: 25.707	
+2020-04-13 15:08:02,670 update: 14	env-time: 24.097s	pth-time: 25.457s	frames: 1920.0
+2020-04-13 15:08:02,670 Average window size: 15  distance_to_goal: 3.417  episode_num: 3.187  length: 8.379  reward: -0.056  spl: 0.000  success: 0.000
+2020-04-13 15:08:06,360 update: 15	fps: 26.130	
+2020-04-13 15:08:06,361 update: 15	env-time: 25.975s	pth-time: 27.238s	frames: 2048.0
+2020-04-13 15:08:06,361 Average window size: 16  distance_to_goal: 3.413  episode_num: 3.094  length: 8.179  reward: -0.052  spl: 0.000  success: 0.000
+2020-04-13 15:08:09,717 update: 16	fps: 26.623	
+2020-04-13 15:08:09,718 update: 16	env-time: 27.593s	pth-time: 28.947s	frames: 2176.0
+2020-04-13 15:08:09,718 Average window size: 17  distance_to_goal: 3.418  episode_num: 3.104  length: 8.180  reward: -0.052  spl: 0.000  success: 0.000
+2020-04-13 15:08:13,244 update: 17	fps: 27.023	
+2020-04-13 15:08:13,244 update: 17	env-time: 29.303s	pth-time: 30.735s	frames: 2304.0
+2020-04-13 15:08:13,245 Average window size: 18  distance_to_goal: 3.425  episode_num: 3.098  length: 8.188  reward: -0.053  spl: 0.000  success: 0.000
+2020-04-13 15:08:16,991 update: 18	fps: 27.323	
+2020-04-13 15:08:16,991 update: 18	env-time: 31.293s	pth-time: 32.463s	frames: 2432.0
+2020-04-13 15:08:16,991 Average window size: 19  distance_to_goal: 3.425  episode_num: 3.014  length: 8.031  reward: -0.051  spl: 0.000  success: 0.000
+2020-04-13 15:08:20,208 update: 19	fps: 27.758	
+2020-04-13 15:08:20,208 update: 19	env-time: 32.816s	pth-time: 34.128s	frames: 2560.0
+2020-04-13 15:08:20,208 Average window size: 20  distance_to_goal: 3.431  episode_num: 3.053  length: 8.110  reward: -0.049  spl: 0.000  success: 0.000
+2020-04-13 15:08:23,511 update: 20	fps: 28.138	
+2020-04-13 15:08:23,511 update: 20	env-time: 34.345s	pth-time: 35.872s	frames: 2688.0
+2020-04-13 15:08:23,511 Average window size: 21  distance_to_goal: 3.436  episode_num: 3.096  length: 8.176  reward: -0.053  spl: 0.000  success: 0.000
+2020-04-13 15:08:26,891 update: 21	fps: 28.471	
+2020-04-13 15:08:26,892 update: 21	env-time: 35.976s	pth-time: 37.591s	frames: 2816.0
+2020-04-13 15:08:26,893 Average window size: 22  distance_to_goal: 3.442  episode_num: 3.098  length: 8.189  reward: -0.054  spl: 0.000  success: 0.000
+2020-04-13 15:08:30,200 update: 22	fps: 28.801	
+2020-04-13 15:08:30,200 update: 22	env-time: 37.549s	pth-time: 39.296s	frames: 2944.0
+2020-04-13 15:08:36,906 Average window size: 23  distance_to_goal: 3.442  episode_num: 3.111  length: 8.222  reward: -0.051  spl: 0.000  success: 0.000
+2020-04-13 15:08:40,216 update: 23	fps: 27.371	
+2020-04-13 15:08:40,216 update: 23	env-time: 39.107s	pth-time: 41.012s	frames: 3072.0
+2020-04-13 15:11:07,294 agent number of trainable parameters: 14689605
+2020-04-13 15:17:27,365 agent number of trainable parameters: 14689605
+2020-04-13 15:18:50,274 agent number of trainable parameters: 14689605
+2020-04-13 15:19:01,768 update: 1	fps: 22.887	
+2020-04-13 15:19:01,769 update: 1	env-time: 3.273s	pth-time: 3.456s	frames: 256.0
+2020-04-13 15:19:01,769 Average window size: 2  distance_to_goal: 3.199  episode_num: 99.000  length: 2.444  reward: -0.320  spl: 0.000  success: 0.000
+2020-04-13 15:19:04,879 update: 2	fps: 26.859	
+2020-04-13 15:19:04,880 update: 2	env-time: 4.701s	pth-time: 5.110s	frames: 384.0
+2020-04-13 15:19:04,880 Average window size: 3  distance_to_goal: 3.353  episode_num: 204.000  length: 2.392  reward: -0.233  spl: 0.000  success: 0.000
+2020-04-13 15:19:08,108 update: 3	fps: 29.214	
+2020-04-13 15:19:08,109 update: 3	env-time: 6.212s	pth-time: 6.799s	frames: 512.0
+2020-04-13 15:19:08,109 Average window size: 4  distance_to_goal: 3.349  episode_num: 305.000  length: 2.518  reward: -0.328  spl: 0.000  success: 0.000
+2020-04-13 15:19:11,449 update: 4	fps: 30.672	
+2020-04-13 15:19:11,450 update: 4	env-time: 7.833s	pth-time: 8.489s	frames: 640.0
+2020-04-13 15:19:11,450 Average window size: 5  distance_to_goal: 3.439  episode_num: 400.000  length: 2.530  reward: -0.410  spl: 0.000  success: 0.000
+2020-04-13 15:19:14,584 update: 5	fps: 31.998	
+2020-04-13 15:19:14,585 update: 5	env-time: 9.281s	pth-time: 10.145s	frames: 768.0
+2020-04-13 15:19:14,585 Average window size: 6  distance_to_goal: 3.388  episode_num: 506.000  length: 2.514  reward: -0.362  spl: 0.000  success: 0.000
+2020-04-13 15:19:18,019 update: 6	fps: 32.657	
+2020-04-13 15:19:18,019 update: 6	env-time: 11.025s	pth-time: 11.807s	frames: 896.0
+2020-04-13 15:19:18,019 Average window size: 7  distance_to_goal: 3.377  episode_num: 601.000  length: 2.546  reward: -0.323  spl: 0.000  success: 0.000
+2020-04-13 15:19:21,309 update: 7	fps: 33.326	
+2020-04-13 15:19:21,310 update: 7	env-time: 12.600s	pth-time: 13.493s	frames: 1024.0
+2020-04-13 15:19:21,310 Average window size: 8  distance_to_goal: 3.373  episode_num: 697.000  length: 2.577  reward: -0.335  spl: 0.000  success: 0.000
+2020-04-13 15:19:24,514 update: 8	fps: 33.951	
+2020-04-13 15:19:24,514 update: 8	env-time: 14.073s	pth-time: 15.196s	frames: 1152.0
+2020-04-13 15:19:24,514 Average window size: 9  distance_to_goal: 3.385  episode_num: 798.000  length: 2.569  reward: -0.377  spl: 0.000  success: 0.000
+2020-04-13 15:19:27,773 update: 9	fps: 34.418	
+2020-04-13 15:19:27,773 update: 9	env-time: 15.589s	pth-time: 16.911s	frames: 1280.0
+2020-04-13 15:19:27,774 Average window size: 10  distance_to_goal: 3.371  episode_num: 904.000  length: 2.553  reward: -0.299  spl: 0.000  success: 0.000
+2020-04-13 15:20:18,968 agent number of trainable parameters: 14689605
+2020-04-13 15:20:47,510 update: 1	fps: 9.070	
+2020-04-13 15:20:47,511 update: 1	env-time: 3.345s	pth-time: 3.461s	frames: 256.0
+2020-04-13 15:20:47,511 Average window size: 2  distance_to_goal: 3.473  episode_num: 95.000  length: 2.716  reward: -0.450  spl: 0.000  success: 0.000
+2020-04-13 15:20:55,489 update: 2	fps: 10.606	
+2020-04-13 15:20:55,493 update: 2	env-time: 5.278s	pth-time: 5.173s	frames: 384.0
+2020-04-13 15:20:55,494 Average window size: 3  distance_to_goal: 3.396  episode_num: 179.000  length: 2.860  reward: -0.210  spl: 0.000  success: 0.000
+2020-04-13 15:21:01,762 update: 3	fps: 12.053	
+2020-04-13 15:21:01,762 update: 3	env-time: 6.993s	pth-time: 6.906s	frames: 512.0
+2020-04-13 15:21:01,762 Average window size: 4  distance_to_goal: 3.454  episode_num: 273.000  length: 2.828  reward: -0.296  spl: 0.000  success: 0.000
+2020-04-13 15:22:57,195 agent number of trainable parameters: 14689605
+2020-04-13 15:23:04,416 update: 1	fps: 37.061	
+2020-04-13 15:23:04,416 update: 1	env-time: 3.269s	pth-time: 3.410s	frames: 256.0
+2020-04-13 15:23:04,417 Average window size: 2  distance_to_goal: 3.673  length: 2.796  reward: -0.148  spl: 0.000  success: 0.000
+2020-04-13 15:23:07,624 update: 2	fps: 37.962	
+2020-04-13 15:23:07,625 update: 2	env-time: 4.791s	pth-time: 5.068s	frames: 384.0
+2020-04-13 15:23:07,625 Average window size: 3  distance_to_goal: 3.641  length: 2.629  reward: 0.062  spl: 0.000  success: 0.000
+2020-04-13 15:23:10,903 update: 3	fps: 38.224	
+2020-04-13 15:23:10,904 update: 3	env-time: 6.347s	pth-time: 6.760s	frames: 512.0
+2020-04-13 15:23:10,904 Average window size: 4  distance_to_goal: 3.525  length: 2.655  reward: 0.046  spl: 0.000  success: 0.000
+2020-04-13 15:23:14,256 update: 4	fps: 38.214	
+2020-04-13 15:23:14,256 update: 4	env-time: 7.979s	pth-time: 8.451s	frames: 640.0
+2020-04-13 15:23:14,257 Average window size: 5  distance_to_goal: 3.454  length: 2.656  reward: 0.063  spl: 0.000  success: 0.000
+2020-04-13 15:23:17,613 update: 5	fps: 38.200	
+2020-04-13 15:23:17,614 update: 5	env-time: 9.635s	pth-time: 10.124s	frames: 768.0
+2020-04-13 15:23:17,614 Average window size: 6  distance_to_goal: 3.393  length: 2.661  reward: 0.034  spl: 0.000  success: 0.000
+2020-04-13 15:23:21,137 update: 6	fps: 37.920	
+2020-04-13 15:23:21,138 update: 6	env-time: 11.440s	pth-time: 11.814s	frames: 896.0
+2020-04-13 15:23:21,138 Average window size: 7  distance_to_goal: 3.402  length: 2.685  reward: -0.004  spl: 0.000  success: 0.000
+2020-04-13 15:23:24,570 update: 7	fps: 37.840	
+2020-04-13 15:23:24,571 update: 7	env-time: 13.148s	pth-time: 13.508s	frames: 1024.0
+2020-04-13 15:23:24,571 Average window size: 8  distance_to_goal: 3.401  length: 2.697  reward: -0.058  spl: 0.000  success: 0.000
+2020-04-13 15:23:27,898 update: 8	fps: 37.908	
+2020-04-13 15:23:27,898 update: 8	env-time: 14.776s	pth-time: 15.180s	frames: 1152.0
+2020-04-13 15:23:27,899 Average window size: 9  distance_to_goal: 3.399  length: 2.696  reward: -0.068  spl: 0.000  success: 0.000
+2020-04-13 15:23:31,226 update: 9	fps: 37.963	
+2020-04-13 15:23:31,227 update: 9	env-time: 16.387s	pth-time: 16.866s	frames: 1280.0
+2020-04-13 15:23:31,227 Average window size: 10  distance_to_goal: 3.415  length: 2.695  reward: -0.080  spl: 0.000  success: 0.000
+2020-04-13 15:23:34,697 update: 10	fps: 37.861	
+2020-04-13 15:23:34,697 update: 10	env-time: 18.083s	pth-time: 18.612s	frames: 1408.0
+2020-04-13 15:23:34,697 Average window size: 11  distance_to_goal: 3.425  length: 2.694  reward: -0.113  spl: 0.000  success: 0.000
+2020-04-13 15:23:38,137 update: 11	fps: 37.805	
+2020-04-13 15:23:38,139 update: 11	env-time: 19.779s	pth-time: 20.328s	frames: 1536.0
+2020-04-13 15:23:38,139 Average window size: 12  distance_to_goal: 3.425  length: 2.694  reward: -0.093  spl: 0.000  success: 0.000
+2020-04-13 15:23:41,658 update: 12	fps: 37.690	
+2020-04-13 15:23:41,658 update: 12	env-time: 21.556s	pth-time: 22.041s	frames: 1664.0
+2020-04-13 15:23:41,659 Average window size: 13  distance_to_goal: 3.416  length: 2.689  reward: -0.123  spl: 0.000  success: 0.000
+2020-04-13 15:23:45,041 update: 13	fps: 37.701	
+2020-04-13 15:23:45,041 update: 13	env-time: 23.218s	pth-time: 23.733s	frames: 1792.0
+2020-04-13 15:23:45,041 Average window size: 14  distance_to_goal: 3.413  length: 2.686  reward: -0.122  spl: 0.000  success: 0.000
+2020-04-13 15:23:48,582 update: 14	fps: 37.593	
+2020-04-13 15:23:48,582 update: 14	env-time: 25.021s	pth-time: 25.441s	frames: 1920.0
+2020-04-13 15:23:48,583 Average window size: 15  distance_to_goal: 3.390  length: 2.702  reward: -0.103  spl: 0.000  success: 0.000
+2020-04-13 15:23:52,181 update: 15	fps: 37.459	
+2020-04-13 15:23:52,181 update: 15	env-time: 26.839s	pth-time: 27.191s	frames: 2048.0
+2020-04-13 15:23:52,182 Average window size: 16  distance_to_goal: 3.393  length: 2.695  reward: -0.104  spl: 0.000  success: 0.000
+2020-04-13 15:23:55,807 update: 16	fps: 37.325	
+2020-04-13 15:23:55,807 update: 16	env-time: 28.674s	pth-time: 28.951s	frames: 2176.0
+2020-04-13 15:23:55,808 Average window size: 17  distance_to_goal: 3.383  length: 2.703  reward: -0.134  spl: 0.000  success: 0.000
+2020-04-13 15:23:59,331 update: 17	fps: 37.268	
+2020-04-13 15:23:59,331 update: 17	env-time: 30.407s	pth-time: 30.712s	frames: 2304.0
+2020-04-13 15:23:59,331 Average window size: 18  distance_to_goal: 3.384  length: 2.696  reward: -0.147  spl: 0.000  success: 0.000
+2020-04-13 15:24:03,014 update: 18	fps: 37.127	
+2020-04-13 15:24:03,014 update: 18	env-time: 32.305s	pth-time: 32.466s	frames: 2432.0
+2020-04-13 15:24:03,014 Average window size: 19  distance_to_goal: 3.392  length: 2.697  reward: -0.155  spl: 0.000  success: 0.000
+2020-04-13 15:40:28,537 agent number of trainable parameters: 14689605
+2020-04-13 15:41:01,553 update: 10	fps: 43.287	
+2020-04-13 15:41:01,553 update: 10	env-time: 13.351s	pth-time: 18.701s	frames: 1408.0
+2020-04-13 15:41:01,553 Average window size: 11  distance_to_goal: 3.406  length: 2.635  reward: -0.385  spl: 0.000  success: 0.000
+2020-04-13 15:41:31,925 update: 20	fps: 42.735	
+2020-04-13 15:41:31,925 update: 20	env-time: 26.229s	pth-time: 35.913s	frames: 2688.0
+2020-04-13 15:41:31,925 Average window size: 21  distance_to_goal: 3.422  length: 2.638  reward: -0.279  spl: 0.000  success: 0.000
+2020-04-13 15:42:01,485 update: 30	fps: 42.916	
+2020-04-13 15:42:01,486 update: 30	env-time: 38.447s	pth-time: 52.974s	frames: 3968.0
+2020-04-13 15:42:01,486 Average window size: 31  distance_to_goal: 3.401  length: 2.654  reward: -0.244  spl: 0.000  success: 0.000
+2020-04-13 15:42:29,605 update: 40	fps: 43.523	
+2020-04-13 15:42:29,606 update: 40	env-time: 49.868s	pth-time: 69.425s	frames: 5248.0
+2020-04-13 15:42:29,606 Average window size: 41  distance_to_goal: 3.394  length: 2.647  reward: -0.207  spl: 0.000  success: 0.000
+2020-04-13 15:42:55,872 update: 50	fps: 44.455	
+2020-04-13 15:42:55,873 update: 50	env-time: 60.121s	pth-time: 85.214s	frames: 6528.0
+2020-04-13 15:42:55,873 Average window size: 50  distance_to_goal: 3.379  length: 2.635  reward: -0.245  spl: 0.000  success: 0.000
+2020-04-13 15:43:23,416 update: 60	fps: 44.773	
+2020-04-13 15:43:23,417 update: 60	env-time: 71.222s	pth-time: 101.413s	frames: 7808.0
+2020-04-13 15:43:23,417 Average window size: 50  distance_to_goal: 3.379  length: 2.645  reward: -0.223  spl: 0.000  success: 0.000
+2020-04-13 15:43:50,055 update: 70	fps: 45.207	
+2020-04-13 15:43:50,055 update: 70	env-time: 81.857s	pth-time: 117.193s	frames: 9088.0
+2020-04-13 15:43:50,055 Average window size: 50  distance_to_goal: 3.370  length: 2.660  reward: -0.240  spl: 0.000  success: 0.000
+2020-04-13 15:44:17,294 update: 80	fps: 45.420	
+2020-04-13 15:44:17,294 update: 80	env-time: 92.792s	pth-time: 133.258s	frames: 10368.0
+2020-04-13 15:44:17,295 Average window size: 50  distance_to_goal: 3.355  length: 2.668  reward: -0.237  spl: 0.000  success: 0.000
+2020-04-13 15:44:54,333 update: 90	fps: 43.904	
+2020-04-13 15:44:54,334 update: 90	env-time: 113.559s	pth-time: 149.292s	frames: 11648.0
+2020-04-13 15:44:54,334 Average window size: 50  distance_to_goal: 3.358  length: 2.684  reward: -0.262  spl: 0.000  success: 0.000
+2020-04-13 15:45:20,021 update: 100	fps: 44.427	
+2020-04-13 15:45:20,022 update: 100	env-time: 123.552s	pth-time: 164.760s	frames: 12928.0
+2020-04-13 15:45:20,022 Average window size: 50  distance_to_goal: 3.315  length: 2.699  reward: -0.254  spl: 0.000  success: 0.000
+2020-04-13 15:45:46,612 update: 110	fps: 44.737	
+2020-04-13 15:45:46,613 update: 110	env-time: 133.907s	pth-time: 180.756s	frames: 14208.0
+2020-04-13 15:45:46,613 Average window size: 50  distance_to_goal: 3.242  length: 2.688  reward: -0.215  spl: 0.000  success: 0.000
+2020-04-13 15:46:12,579 update: 120	fps: 45.082	
+2020-04-13 15:46:12,579 update: 120	env-time: 143.881s	pth-time: 196.517s	frames: 15488.0
+2020-04-13 15:46:12,579 Average window size: 50  distance_to_goal: 3.187  length: 2.671  reward: -0.182  spl: 0.000  success: 0.000
+2020-04-13 15:46:37,251 update: 130	fps: 45.537	
+2020-04-13 15:46:37,251 update: 130	env-time: 153.106s	pth-time: 211.743s	frames: 16768.0
+2020-04-13 15:46:37,252 Average window size: 50  distance_to_goal: 3.127  length: 2.660  reward: -0.222  spl: 0.000  success: 0.000

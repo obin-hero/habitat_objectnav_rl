@@ -211,7 +211,7 @@ class PPOTrainer(BaseRLTrainer):
         )
 
         current_episode_reward += rewards
-        running_episode_stats["reward"] += (1 - masks) * current_episode_reward
+        running_episode_stats["reward"] += current_episode_reward
         running_episode_stats["count"] += 1 - masks
         running_episode_stats['episode_num'] += masks
         for k, v in self._extract_scalars_from_infos(infos).items():
@@ -223,7 +223,7 @@ class PPOTrainer(BaseRLTrainer):
                     running_episode_stats["count"]
                 )
             if k == 'length':
-                running_episode_stats[k] += masks * v
+                running_episode_stats[k] += v
             running_episode_stats[k] += (1 - masks) * v
 
         current_episode_reward *= masks
@@ -422,7 +422,6 @@ class PPOTrainer(BaseRLTrainer):
                             update, env_time, pth_time, count_steps
                         )
                     )
-
                     logger.info(
                         "Average window size: {}  {}".format(
                             len(window_episode_stats["count"]),

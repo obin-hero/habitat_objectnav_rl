@@ -13,9 +13,10 @@ from utils.visdommonitor import VisdomMonitor
 import os
 
 def filter_fn(episode):
-    if episode.info['geodesic_distance'] < 3.0 : return True
+    if episode.info['geodesic_distance'] < 5.0 and episode.info['geodesic_distance'] > 1.5: return True
     else : return False
 
+import numpy as np
 def add_panoramic_camera(task_config):
     task_config.SIMULATOR.RGB_SENSOR_LEFT = task_config.SIMULATOR.RGB_SENSOR.clone()
     task_config.SIMULATOR.RGB_SENSOR_LEFT.TYPE = "PanoramicPartRGBSensor"
@@ -94,6 +95,12 @@ def construct_envs(
     num_processes = config.NUM_PROCESSES
     configs = []
     env_classes = [env_class for _ in range(num_processes)]
+
+    # for debug!
+    #config.defrost()
+    #print('***!!!!!!!!!!!!!!!!**************debug code not deleted')
+    #config.TASK_CONFIG.DATASET.CONTENT_SCENES = ['1LXtFkjw3qL']
+    #config.freeze()
     dataset = make_dataset(config.TASK_CONFIG.DATASET.TYPE, **{'filter_fn': filter_fn})
     scenes = config.TASK_CONFIG.DATASET.CONTENT_SCENES
     if "*" in config.TASK_CONFIG.DATASET.CONTENT_SCENES:
