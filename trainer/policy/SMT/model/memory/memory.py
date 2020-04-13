@@ -15,42 +15,21 @@ Both pose and action vectors are embedded using a single 16-dimensional fully-co
 class Embedding(nn.Module):
     def __init__(self, cfg, visual_encoder, act_encoder):
         super(Embedding, self).__init__()
-        # 'rgb', 'depth', 'pose'
-        assert len(cfg.network.inputs) > 0
-        self.inputs = cfg.network.inputs
+        self.embed_image = visual_encoder#resnet18(first_ch=4*cfg.network.num_stack, num_classes=64).cuda()
+        self.embed_act = act_encoder#nn.Linear(self.action_dim,16).cuda()
 
-        if 'image' in self.inputs:
-            self.use_image = True
-            self.embed_image = visual_encoder#resnet18(first_ch=4*cfg.network.num_stack, num_classes=64).cuda()
-        else: self.use_image = False
-
-        if 'prev_action' in self.inputs:
-            self.use_action = True
-            self.action_dim = cfg.action_dim
-            self.embed_act = act_encoder#nn.Linear(self.action_dim,16).cuda()
-        else: self.use_action = False
-
-        if 'pose' in self.inputs:
-            self.use_pose = True
-            # p = (x/lambda, y/lambda, cos(th), sin(th), exp(-t))
-            self.pose_dim = cfg.pose_dim
-            self.embed_pose = nn.Linear(self.pose_dim,16).cuda()
-        else: self.use_pose = False
-
-        final_ch = 64 * (self.use_image) + 16 * (self.use_action + self.use_pose)
-        self.final_embed = nn.Linear(final_ch, 128).cuda()
 
 
 class SceneMemory(nn.Module):
     # B * M (max_memory_size) * E (embedding)
     def __init__(self, cfg, visual_encoder=None, act_encoder=None) -> None:
         super(SceneMemory, self).__init__()
-        self.B = cfg.training.num_envs + cfg.training.valid_num_envs
-        self.max_memory_size = cfg.training.max_memory_size
-        self.embedding_size = cfg.training.embedding_size
+        self.B = cfg.NUM_PROCESSES#training.num_envs + cfg.training.valid_num_envs
+        self.max_memory_size = cfg.memory.memory_size
+        self.embedding_size = cfg.memory.embedding_size
         self.embed_network = Embedding(cfg, visual_encoder, act_encoder)
-        self.gt_pose_buffer = torch.zeros([self.B, self.max_memory_size, 4],dtype=torch.float32).cuda() if self.embed_network.use_pose else None
-        embedding_size_wo_pose = 64 + 16 * (self.embed_network.use_action)
+        self.gt_pose_buffer = torch.zeros([self.B, self.max_memory_size, 4],dtype=torch.float32).cuda()
+        embedding_size_wo_pose = 2048 + 32
         self.memory_buffer = torch.zeros([self.B, self.max_memory_size, embedding_size_wo_pose],dtype=torch.float32).cuda()
         self.memory_mask = torch.zeros([self.B, self.max_memory_size],dtype=torch.bool).cuda()
         self.reset_all()
@@ -66,11 +45,10 @@ class SceneMemory(nn.Module):
         self.gt_pose_buffer = self.gt_pose_buffer * reset_mask.view(-1,1,1).float()
 
     def reset_all(self) -> None:
-        embedding_size_wo_pose = 64 + 16 * (self.embed_network.use_action)
+        embedding_size_wo_pose = 2048 + 32
         self.memory_buffer = torch.zeros([self.B, self.max_memory_size, embedding_size_wo_pose],dtype=torch.float32).cuda()
         self.memory_mask = torch.zeros([self.B, self.max_memory_size], dtype=torch.bool).cuda()
-        self.gt_pose_buffer = torch.zeros([self.B, self.max_memory_size, 4],
-                                          dtype=torch.float32).cuda() if self.embed_network.use_pose else None
+        self.gt_pose_buffer = torch.zeros([self.B, self.max_memory_size, 4], dtype=torch.float32).cuda()
 
     def update_memory(self, obs, masks):
         if (masks == False).any(): self.reset(masks)

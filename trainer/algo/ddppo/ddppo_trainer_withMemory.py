@@ -21,7 +21,7 @@ from torch.optim.lr_scheduler import LambdaLR
 from habitat import Config, logger
 from habitat_baselines.common.baseline_registry import baseline_registry
 #from habitat_baselines.common.env_utils import construct_envs
-from env_utils.utils import construct_envs
+from env_utils.make_env_utils import construct_envs
 from habitat_baselines.common.environments import get_env_class
 from habitat_baselines.common.rollout_storage import RolloutStorage, MemoryRolloutStorage
 from habitat_baselines.common.tensorboard_utils import TensorboardWriter
@@ -43,7 +43,7 @@ TIME_DEBUG = False
 def log_time(prev_time, log):
     print("[TIME] ", log, time.time() - prev_time)
     return time.time()
-@baseline_registry.register_trainer(name="custom_ddppo")
+@baseline_registry.register_trainer(name="custom_ddppo_smt")
 class DDPPOTrainer_with_Memory(PPOTrainer):
     # DD-PPO cuts rollouts short to mitigate the straggler effect
     # This, in theory, can cause some rollouts to be very short.
@@ -81,6 +81,7 @@ class DDPPOTrainer_with_Memory(PPOTrainer):
             goal_sensor_uuid=self.config.TASK_CONFIG.TASK.GOAL_SENSOR_UUID,
             normalize_visual_inputs="rgb"
             in self.envs.observation_spaces[0].spaces,
+            cfg=self.config
         )
         self.actor_critic.to(self.device)
 
@@ -140,6 +141,8 @@ class DDPPOTrainer_with_Memory(PPOTrainer):
         t_sample_action = time.time()
         # sample actions
         with torch.no_grad():
+
+            # get observations from the rollout not directly from envs
             step_observation = {
                 k: v[rollouts.step] for k, v in rollouts.observations.items()
             }
@@ -300,9 +303,9 @@ class DDPPOTrainer_with_Memory(PPOTrainer):
                 batch["visual_features"] = self._encoder(batch)
 
         memory_info = {
-            'embedding_size': self.config.embedding_size,
-            'memory_size': self.config.memory_size,
-            'pose_size': self.config.pose_dim
+            'embedding_size': self.config.memory.embedding_size,
+            'memory_size': self.config.memory.memory_size,
+            'pose_size': self.config.memory.pose_dim
         }
         rollouts = MemoryRolloutStorage(
             ppo_cfg.num_steps,
@@ -315,8 +318,8 @@ class DDPPOTrainer_with_Memory(PPOTrainer):
         )
         rollouts.to(self.device)
 
-        for sensor in rollouts.observations:
-            rollouts.observations[sensor][0].copy_(batch[sensor])
+        #for sensor in rollouts.observations:
+        #    rollouts.observations[sensor][0].copy_(batch[sensor])
 
         # batch and observations may contain shared PyTorch CUDA
         # tensors.  We must explicitly clear them here otherwise

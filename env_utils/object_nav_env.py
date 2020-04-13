@@ -5,6 +5,8 @@ from habitat import Config, Dataset
 from habitat_baselines.common.baseline_registry import baseline_registry
 from utils.vis_utils import observations_to_image, append_text_to_image
 import cv2
+from gym.spaces.dict_space import Dict as SpaceDict
+
 def get_env_class(env_name: str) -> Type[habitat.RLEnv]:
     r"""Return environment class based on name.
 
@@ -30,6 +32,13 @@ class CustomObjectNavEnv(habitat.RLEnv):
         self._previous_action = None
         self.time_t = 0
         super().__init__(self._core_env_config, dataset)
+        self.observation_space = SpaceDict(
+            {
+                self._task.sensor_suite.observation_spaces.spaces['panoramic_rgb'],
+                self._task.sensor_suite.observation_spaces.spaces['panoramic_depth'],
+                self._task.sensor_suite.observation_spaces.spaces['objectgoal']
+            }
+        )
 
     def reset(self):
         self._previous_action = None
@@ -85,12 +94,14 @@ class CustomObjectNavEnv(habitat.RLEnv):
 
     def render(self, mode='rgb'):
         info = self.get_info(None) if self.info is None else self.info
-        img = observations_to_image(self.obs, info)
+        img = observations_to_image(self.obs, info, mode='panoramic')
         str_action = ''
         if self._previous_action is not None:
             action_list = ["STOP", "MOVE_FORWARD", 'TURN_LEFT', 'TURN_RIGHT']
             str_action = action_list[self._previous_action['action']]
-        img = append_text_to_image(img, 't: %03d, r: %f a: %s'%(self.time_t,self.total_reward, str_action))
+        dist = self.habitat_env.get_metrics()['distance_to_goal']
+        category = self.current_episode.object_category
+        img = append_text_to_image(img, 't: %03d, r: %f a: %s, dist: %.2f cat: %s'%(self.time_t,self.total_reward, str_action, dist, category))
         if mode == 'rgb' or mode == 'rgb_array':
             return img
         elif mode == 'human':
@@ -100,4 +111,92 @@ class CustomObjectNavEnv(habitat.RLEnv):
         return super().render(mode)
 
 
-#if __name__ == '__main__':
+if __name__ == '__main__':
+    def filter_fn(episode):
+        if episode.info['geodesic_distance'] < 3.0:
+            return True
+        else:
+            return False
+
+    def add_panoramic_camera(task_config):
+        task_config.SIMULATOR.RGB_SENSOR_LEFT = task_config.SIMULATOR.RGB_SENSOR.clone()
+        task_config.SIMULATOR.RGB_SENSOR_LEFT.TYPE = "PanoramicPartRGBSensor"
+        task_config.SIMULATOR.RGB_SENSOR_LEFT.ORIENTATION = [0, 0.5 * np.pi, 0]
+        task_config.SIMULATOR.RGB_SENSOR_LEFT.ANGLE = "left"
+        task_config.SIMULATOR.RGB_SENSOR_RIGHT = task_config.SIMULATOR.RGB_SENSOR.clone()
+        task_config.SIMULATOR.RGB_SENSOR_RIGHT.TYPE = "PanoramicPartRGBSensor"
+        task_config.SIMULATOR.RGB_SENSOR_RIGHT.ORIENTATION = [0, -0.5 * np.pi, 0]
+        task_config.SIMULATOR.RGB_SENSOR_RIGHT.ANGLE = "right"
+        task_config.SIMULATOR.RGB_SENSOR_BACK = task_config.SIMULATOR.RGB_SENSOR.clone()
+        task_config.SIMULATOR.RGB_SENSOR_BACK.TYPE = "PanoramicPartRGBSensor"
+        task_config.SIMULATOR.RGB_SENSOR_BACK.ORIENTATION = [0, np.pi, 0]
+        task_config.SIMULATOR.RGB_SENSOR_BACK.ANGLE = "back"
+        task_config.SIMULATOR.AGENT_0.SENSORS += ['RGB_SENSOR_LEFT', 'RGB_SENSOR_RIGHT', 'RGB_SENSOR_BACK']
+
+        task_config.SIMULATOR.DEPTH_SENSOR_LEFT = task_config.SIMULATOR.DEPTH_SENSOR.clone()
+        task_config.SIMULATOR.DEPTH_SENSOR_LEFT.TYPE = "PanoramicPartDepthSensor"
+        task_config.SIMULATOR.DEPTH_SENSOR_LEFT.ORIENTATION = [0, 0.5 * np.pi, 0]
+        task_config.SIMULATOR.DEPTH_SENSOR_LEFT.ANGLE = "left"
+        task_config.SIMULATOR.DEPTH_SENSOR_RIGHT = task_config.SIMULATOR.DEPTH_SENSOR.clone()
+        task_config.SIMULATOR.DEPTH_SENSOR_RIGHT.TYPE = "PanoramicPartDepthSensor"
+        task_config.SIMULATOR.DEPTH_SENSOR_RIGHT.ORIENTATION = [0, -0.5 * np.pi, 0]
+        task_config.SIMULATOR.DEPTH_SENSOR_RIGHT.ANGLE = "right"
+        task_config.SIMULATOR.DEPTH_SENSOR_BACK = task_config.SIMULATOR.DEPTH_SENSOR.clone()
+        task_config.SIMULATOR.DEPTH_SENSOR_BACK.TYPE = "PanoramicPartDepthSensor"
+        task_config.SIMULATOR.DEPTH_SENSOR_BACK.ORIENTATION = [0, np.pi, 0]
+        task_config.SIMULATOR.DEPTH_SENSOR_BACK.ANGLE = "back"
+        task_config.SIMULATOR.AGENT_0.SENSORS += ['DEPTH_SENSOR_LEFT', 'DEPTH_SENSOR_RIGHT', 'DEPTH_SENSOR_BACK']
+
+        task_config.TASK.CUSTOM_OBJECT_GOAL_SENSOR = habitat.Config()
+        task_config.TASK.CUSTOM_OBJECT_GOAL_SENSOR.TYPE = 'CustomObjectSensor'
+        task_config.TASK.CUSTOM_OBJECT_GOAL_SENSOR.GOAL_SPEC = "OBJECT_IMG"
+        task_config.TASK.PANORAMIC_SENSOR = habitat.Config()
+        task_config.TASK.PANORAMIC_SENSOR.TYPE = 'PanoramicRGBSensor'
+        task_config.TASK.PANORAMIC_SENSOR.WIDTH = task_config.SIMULATOR.RGB_SENSOR.WIDTH
+        task_config.TASK.PANORAMIC_SENSOR.HEIGHT = task_config.SIMULATOR.RGB_SENSOR.HEIGHT
+        task_config.TASK.PANORAMIC_DEPTH_SENSOR = task_config.SIMULATOR.DEPTH_SENSOR.clone()
+        task_config.TASK.PANORAMIC_DEPTH_SENSOR.TYPE = 'PanoramicDepthSensor'
+        task_config.TASK.PANORAMIC_DEPTH_SENSOR.WIDTH = task_config.SIMULATOR.DEPTH_SENSOR.WIDTH
+        task_config.TASK.PANORAMIC_DEPTH_SENSOR.HEIGHT = task_config.SIMULATOR.DEPTH_SENSOR.HEIGHT
+        return task_config
+
+
+    from habitat_baselines.common.baseline_registry import baseline_registry
+    from env_utils.object_nav_dataset import CustomObjectNavDatasetV1
+    from habitat import Config, Env, RLEnv, VectorEnv, make_dataset
+    from habitat_baselines.config.default import get_config
+    import numpy as np
+    config = get_config('configs/ddppo_objectnav.yaml')
+    config.defrost()
+    config.TASK_CONFIG.DATASET.CONTENT_SCENES = ['1LXtFkjw3qL']
+    config.freeze()
+    dataset = make_dataset(config.TASK_CONFIG.DATASET.TYPE, config=config.TASK_CONFIG.DATASET, **{'filter_fn': filter_fn})
+    scenes = config.TASK_CONFIG.DATASET.CONTENT_SCENES
+    if "*" in config.TASK_CONFIG.DATASET.CONTENT_SCENES:
+        scenes = dataset.get_scenes_to_load(config.TASK_CONFIG.DATASET)
+    config.defrost()
+    config.TASK_CONFIG = add_panoramic_camera(config.TASK_CONFIG)
+    config.freeze()
+
+    env  = CustomObjectNavEnv(config, dataset)
+    obs = env.reset()
+    img = env.render('rgb')
+    while True:
+        for i in env.current_episode.shortest_paths[0]:
+            img = env.render('rgb')
+            cv2.imshow('render', img[:, :, [2, 1, 0]])
+            key = cv2.waitKey(0)
+            if key == ord('s'): action = 0
+            elif key == ord('w'): action = 1
+            elif key == ord('a'): action = 2
+            elif key == ord('d'): action = 3
+            elif key == ord('q'): break
+            else:
+                action = i
+                if i is None :
+                    action = 0
+            obs, reward, done, info = env.step({'action':action})
+            if done:
+                obs = env.reset()
+                break
+

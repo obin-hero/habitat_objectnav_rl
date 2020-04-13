@@ -16,6 +16,49 @@ def filter_fn(episode):
     if episode.info['geodesic_distance'] < 3.0 : return True
     else : return False
 
+def add_panoramic_camera(task_config):
+    task_config.SIMULATOR.RGB_SENSOR_LEFT = task_config.SIMULATOR.RGB_SENSOR.clone()
+    task_config.SIMULATOR.RGB_SENSOR_LEFT.TYPE = "PanoramicPartRGBSensor"
+    task_config.SIMULATOR.RGB_SENSOR_LEFT.ORIENTATION = [0, 0.5 * np.pi, 0]
+    task_config.SIMULATOR.RGB_SENSOR_LEFT.ANGLE = "left"
+    task_config.SIMULATOR.RGB_SENSOR_RIGHT = task_config.SIMULATOR.RGB_SENSOR.clone()
+    task_config.SIMULATOR.RGB_SENSOR_RIGHT.TYPE = "PanoramicPartRGBSensor"
+    task_config.SIMULATOR.RGB_SENSOR_RIGHT.ORIENTATION = [0, -0.5 * np.pi, 0]
+    task_config.SIMULATOR.RGB_SENSOR_RIGHT.ANGLE = "right"
+    task_config.SIMULATOR.RGB_SENSOR_BACK = task_config.SIMULATOR.RGB_SENSOR.clone()
+    task_config.SIMULATOR.RGB_SENSOR_BACK.TYPE = "PanoramicPartRGBSensor"
+    task_config.SIMULATOR.RGB_SENSOR_BACK.ORIENTATION = [0, np.pi, 0]
+    task_config.SIMULATOR.RGB_SENSOR_BACK.ANGLE = "back"
+    task_config.SIMULATOR.AGENT_0.SENSORS += ['RGB_SENSOR_LEFT', 'RGB_SENSOR_RIGHT', 'RGB_SENSOR_BACK']
+
+    task_config.SIMULATOR.DEPTH_SENSOR_LEFT = task_config.SIMULATOR.DEPTH_SENSOR.clone()
+    task_config.SIMULATOR.DEPTH_SENSOR_LEFT.TYPE = "PanoramicPartDepthSensor"
+    task_config.SIMULATOR.DEPTH_SENSOR_LEFT.ORIENTATION = [0, 0.5 * np.pi, 0]
+    task_config.SIMULATOR.DEPTH_SENSOR_LEFT.ANGLE = "left"
+    task_config.SIMULATOR.DEPTH_SENSOR_RIGHT = task_config.SIMULATOR.DEPTH_SENSOR.clone()
+    task_config.SIMULATOR.DEPTH_SENSOR_RIGHT.TYPE = "PanoramicPartDepthSensor"
+    task_config.SIMULATOR.DEPTH_SENSOR_RIGHT.ORIENTATION = [0, -0.5 * np.pi, 0]
+    task_config.SIMULATOR.DEPTH_SENSOR_RIGHT.ANGLE = "right"
+    task_config.SIMULATOR.DEPTH_SENSOR_BACK = task_config.SIMULATOR.DEPTH_SENSOR.clone()
+    task_config.SIMULATOR.DEPTH_SENSOR_BACK.TYPE = "PanoramicPartDepthSensor"
+    task_config.SIMULATOR.DEPTH_SENSOR_BACK.ORIENTATION = [0, np.pi, 0]
+    task_config.SIMULATOR.DEPTH_SENSOR_BACK.ANGLE = "back"
+    task_config.SIMULATOR.AGENT_0.SENSORS += ['DEPTH_SENSOR_LEFT', 'DEPTH_SENSOR_RIGHT', 'DEPTH_SENSOR_BACK']
+
+    task_config.TASK.CUSTOM_OBJECT_GOAL_SENSOR = habitat.Config()
+    task_config.TASK.CUSTOM_OBJECT_GOAL_SENSOR.TYPE = 'CustomObjectSensor'
+    task_config.TASK.CUSTOM_OBJECT_GOAL_SENSOR.GOAL_SPEC = "OBJECT_IMG"
+    task_config.TASK.PANORAMIC_SENSOR = habitat.Config()
+    task_config.TASK.PANORAMIC_SENSOR.TYPE = 'PanoramicRGBSensor'
+    task_config.TASK.PANORAMIC_SENSOR.WIDTH = task_config.SIMULATOR.RGB_SENSOR.WIDTH
+    task_config.TASK.PANORAMIC_SENSOR.HEIGHT = task_config.SIMULATOR.RGB_SENSOR.HEIGHT
+    task_config.TASK.PANORAMIC_DEPTH_SENSOR = task_config.SIMULATOR.DEPTH_SENSOR.clone()
+    task_config.TASK.PANORAMIC_DEPTH_SENSOR.TYPE = 'PanoramicDepthSensor'
+    task_config.TASK.PANORAMIC_DEPTH_SENSOR.WIDTH = task_config.SIMULATOR.DEPTH_SENSOR.WIDTH
+    task_config.TASK.PANORAMIC_DEPTH_SENSOR.HEIGHT = task_config.SIMULATOR.DEPTH_SENSOR.HEIGHT
+
+    return task_config
+
 def make_env_fn(
     config: Config, env_class: Type[Union[Env, RLEnv]], rank: int, kwargs
 ) -> Union[Env, RLEnv]:
@@ -55,7 +98,7 @@ def construct_envs(
     scenes = config.TASK_CONFIG.DATASET.CONTENT_SCENES
     if "*" in config.TASK_CONFIG.DATASET.CONTENT_SCENES:
         scenes = dataset.get_scenes_to_load(config.TASK_CONFIG.DATASET)
-
+        #scenes = scenes[:2]
     if num_processes > 1:
         if len(scenes) == 0:
             raise RuntimeError(

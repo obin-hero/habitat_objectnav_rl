@@ -2186,3 +2186,6 @@
 2020-04-09 12:35:51,582 update: 40	fps: 31.672	
 2020-04-09 12:35:51,582 update: 40	env-time: 95.877s	pth-time: 68.699s	frames: 5248.0
 2020-04-09 12:35:51,582 Average window size: 41  distance_to_goal: 2.186  episode_num: 2.963  length: 3.963  reward: -0.042  spl: 0.000  success: 0.000
+2020-04-10 22:56:37,512 agent number of trainable parameters: 12986821
+2020-04-10 22:58:27,566 agent number of trainable parameters: 12986821
+2020-04-10 22:59:03,646 agent number of trainable parameters: 12986821

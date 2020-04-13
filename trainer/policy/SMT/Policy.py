@@ -54,6 +54,7 @@ class SMTPolicy(Policy):
         resnet_baseplanes=32,
         backbone="resnet50",
         normalize_visual_inputs=False,
+        cfg=None
     ):
         super().__init__(
             SMTNet(
@@ -66,6 +67,7 @@ class SMTPolicy(Policy):
                 backbone=backbone,
                 resnet_baseplanes=resnet_baseplanes,
                 normalize_visual_inputs=normalize_visual_inputs,
+                cfg=cfg
             ),
             action_space.n,
         )
@@ -136,7 +138,7 @@ class SMTNet(Net):
             make_backbone=getattr(resnet, backbone),
             normalize_visual_inputs=normalize_visual_inputs,
         )
-        self.perception_uint = Perception(cfg, visual_encoder)
+        self.perception_uint = Perception(cfg, self.visual_encoder, self.prev_action_embedding)
         if not self.visual_encoder.is_blind:
             self.visual_fc = nn.Sequential(
                 nn.Linear(

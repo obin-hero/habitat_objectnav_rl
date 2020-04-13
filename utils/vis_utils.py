@@ -66,7 +66,7 @@ def draw_collision(view: np.ndarray, alpha: float = 0.4) -> np.ndarray:
     return view
 
 
-def observations_to_image(observation: Dict, info: Dict) -> np.ndarray:
+def observations_to_image(observation: Dict, info: Dict, mode='plain') -> np.ndarray:
     r"""Generate image of single frame from observation and info
     returned from a single environment step().
 
@@ -78,22 +78,34 @@ def observations_to_image(observation: Dict, info: Dict) -> np.ndarray:
         generated image of a single frame.
     """
     egocentric_view = []
-    if "rgb" in observation:
+    if "rgb" in observation and mode != 'panoramic':
         observation_size = observation["rgb"].shape[0]
         rgb = observation["rgb"]
         if not isinstance(rgb, np.ndarray):
             rgb = rgb.cpu().numpy()
 
         egocentric_view.append(rgb)
+    elif "panoramic_rgb" in observation and mode == 'panoramic':
+        observation_size = observation["panoramic_rgb"].shape[0]
+        rgb = observation["panoramic_rgb"]
+        if not isinstance(rgb, np.ndarray):
+            rgb = rgb.cpu().numpy()
+
+        egocentric_view.append(rgb)
+
     if "objectgoal" in observation:
         goal_rgb = (observation['objectgoal'][:,:,:3]*255).astype(np.uint8)
         egocentric_view.append(goal_rgb)
-    egocentric_view = np.concatenate(egocentric_view, axis=1)
+
+    if mode == 'panoramic':
+        egocentric_view = np.concatenate(egocentric_view, axis=0)
+    else:
+        egocentric_view = np.concatenate(egocentric_view, axis=1)
     if "collisions" in info and info["collisions"]["is_collision"]:
         egocentric_view = draw_collision(egocentric_view)
     frame = egocentric_view
 
-    if "top_down_map" in info:
+    if "top_down_map" in info and info['top_down_map'] is not None:
         top_down_map = info["top_down_map"]["map"]
         top_down_map = maps.colorize_topdown_map(
             top_down_map, info["top_down_map"]["fog_of_war_mask"]
@@ -119,5 +131,9 @@ def observations_to_image(observation: Dict, info: Dict) -> np.ndarray:
             (top_down_width, top_down_height),
             interpolation=cv2.INTER_CUBIC,
         )
+        if mode == 'panoramic':
+            blank_img = np.zeros_like(top_down_map)
+            top_down_map = np.concatenate((top_down_map, blank_img),0)
         frame = np.concatenate((egocentric_view, top_down_map), axis=1)
+
     return frame

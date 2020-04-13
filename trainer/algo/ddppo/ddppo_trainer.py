@@ -21,7 +21,7 @@ from torch.optim.lr_scheduler import LambdaLR
 from habitat import Config, logger
 from habitat_baselines.common.baseline_registry import baseline_registry
 #from habitat_baselines.common.env_utils import construct_envs
-from env_utils.utils import construct_envs
+from env_utils.make_env_utils import construct_envs
 from habitat_baselines.common.environments import get_env_class
 from habitat_baselines.common.rollout_storage import RolloutStorage
 from habitat_baselines.common.tensorboard_utils import TensorboardWriter

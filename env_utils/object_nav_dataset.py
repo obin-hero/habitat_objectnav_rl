@@ -139,7 +139,11 @@ class CustomObjectNavDatasetV1(PointNavDatasetV1):
                 episode.scene_id = os.path.join(scenes_dir, episode.scene_id)
 
             episode.goals = self.goals_by_category[episode.goals_key]
-
+            closest = episode.info['closest_goal_object_id']
+            for goal in episode.goals:
+                if goal.object_id == int(closest): break
+            episode.goals = [goal]
+            '''
             if episode.shortest_paths is not None:
                 for path in episode.shortest_paths:
                     for p_index, point in enumerate(path):
@@ -151,5 +155,5 @@ class CustomObjectNavDatasetV1(PointNavDatasetV1):
                             }
 
                         path[p_index] = ShortestPathPoint(**point)
-
+            '''
             self.episodes.append(episode)

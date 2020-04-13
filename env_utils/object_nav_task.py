@@ -15,7 +15,7 @@ from habitat.config import Config
 from habitat.core.dataset import Dataset
 from habitat.core.logging import logger
 from habitat.core.registry import registry
-from habitat.core.simulator import AgentState, Sensor, SensorTypes
+from habitat.core.simulator import AgentState, Sensor, SensorTypes, RGBSensor, DepthSensor
 from habitat.core.utils import not_none_validator
 from habitat.tasks.nav.nav import (
     NavigationEpisode,
@@ -24,6 +24,10 @@ from habitat.tasks.nav.nav import (
 )
 from habitat.tasks.nav.object_nav_task import ObjectGoalNavEpisode, ObjectViewLocation, ObjectGoal
 import time
+
+def make_panoramic(left, front, right, back):
+    return np.concatenate([left, front, right, back],1)
+
 @registry.register_sensor(name="CustomObjectSensor")
 class CustomObjectGoalSensor(Sensor):
     r"""A sensor for Object Goal specification as observations which is used in
@@ -104,14 +108,13 @@ class CustomObjectGoalSensor(Sensor):
             episode_id = episode.episode_id
             scene_id = episode.scene_id
             if (self.curr_episode_id != episode_id) or (self.curr_scene_id != scene_id):
-                closest = episode.info['closest_goal_object_id']
-                for goal in episode.goals:
-                    if goal.object_id == int(closest):
-                        viewpoint = goal.view_points[0].agent_state
-                        break
-                obs = self._sim.get_observations_at(episode.info['best_viewpoint_position'], viewpoint.rotation)
-                rgb_array = obs['rgb']/255.0
-                depth_array = obs['depth']
+                viewpoint = episode.goals[0].view_points[0].agent_state
+                obs = self._sim.get_observations_at(viewpoint.position, viewpoint.rotation)
+                rgb_array = make_panoramic(obs['rgb_left'], obs['rgb'], obs['rgb_right'], obs['rgb_back'])/255.
+                depth_array = make_panoramic(obs['depth_left'], obs['depth'], obs['depth_right'], obs['depth_back'])
+
+                #rgb_array = obs['rgb']/255.0
+                #depth_array = obs['depth']
                 category_array = np.ones_like(depth_array) * self._dataset.category_to_task_category_id[episode.object_category]
                 self.goal_obs = np.concatenate([rgb_array, depth_array, category_array],2)
                 self.curr_episode_id = episode_id
@@ -122,4 +125,121 @@ class CustomObjectGoalSensor(Sensor):
                 "Wrong GOAL_SPEC specified for ObjectGoalSensor."
             )
 
+import habitat_sim
+@registry.register_sensor(name="PanoramicPartRGBSensor")
+class PanoramicPartRGBSensor(RGBSensor):
+    def __init__(self, config, **kwargs: Any):
+        self.config = config
+        self.angle = config.ANGLE
+        self.sim_sensor_type = habitat_sim.SensorType.COLOR
+        super().__init__(config=config)
+
+
+    # Defines the name of the sensor in the sensor suite dictionary
+    def _get_uuid(self, *args: Any, **kwargs: Any):
+        return "rgb_" + self.angle
+
+    # Defines the size and range of the observations of the sensor
+    def _get_observation_space(self, *args: Any, **kwargs: Any):
+        return spaces.Box(
+            low=0,
+            high=255,
+            shape=(self.config.HEIGHT, self.config.WIDTH, 3),
+            dtype=np.uint8,
+        )
+    def get_observation(self, obs, *args: Any, **kwargs: Any) -> Any:
+        obs = obs.get(self.uuid, None)
+        return obs[:,:,:3]
+
+@registry.register_sensor(name="PanoramicPartDepthSensor")
+class PanoramicPartDepthSensor(DepthSensor):
+    def __init__(self, config):
+        self.sim_sensor_type = habitat_sim.SensorType.DEPTH
+        self.angle = config.ANGLE
+
+        if config.NORMALIZE_DEPTH:
+            self.min_depth_value = 0
+            self.max_depth_value = 1
+        else:
+            self.min_depth_value = config.MIN_DEPTH
+            self.max_depth_value = config.MAX_DEPTH
+
+        super().__init__(config=config)
+
+    def _get_observation_space(self, *args: Any, **kwargs: Any):
+        return spaces.Box(
+            low=self.min_depth_value,
+            high=self.max_depth_value,
+            shape=(self.config.HEIGHT, self.config.WIDTH, 1),
+            dtype=np.float32)
+
+    # Defines the name of the sensor in the sensor suite dictionary
+    def _get_uuid(self, *args: Any, **kwargs: Any):
+        return "depth_" + self.angle
+
+    def _get_sensor_type(self, *args: Any, **kwargs: Any):
+        return SensorTypes.DEPTH
+
+    # This is called whenver reset is called or an action is taken
+    def get_observation(self, obs,*args: Any, **kwargs: Any):
+        obs = obs.get(self.uuid, None)
+        return np.expand_dims(obs,2)
+
+
+@registry.register_sensor(name="PanoramicRGBSensor")
+class PanoramicRGBSensor(Sensor):
+    def __init__(self, sim, config, **kwargs: Any):
+        self.sim = sim
+        super().__init__(config=config)
+        self.config = config
+
+    # Defines the name of the sensor in the sensor suite dictionary
+    def _get_uuid(self, *args: Any, **kwargs: Any):
+        return "panoramic_rgb"
+
+    def _get_sensor_type(self, *args: Any, **kwargs: Any):
+        return SensorTypes.COLOR
+    # Defines the size and range of the observations of the sensor
+    def _get_observation_space(self, *args: Any, **kwargs: Any):
+        return spaces.Box(
+            low=0,
+            high=255,
+            shape=(self.config.HEIGHT, self.config.WIDTH*4, 3),
+            dtype=np.uint8,
+        )
+    # This is called whenver reset is called or an action is taken
+    def get_observation(self, observations,*args: Any, **kwargs: Any):
+        return make_panoramic(observations['rgb_left'],observations['rgb'],observations['rgb_right'],observations['rgb_back'])
+
+@registry.register_sensor(name="PanoramicDepthSensor")
+class PanoramicDepthSensor(DepthSensor):
+    def __init__(self, sim, config, **kwargs: Any):
+        self.sim_sensor_type = habitat_sim.SensorType.DEPTH
+
+        if config.NORMALIZE_DEPTH:
+            self.min_depth_value = 0
+            self.max_depth_value = 1
+        else:
+            self.min_depth_value = config.MIN_DEPTH
+            self.max_depth_value = config.MAX_DEPTH
+
+        super().__init__(config=config)
+
+    def _get_observation_space(self, *args: Any, **kwargs: Any):
+        return spaces.Box(
+            low=self.min_depth_value,
+            high=self.max_depth_value,
+            shape=(self.config.HEIGHT, self.config.WIDTH*4, 1),
+            dtype=np.float32)
+
+    # Defines the name of the sensor in the sensor suite dictionary
+    def _get_uuid(self, *args: Any, **kwargs: Any):
+        return "panoramic_depth"
+
+    def _get_sensor_type(self, *args: Any, **kwargs: Any):
+        return SensorTypes.DEPTH
+
+    # This is called whenver reset is called or an action is taken
+    def get_observation(self, observations,*args: Any, **kwargs: Any):
+        return make_panoramic(observations['depth_left'],observations['depth'],observations['depth_right'],observations['depth_back'])
 

@@ -122,6 +122,54 @@ _C.ORBSLAM2.PLANNER_MAX_STEPS = 500
 _C.ORBSLAM2.DEPTH_DENORM = get_task_config().SIMULATOR.DEPTH_SENSOR.MAX_DEPTH
 
 
+_C.attention = CN()
+_C.attention.n_head = 8
+_C.attention.d_model = 128
+_C.attention.d_k = 128
+_C.attention.d_v = 128
+_C.attention.dropout = 0.1
+
+_C.attention.lsh = CN()
+_C.attention.lsh.bucket_size = 10
+_C.attention.lsh.n_hashes = 4
+_C.attention.lsh.add_local_attn_hash = False
+_C.attention.lsh.causal = True
+_C.attention.lsh.attn_chunks = 8
+_C.attention.lsh.random_rotations_per_head = False
+_C.attention.lsh.attend_across_buckets = True
+_C.attention.lsh.allow_duplicate_attention = True
+_C.attention.lsh.num_mem_kv = 0
+_C.attention.lsh.one_value_head = False
+_C.attention.lsh.full_attn_thres = 'none'
+_C.attention.lsh.return_attn = False
+_C.attention.lsh.post_attn_dropout = 0.1
+_C.attention.lsh.dropout = 0.1
+_C.attention.lsh.use_full_attn = False
+
+_C.memory = CN()
+_C.memory.embedding_size = 256
+_C.memory.memory_size = 100
+_C.memory.pose_dim = 5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def get_config(
     config_paths: Optional[Union[List[str], str]] = None,
     opts: Optional[list] = None,

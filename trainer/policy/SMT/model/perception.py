@@ -1,7 +1,7 @@
 import torch.nn as nn
 import torch.nn.functional as F
-from model.attention import MultiHeadAttention
-from model.memory.memory import SceneMemory
+from trainer.policy.SMT.model.attention import MultiHeadAttention
+from trainer.policy.SMT.model.memory.memory import SceneMemory
 class Attblock(nn.Module):
     def __init__(self,n_head, d_model, d_k, d_v, dropout=0.1):
         super(Attblock, self).__init__()

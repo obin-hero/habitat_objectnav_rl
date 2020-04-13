@@ -12,10 +12,10 @@ import numpy as np
 from habitat_baselines.common.baseline_registry import baseline_registry
 from habitat_baselines.config.default import get_config
 
-from trainer import ddppo
+from trainer.algo import ddppo
 import env_utils
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "8,9"
+#os.environ["CUDA_VISIBLE_DEVICES"] = "8,9"
 
 def main():
     parser = argparse.ArgumentParser()
