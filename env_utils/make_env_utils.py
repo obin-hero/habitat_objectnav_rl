@@ -130,15 +130,13 @@ def construct_envs(
         if len(scenes) > 0:
             task_config.DATASET.CONTENT_SCENES = scene_splits[i]
 
-        task_config.TASK.CUSTOM_OBJECT_GOAL_SENSOR = habitat.Config()
-        task_config.TASK.CUSTOM_OBJECT_GOAL_SENSOR.TYPE = 'CustomObjectSensor'
-        task_config.TASK.CUSTOM_OBJECT_GOAL_SENSOR.GOAL_SPEC = "OBJECT_IMG"
+        task_config = add_panoramic_camera(task_config)
 
         task_config.SIMULATOR.HABITAT_SIM_V0.GPU_DEVICE_ID = (
             config.SIMULATOR_GPU_ID
         )
 
-        task_config.SIMULATOR.AGENT_0.SENSORS = config.SENSORS
+        #task_config.SIMULATOR.AGENT_0.SENSORS = config.SENSORS
 
         proc_config.freeze()
         configs.append(proc_config)
