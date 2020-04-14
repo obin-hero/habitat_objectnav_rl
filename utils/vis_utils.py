@@ -96,6 +96,9 @@ def observations_to_image(observation: Dict, info: Dict, mode='plain') -> np.nda
     if "objectgoal" in observation:
         goal_rgb = (observation['objectgoal'][:,:,:3]*255).astype(np.uint8)
         egocentric_view.append(goal_rgb)
+    if "target_goal" in observation:
+        goal_rgb = (observation['target_goal'][:,:,:3]*255).astype(np.uint8)
+        egocentric_view.append(goal_rgb)
 
     if mode == 'panoramic':
         egocentric_view = np.concatenate(egocentric_view, axis=0)
