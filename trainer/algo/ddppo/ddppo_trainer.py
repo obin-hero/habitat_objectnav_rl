@@ -92,7 +92,7 @@ class DDPPOTrainer(PPOTrainer):
             pretrained_state = torch.load(
                 self.config.RL.DDPPO.pretrained_weights, map_location="cpu"
             )
-            self.resume_steps = pretrained_state['step']
+            self.resume_steps = pretrained_state['extra_state']['step']
 
         if self.config.RL.DDPPO.pretrained:
             self.actor_critic.load_state_dict(
@@ -394,7 +394,9 @@ class DDPPOTrainer(PPOTrainer):
                         )
                         for k, v in window_episode_stats.items()
                     }
-
+                    if deltas['count'] == 0 :
+                        print('whats going on?')
+                        print(window_episode_stats['count'])
                     writer.add_scalar(
                         "reward",
                         deltas["reward"] / deltas["count"],
