@@ -68,7 +68,7 @@ class CustomObjectGoalSensor(Sensor):
     def _get_observation_space(self, *args: Any, **kwargs: Any):
         sensor_shape = (1,)
         if self.config.GOAL_SPEC == 'OBJECT_IMG':
-            return spaces.Box(low=0, high=1.0, shape=(self.height, self.width, self.channel+1), dtype=np.float32)
+            return spaces.Box(low=0, high=1.0, shape=(self.height, self.width*4, self.channel+1), dtype=np.float32)
         max_value = (self.config.GOAL_SPEC_MAX_VAL - 1,)
         if self.config.GOAL_SPEC == "TASK_CATEGORY_ID":
             max_value = max(

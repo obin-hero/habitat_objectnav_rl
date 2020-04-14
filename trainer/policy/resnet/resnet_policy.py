@@ -59,15 +59,15 @@ class ResNetEncoder(nn.Module):
     ):
         super().__init__()
 
-        if "rgb" in observation_space.spaces:
-            self._n_input_rgb = observation_space.spaces["rgb"].shape[2]
-            spatial_size = observation_space.spaces["rgb"].shape[0] // 2
+        if "panoramic_rgb" in observation_space.spaces:
+            self._n_input_rgb = observation_space.spaces["panoramic_rgb"].shape[2]
+            spatial_size = observation_space.spaces["panoramic_rgb"].shape[0] // 2
         else:
             self._n_input_rgb = 0
 
-        if "depth" in observation_space.spaces:
-            self._n_input_depth = observation_space.spaces["depth"].shape[2]
-            spatial_size = observation_space.spaces["depth"].shape[0] // 2
+        if "panoramic_depth" in observation_space.spaces:
+            self._n_input_depth = observation_space.spaces["panoramic_depth"].shape[2]
+            spatial_size = observation_space.spaces["panoramic_depth"].shape[0] // 2
         else:
             self._n_input_depth = 0
 
@@ -104,7 +104,7 @@ class ResNetEncoder(nn.Module):
             self.output_shape = (
                 num_compression_channels,
                 final_spatial,
-                final_spatial,
+                final_spatial*2,
             )
 
     @property
@@ -211,9 +211,9 @@ class PointNavResNetNet(Net):
         return self.tgt_embeding(goal_onehot)
 
     def forward(self, observations, rnn_hidden_states, prev_actions, masks):
-        B = observations['rgb'].shape[0]
-        input_list = [observations['rgb'].permute(0,3,1,2)/255.0,
-                      observations['depth'].permute(0,3,1,2)]
+        B = observations['panoramic_rgb'].shape[0]
+        input_list = [observations['panoramic_rgb'].permute(0,3,1,2)/255.0,
+                      observations['panoramic_depth'].permute(0,3,1,2)]
         curr_obs = torch.cat(input_list,1)
         
         goal_obs = observations['objectgoal'].permute(0,3,1,2)

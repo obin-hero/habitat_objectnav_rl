@@ -34,9 +34,9 @@ class CustomObjectNavEnv(habitat.RLEnv):
         super().__init__(self._core_env_config, dataset)
         self.observation_space = SpaceDict(
             {
-                self._task.sensor_suite.observation_spaces.spaces['panoramic_rgb'],
-                self._task.sensor_suite.observation_spaces.spaces['panoramic_depth'],
-                self._task.sensor_suite.observation_spaces.spaces['objectgoal']
+                'panoramic_rgb': self.habitat_env._task.sensor_suite.observation_spaces.spaces['panoramic_rgb'],
+                'panoramic_depth': self.habitat_env._task.sensor_suite.observation_spaces.spaces['panoramic_depth'],
+                'objectgoal': self.habitat_env._task.sensor_suite.observation_spaces.spaces['objectgoal']
             }
         )
 
@@ -50,8 +50,12 @@ class CustomObjectNavEnv(habitat.RLEnv):
         self.obs = observations
         self.info = None
         self.total_reward = 0
-        return observations
+        return self.process_obs(observations)
 
+    def process_obs(self, obs):
+        return {'panoramic_rgb': obs['panoramic_rgb'],
+                'panoramic_depth': obs['panoramic_depth'],
+                'objectgoal': obs['objectgoal']}
     def step(self, action):
         self._previous_action = action
         obs, reward, done, self.info = super().step(action)
@@ -59,7 +63,7 @@ class CustomObjectNavEnv(habitat.RLEnv):
         self.info['length'] = self.time_t * done
         self.obs = obs
         self.total_reward += reward
-        return obs, reward, done, self.info
+        return self.process_obs(obs), reward, done, self.info
 
     def get_reward_range(self):
         return (
@@ -113,7 +117,7 @@ class CustomObjectNavEnv(habitat.RLEnv):
 
 if __name__ == '__main__':
     def filter_fn(episode):
-        if episode.info['geodesic_distance'] < 3.0:
+        if episode.info['geodesic_distance'] < 5.0:
             return True
         else:
             return False
@@ -167,9 +171,9 @@ if __name__ == '__main__':
     from habitat_baselines.config.default import get_config
     import numpy as np
     config = get_config('configs/ddppo_objectnav.yaml')
-    config.defrost()
-    config.TASK_CONFIG.DATASET.CONTENT_SCENES = ['1LXtFkjw3qL']
-    config.freeze()
+    #config.defrost()
+    #config.TASK_CONFIG.DATASET.CONTENT_SCENES = ['1LXtFkjw3qL']
+    #config.freeze()
     dataset = make_dataset(config.TASK_CONFIG.DATASET.TYPE, config=config.TASK_CONFIG.DATASET, **{'filter_fn': filter_fn})
     scenes = config.TASK_CONFIG.DATASET.CONTENT_SCENES
     if "*" in config.TASK_CONFIG.DATASET.CONTENT_SCENES:

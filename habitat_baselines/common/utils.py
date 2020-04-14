@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 
 # Copyright (c) Facebook, Inc. and its affiliates.
 # This source code is licensed under the MIT license found in the
@@ -15,16 +15,15 @@ import torch.nn as nn
 
 from habitat.utils.visualizations.utils import images_to_video
 from habitat_baselines.common.tensorboard_utils import TensorboardWriter
-
+from torch.distributions.categorical import Categorical
 
 class Flatten(nn.Module):
     def forward(self, x):
         return x.view(x.size(0), -1)
 
-
-class CustomFixedCategorical(torch.distributions.Categorical):
-    def sample(self, sample_shape=torch.Size()):
-        return super().sample(sample_shape).unsqueeze(-1)
+class CustomFixedCategorical(Categorical):
+    def sample(self):
+        return super().sample()
 
     def log_probs(self, actions):
         return (
