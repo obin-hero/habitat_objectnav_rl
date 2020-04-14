@@ -12640,3 +12640,25 @@
 2020-04-14 16:09:43,334 update: 340	env-time: 302.086s	pth-time: 518.376s	frames: 4165376.0
 2020-04-14 16:09:43,335 Average window size: 50  distance_to_goal: 3.337  length: 2.699  reward: 0.308  spl: 0.002  success: 0.003
 2020-04-14 16:14:54,108 agent number of trainable parameters: 14689605
+2020-04-14 16:16:40,821 agent number of trainable parameters: 14689605
+2020-04-14 16:17:06,349 update: 10	fps: 164953.273	
+2020-04-14 16:17:06,349 update: 10	env-time: 8.176s	pth-time: 16.417s	frames: 4123136.0
+2020-04-14 16:17:06,350 Average window size: 10  distance_to_goal: 3.239  length: 2.229  reward: -29.853  spl: 0.000  success: 0.000
+2020-04-14 16:17:38,275 update: 20	fps: 72457.363	
+2020-04-14 16:17:38,276 update: 20	env-time: 24.381s	pth-time: 31.903s	frames: 4124416.0
+2020-04-14 16:17:38,277 Average window size: 10  distance_to_goal: 3.238  length: 2.031  reward: -10.326  spl: 0.000  success: 0.000
+2020-04-14 16:18:49,684 update: 30	fps: 32148.901	
+2020-04-14 16:18:49,684 update: 30	env-time: 80.290s	pth-time: 47.181s	frames: 4125696.0
+2020-04-14 16:18:49,685 Average window size: 10  distance_to_goal: 3.342  length: 2.080  reward: -0.132  spl: 0.000  success: 0.000
+2020-04-14 16:19:24,385 update: 40	fps: 25313.943	
+2020-04-14 16:19:24,385 update: 40	env-time: 99.561s	pth-time: 62.385s	frames: 4126976.0
+2020-04-14 16:19:24,386 Average window size: 10  distance_to_goal: 2.897  length: 2.187  reward: 2.104  spl: 0.000  success: 0.000
+2020-04-14 16:19:45,672 update: 50	fps: 22397.337	
+2020-04-14 16:19:45,673 update: 50	env-time: 105.527s	pth-time: 77.483s	frames: 4128256.0
+2020-04-14 16:19:45,673 Average window size: 10  distance_to_goal: 0.880  length: 2.137  reward: 58.263  spl: 0.097  success: 0.120
+2020-04-14 16:20:43,290 update: 60	fps: 17068.663	
+2020-04-14 16:20:43,290 update: 60	env-time: 147.775s	pth-time: 92.626s	frames: 4129536.0
+2020-04-14 16:20:43,290 Average window size: 10  distance_to_goal: 2.908  length: 2.077  reward: 10.065  spl: 0.045  success: 0.060
+2020-04-14 16:21:59,263 update: 70	fps: 12993.641	
+2020-04-14 16:21:59,264 update: 70	env-time: 207.961s	pth-time: 108.178s	frames: 4130816.0
+2020-04-14 16:21:59,264 Average window size: 10  distance_to_goal: 3.247  length: 2.672  reward: 0.146  spl: 0.000  success: 0.000

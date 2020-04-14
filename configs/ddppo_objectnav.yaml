@@ -44,7 +44,7 @@ RL:
     # The PyTorch distributed backend to use
     distrib_backend: NCCL
     # Visual encoder backbone
-    pretrained_weights: data/new_checkpoints/ckpt.161.pth
+    pretrained_weights: data/new_checkpoints/ckpt.42.pth
     # Initialize with pretrained weights
     pretrained: True
     # Initialize just the visual encoder backbone with pretrained weights
