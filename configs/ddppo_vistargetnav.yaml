@@ -47,7 +47,7 @@ RL:
     # Visual encoder backbone
     pretrained_weights: data/new_checkpoints/vistrg_nav_mp3d/ckpt.42.pth
     # Initialize with pretrained weights
-    pretrained: True
+    pretrained: False
     # Initialize just the visual encoder backbone with pretrained weights
     pretrained_encoder: False
     # Whether or not the visual encoder backbone will be trained.

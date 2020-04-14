@@ -48,6 +48,8 @@ def add_panoramic_camera(task_config):
 
     task_config.TASK.CUSTOM_OBJECT_GOAL_SENSOR = habitat.Config()
     task_config.TASK.CUSTOM_OBJECT_GOAL_SENSOR.TYPE = 'CustomObjectSensor'
+    task_config.TASK.CUSTOM_VISTARGET_SENSOR = habitat.Config()
+    task_config.TASK.CUSTOM_VISTARGET_SENSOR.TYPE = 'CustomVisTargetSensor'
     task_config.TASK.CUSTOM_OBJECT_GOAL_SENSOR.GOAL_SPEC = "OBJECT_IMG"
     task_config.TASK.PANORAMIC_SENSOR = habitat.Config()
     task_config.TASK.PANORAMIC_SENSOR.TYPE = 'PanoramicRGBSensor'

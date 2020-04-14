@@ -53,7 +53,7 @@ class CustomVisTargetSensor(Sensor):
         return SensorTypes.COLOR
 
     def _get_observation_space(self, *args: Any, **kwargs: Any):
-        return spaces.Box(low=0, high=1.0, shape=(self.height, self.width*4, self.channel+1), dtype=np.float32)
+        return spaces.Box(low=0, high=1.0, shape=(self.height, self.width*4, self.channel), dtype=np.float32)
 
     def get_observation(
         self,
