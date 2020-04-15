@@ -84,9 +84,7 @@ class SMTPolicy(Policy):
         masks,
         deterministic=False,
     ):
-        features, rnn_hidden_states, pre_embeddings = self.net.act(
-            observations, rnn_hidden_states, prev_actions, masks
-        )
+        features, rnn_hidden_states = self.net(observations, rnn_hidden_states, masks)
         distribution = self.action_distribution(features)
         value = self.critic(features)
 
@@ -97,7 +95,7 @@ class SMTPolicy(Policy):
 
         action_log_probs = distribution.log_probs(action)
 
-        return value, action, action_log_probs, rnn_hidden_states, pre_embeddings
+        return value, action, action_log_probs, rnn_hidden_states
 
 class SMTNet(Net):
     """Network which passes the input image through CNN and concatenates
@@ -119,14 +117,14 @@ class SMTNet(Net):
     ):
         super().__init__()
         self.goal_sensor_uuid = goal_sensor_uuid
-
-        self.prev_action_embedding = nn.Embedding(action_space.n + 1, 32)
+        self.action_dim = action_space.n
+        self.prev_action_embedding = nn.Embedding(self.action_dim + 1, 32)
         self._n_prev_action = 32
 
         # self._n_input_goal =
         self.num_category = 50
         self.tgt_embeding = nn.Linear(self.num_category, 32)
-        self._n_input_goal = 32
+        self._n_input_goal = 0
 
         self._hidden_size = hidden_size
 
@@ -138,15 +136,15 @@ class SMTNet(Net):
             make_backbone=getattr(resnet, backbone),
             normalize_visual_inputs=normalize_visual_inputs,
         )
-        self.perception_uint = Perception(cfg, self.visual_encoder, self.prev_action_embedding)
-        if not self.visual_encoder.is_blind:
-            self.visual_fc = nn.Sequential(
-                nn.Linear(
-                    np.prod(self.visual_encoder.output_shape) * 2, hidden_size
-                ),
-                nn.ReLU(True),
-            )
 
+        self.visual_fc = nn.Sequential(
+            nn.Linear(
+                np.prod(self.visual_encoder.output_shape) * 2, hidden_size
+            ),
+            nn.ReLU(True),
+        )
+        self.embedding_shape = (cfg.NUM_PROCESSES, self._hidden_size + rnn_input_size)
+        self.perception_unit = Perception(cfg, (self.visual_encoder, self.prev_action_embedding, self.visual_fc))
         self.state_encoder = RNNStateEncoder(
             (0 if self.is_blind else self._hidden_size) + rnn_input_size,
             self._hidden_size,
@@ -172,15 +170,43 @@ class SMTNet(Net):
         goal_onehot = torch.eye(self.num_category)[goal_observations[:, 0, 0].long()].to(goal_observations.device)
         return self.tgt_embeding(goal_onehot)
 
-    def act(self, observations, rnn_hidden_states, prev_actions, masks):
-        x, pre_embedding = self.perception_unit.act(observations, masks)
+    def eval_embed_network(self):
+        self.visual_encoder.eval()
+        self.visual_fc.eval()
+        self.prev_action_embedding.eval()
+
+    def embedd(self, observations, prev_actions=None, masks=None):
+        B = observations['panoramic_rgb'].shape[0]
+        input_list = [observations['panoramic_rgb'].permute(0, 3, 1, 2) / 255.0,
+                      observations['panoramic_depth'].permute(0, 3, 1, 2)]
+        curr_obs = torch.cat(input_list, 1)
+
+        goal_obs = observations['objectgoal'].permute(0, 3, 1, 2)
+        batched_obs = torch.cat([curr_obs, goal_obs[:, :4]], 0)
+
+        feats = self.visual_encoder(batched_obs)
+        curr_feats, target_feats = feats.split(B)
+        if prev_actions is not None and masks is not None:
+            prev_actions_embedd = self.prev_action_embedding(
+                ((prev_actions.float() + 1) * masks).long().squeeze(-1)
+            )
+        else:
+            prev_actions_embedd = self.prev_action_embedding(torch.zeros((B),dtype=torch.long).to(feats.device))
+        feats = self.visual_fc(torch.cat((curr_feats.view(B, -1), target_feats.view(B, -1)), 1))
+        x = [feats, prev_actions_embedd]
+
         x = torch.cat(x, dim=1)
+        return x
+
+    def act(self, observations, rnn_hidden_states, prev_actions, masks):
+        x, pre_embedding = self.perception_unit.act(observations['embeddings'], observations['memory_masks'])
+        #x = torch.cat(x, dim=1)
         x, rnn_hidden_states = self.state_encoder(x, rnn_hidden_states, masks)
         return x, rnn_hidden_states, pre_embedding
-    def forward(self, observation_memory, rnn_hidden_states, prev_actions, memory_masks):
+
+    def forward(self, observation_memory, rnn_hidden_states, masks):
         # need perception here
-        x = self.perception_unit(observation_memory, memory_masks)
-        x = torch.cat(x, dim=1)
+        x = self.perception_unit(observation_memory, masks)
         x, rnn_hidden_states = self.state_encoder(x, rnn_hidden_states, masks)
         return x, rnn_hidden_states
 

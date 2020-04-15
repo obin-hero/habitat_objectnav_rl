@@ -143,16 +143,16 @@ class DDPPOTrainer_with_Memory(PPOTrainer):
         with torch.no_grad():
 
             # get observations from the rollout not directly from envs
-            step_observation = {
-                k: v[rollouts.step] for k, v in rollouts.observations.items()
-            }
+            # step_observation = {
+            #    k: v[rollouts.step] for k, v in rollouts.observations.items()
+            # }
+            step_observation = rollouts.get_memory_at(rollouts.step)
 
             (
                 values,
                 actions,
                 actions_log_probs,
-                recurrent_hidden_states,
-                pre_embeddings
+                recurrent_hidden_states
             ) = self.actor_critic.act(
                 step_observation,
                 rollouts.recurrent_hidden_states[rollouts.step],
@@ -206,7 +206,7 @@ class DDPPOTrainer_with_Memory(PPOTrainer):
 
         if self._static_encoder:
             with torch.no_grad():
-                batch["visual_features"] = self._encoder(batch)
+                batch["visual_features"] = self._encoder(batch, actions, masks)
 
         rollouts.insert(
             batch,
@@ -287,13 +287,13 @@ class DDPPOTrainer_with_Memory(PPOTrainer):
 
         obs_space = self.envs.observation_spaces[0]
         if self._static_encoder:
-            self._encoder = self.actor_critic.net.visual_encoder
+            self._encoder = self.actor_critic.net.embedd
             obs_space = SpaceDict(
                 {
                     "visual_features": spaces.Box(
                         low=np.finfo(np.float32).min,
                         high=np.finfo(np.float32).max,
-                        shape=self._encoder.output_shape,
+                        shape=self.actor_critic.net.embedding_shape,
                         dtype=np.float32,
                     ),
                     **obs_space.spaces,
@@ -318,8 +318,10 @@ class DDPPOTrainer_with_Memory(PPOTrainer):
         )
         rollouts.to(self.device)
 
-        #for sensor in rollouts.observations:
-        #    rollouts.observations[sensor][0].copy_(batch[sensor])
+        for sensor in rollouts.observations:
+            rollouts.observations[sensor][0].copy_(batch[sensor])
+        rollouts.pre_embedding[0,:,0].copy_(batch['visual_features'])
+        rollouts.memory_masks[0,:,0].copy_(torch.ones_like(rollouts.memory_masks[0,:,0]))
 
         # batch and observations may contain shared PyTorch CUDA
         # tensors.  We must explicitly clear them here otherwise
@@ -446,7 +448,7 @@ class DDPPOTrainer_with_Memory(PPOTrainer):
               
                 self.agent.train()
                 if self._static_encoder:
-                    self._encoder.eval()
+                    self.actor_critic.net.eval_embed_network()
 
                 (
                     delta_pth_time,
@@ -555,3 +557,32 @@ class DDPPOTrainer_with_Memory(PPOTrainer):
                         count_checkpoints += 1
 
             self.envs.close()
+
+    def _update_agent(self, ppo_cfg, rollouts):
+        t_update_model = time.time()
+        with torch.no_grad():
+            #last_observation = {
+            #    k: v[rollouts.step] for k, v in rollouts.observations.items()
+            #}
+            last_observation = rollouts.get_memory_at(rollouts.step)
+            next_value = self.actor_critic.get_value(
+                last_observation,
+                rollouts.recurrent_hidden_states[rollouts.step],
+                rollouts.prev_actions[rollouts.step],
+                rollouts.masks[rollouts.step],
+            ).detach()
+
+        rollouts.compute_returns(
+            next_value, ppo_cfg.use_gae, ppo_cfg.gamma, ppo_cfg.tau
+        )
+
+        value_loss, action_loss, dist_entropy = self.agent.update(rollouts)
+
+        rollouts.after_update()
+
+        return (
+            time.time() - t_update_model,
+            value_loss,
+            action_loss,
+            dist_entropy,
+        )

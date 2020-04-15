@@ -255,14 +255,14 @@ class MemoryRolloutStorage:
         memory_info,
         num_recurrent_layers=1,
     ):
-        #self.observations = {}
+        self.observations = {}
 
-        #for sensor in observation_space.spaces:
-        #    self.observations[sensor] = torch.zeros(
-        #        num_steps + 1,
-        #        num_envs,
-        #        *observation_space.spaces[sensor].shape
-        #    )
+        for sensor in observation_space.spaces:
+            self.observations[sensor] = torch.zeros(
+                num_steps + 1,
+                num_envs,
+                *observation_space.spaces[sensor].shape
+            )
 
         self.recurrent_hidden_states = torch.zeros(
             num_steps + 1,
@@ -288,9 +288,9 @@ class MemoryRolloutStorage:
         self.embedding_size = memory_info['embedding_size']
         self.memory_size = memory_info['memory_size']
         self.pose_size = memory_info['pose_size']
-        self.pre_embedding = torch.zeros(num_steps, self.memory_size, num_envs, self.embedding_size)
-        self.pose_info = torch.zeros(num_steps, self.memory_size, num_envs, self.pose_size)
-        self.memory_masks = torch.zeros(num_steps, num_envs, self.memory_size)
+        self.pre_embedding = torch.zeros(num_steps+1, num_envs, self.memory_size, self.embedding_size)
+        #self.pose_info = torch.zeros(num_steps, num_envs, self.memory_size, self.pose_size)
+        self.memory_masks = torch.zeros(num_steps+1, num_envs, self.memory_size, 1)
 
         if action_space.__class__.__name__ == "ActionSpace":
             self.actions = self.actions.long()
@@ -303,8 +303,8 @@ class MemoryRolloutStorage:
         self.memory_step = torch.zeros(num_envs)
 
     def to(self, device):
-        #for sensor in self.observations:
-        #    self.observations[sensor] = self.observations[sensor].to(device)
+        for sensor in self.observations:
+            self.observations[sensor] = self.observations[sensor].to(device)
 
         self.recurrent_hidden_states = self.recurrent_hidden_states.to(device)
         self.rewards = self.rewards.to(device)
@@ -316,7 +316,7 @@ class MemoryRolloutStorage:
         self.masks = self.masks.to(device)
 
         self.pre_embedding = self.pre_embedding.to(device)
-        self.pose_info = self.pose_info.to(device)
+        self.memory_masks = self.memory_masks.to(device)
 
     def insert(
         self,
@@ -328,24 +328,18 @@ class MemoryRolloutStorage:
         rewards,
         masks,
     ):
-        pre_embedding, pose = observations
-        # for sensor in observations:
-        #     self.observations[sensor][self.step + 1].copy_(
-        #         observations[sensor]
-        #     )
+        for sensor in observations:
+            self.observations[sensor][self.step + 1].copy_(
+                observations[sensor]
+            )
         self.recurrent_hidden_states[self.step + 1].copy_(
             recurrent_hidden_states
         )
 
-        B = pose.shape[0]
-        #self.pre_embedding = torch.zeros(num_steps, self.memory_size, num_envs, self.embedding_size)
-        #self.pose_info = torch.zeros(num_steps, self.memory_size, num_envs, self.pose_size)
-        #self.memory_masks = torch.zeros(num_steps, num_envs, self.memory_size)
-        curr_preembedding_memory = torch.cat((pre_embedding, self.pre_embedding[:-1, self.step - 1] * masks),1)
-        curr_poseinfo_memory = torch.cat((pose, self.pose_info[self.step]*masks),1)
-        curr_mem_masks = torch.cat((masks, self.memory_masks[self.step]*masks))
-        self.pre_embedding[self.step].copy_(curr_preembedding_memory)
-        self.pose_info[self.step+1].copy_(curr_poseinfo_memory)
+        B = recurrent_hidden_states.shape[0]
+        curr_preembedding_memory = torch.cat((observations['visual_features'].unsqueeze(1), self.pre_embedding[self.step, :, :-1] * masks.unsqueeze(1)),1)
+        curr_mem_masks = torch.cat((torch.ones_like(masks.unsqueeze(1)), self.memory_masks[self.step,:, :-1]*masks.unsqueeze(1)),1)
+        self.pre_embedding[self.step + 1].copy_(curr_preembedding_memory)
         self.memory_masks[self.step + 1].copy_(curr_mem_masks)
 
         self.actions[self.step].copy_(actions)
@@ -357,6 +351,11 @@ class MemoryRolloutStorage:
 
         self.step = self.step + 1
 
+    def get_memory_at(self, step):
+        memory = { 'embeddings': self.pre_embedding[step],
+                   'memory_masks': self.memory_masks[step]
+                   }
+        return memory
     def after_update(self):
         for sensor in self.observations:
             self.observations[sensor][0].copy_(
@@ -369,7 +368,9 @@ class MemoryRolloutStorage:
         self.masks[0].copy_(self.masks[self.step])
         self.prev_actions[0].copy_(self.prev_actions[self.step])
         self.step = 0
-        self.pose_info[0].copy_(self.pose_info[self.step])
+
+        self.pre_embedding[0].copy_(self.pre_embedding[self.step])
+        self.memory_masks[0].copy_(self.memory_masks[self.step])
 
     def compute_returns(self, next_value, use_gae, gamma, tau):
         if use_gae:
@@ -401,9 +402,9 @@ class MemoryRolloutStorage:
         num_envs_per_batch = num_processes // num_mini_batch
         perm = torch.randperm(num_processes)
         for start_ind in range(0, num_processes, num_envs_per_batch):
-            observations_batch = defaultdict(list)
+            #observations_batch = defaultdict(list)
             pre_embeddings_batch = []
-            pose_batch = []
+            memory_masks_batch = []
             recurrent_hidden_states_batch = []
             actions_batch = []
             prev_actions_batch = []
@@ -422,8 +423,8 @@ class MemoryRolloutStorage:
                 #        self.observations[sensor][: self.step, ind]
                 #    )
 
-                pre_embeddings_batch.append(self.pre_embedding[:self.step, ind])
-                pose_batch.append(self.pose_info[:self.step, ind])
+                pre_embeddings_batch.append(self.pre_embedding[:self.step, :, ind])
+                memory_masks_batch.append(self.memory_masks[:self.step, :, ind])
                 recurrent_hidden_states_batch.append(
                     self.recurrent_hidden_states[0, :, ind]
                 )
@@ -448,8 +449,10 @@ class MemoryRolloutStorage:
             #    )
 
             pre_embeddings_batch = torch.stack(pre_embeddings_batch, 1)
-            pose_batch = torch.stack(pose_batch, 1)
-            observations_batch = (pre_embeddings_batch, pose_batch)
+            memory_masks_batch = torch.stack(memory_masks_batch,1)
+            #pose_batch = torch.stack(pose_batch, 1)
+            observations_batch = {'embeddings': pre_embeddings_batch,
+                                  'memory_masks': memory_masks_batch }
             actions_batch = torch.stack(actions_batch, 1)
             prev_actions_batch = torch.stack(prev_actions_batch, 1)
             value_preds_batch = torch.stack(value_preds_batch, 1)

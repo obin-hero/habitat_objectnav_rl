@@ -22,36 +22,32 @@ class Attblock(nn.Module):
 
 
 class Perception(nn.Module):
-    def __init__(self,cfg, visual_encoder, act_encoder):
+    def __init__(self,cfg, embedding_network):
         super(Perception, self).__init__()
         self.Encoder = Attblock(cfg.attention.n_head, cfg.attention.d_model, cfg.attention.d_k, cfg.attention.d_v, cfg.attention.dropout)
         self.Decoder = Attblock(cfg.attention.n_head, cfg.attention.d_model, cfg.attention.d_k, cfg.attention.d_v, cfg.attention.dropout)
         self.output_size = cfg.attention.d_model
-        self.Memory = SceneMemory(cfg, visual_encoder, act_encoder)
+        self.Memory = SceneMemory(cfg, embedding_network)
         self.Memory.reset_all()
 
     def cuda(self, device=None):
         super(Perception, self).cuda(device)
         self.Memory.embed_network = self.Memory.embed_network.cuda()
 
-    def act(self, obs, masks, mode='train'): # with memory
-        obs['image'] = obs['image'] / 255.0 * 2 - 1.0
-        embedded_memory, curr_embedding, pre_embedding, memory_masks = self.Memory.update_memory(obs, masks)
+    # this function is only used when eval
+    def act(self, embeddings, masks, mode='train'): # with memory
+        embedded_memory, curr_embedding, memory_masks = self.Memory.update_memory(embeddings,masks)
         C = self.Encoder(embedded_memory, embedded_memory, memory_masks.unsqueeze(1))
         x = self.Decoder(curr_embedding, C, memory_masks.unsqueeze(1))
-        return x.squeeze(1), pre_embedding
-
+        return x.squeeze(1), curr_embedding
 
     def forward(self, observations, memory_masks=None, mode='train'): # without memory
-        if mode == 'pretrain':
-            observations['image'] = observations['image'].float() / 255.0 * 2 - 1.0
-            images, poses, prev_actions = observations['image'], observations['pose'], observations['prev_action']
-            embedded_memory, curr_embedding, _ = self.Memory.embedd_observations(images, poses, prev_actions, memory_masks)
-        else:
-            batch_pre_embedding, batch_pose = observations
-            embedded_memory, curr_embedding = self.Memory.embedd_with_pre_embeds(batch_pre_embedding,batch_pose, memory_masks)
-        if memory_masks is not None:
-            memory_masks = memory_masks.unsqueeze(1)
-        C = self.Encoder(embedded_memory, embedded_memory, memory_masks)
-        x = self.Decoder(curr_embedding, C, memory_masks)
+        #embedded_memory, curr_embedding = self.Memory.embedd_with_pre_embeds(observations['embeddings'], observations['memory_masks'])
+        embedded_memory, memory_masks = observations['embeddings'], observations['memory_masks']
+        curr_embedding = observations['embeddings'][:,0:1]
+        memory_max_length = memory_masks.sum(dim=1).max().long()
+        #print(memory_max_length)
+        mem_mask = memory_masks[:,:memory_max_length].squeeze(2).unsqueeze(1)
+        C = self.Encoder(embedded_memory[:,:memory_max_length], embedded_memory[:,:memory_max_length], mem_mask)
+        x = self.Decoder(curr_embedding, C, mem_mask)
         return x.squeeze(1)

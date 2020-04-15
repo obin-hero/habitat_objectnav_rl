@@ -97,10 +97,10 @@ def construct_envs(
     env_classes = [env_class for _ in range(num_processes)]
 
     # for debug!
-    #config.defrost()
-    #print('***!!!!!!!!!!!!!!!!**************debug code not deleted')
-    #config.TASK_CONFIG.DATASET.CONTENT_SCENES = ['1LXtFkjw3qL']
-    #config.freeze()
+    config.defrost()
+    print('***!!!!!!!!!!!!!!!!**************debug code not deleted')
+    config.TASK_CONFIG.DATASET.CONTENT_SCENES = ['1LXtFkjw3qL']
+    config.freeze()
     dataset = make_dataset(config.TASK_CONFIG.DATASET.TYPE, **{'filter_fn': filter_fn})
     scenes = config.TASK_CONFIG.DATASET.CONTENT_SCENES
     if "*" in config.TASK_CONFIG.DATASET.CONTENT_SCENES:

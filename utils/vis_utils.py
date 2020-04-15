@@ -23,7 +23,7 @@ def append_text_to_image(image: np.ndarray, text: str):
         A new image with text inserted underneath the input image
     """
     h, w, c = image.shape
-    font_size = 0.2
+    font_size = 0.3
     font_thickness = 1
     font = cv2.FONT_HERSHEY_SIMPLEX
     blank_image = np.zeros(image.shape, dtype=np.uint8)
@@ -35,6 +35,8 @@ def append_text_to_image(image: np.ndarray, text: str):
     for line in wrapped_text:
         textsize = cv2.getTextSize(line, font, font_size, font_thickness)[0]
         y += textsize[1] + 10
+        if y % 2 == 1 :
+            y += 1
         x = 10
         cv2.putText(
             blank_image,
