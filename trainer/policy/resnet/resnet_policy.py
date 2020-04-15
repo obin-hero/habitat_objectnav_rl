@@ -163,8 +163,8 @@ class PointNavResNetNet(Net):
 
         #self._n_input_goal =
         self.num_category = 50
-        self.tgt_embeding = nn.Linear(self.num_category, 32)
-        self._n_input_goal = 32
+        #self.tgt_embeding = nn.Linear(self.num_category, 32)
+        self._n_input_goal = 0
 
         self._hidden_size = hidden_size
 
@@ -216,18 +216,19 @@ class PointNavResNetNet(Net):
                       observations['panoramic_depth'].permute(0,3,1,2)]
         curr_obs = torch.cat(input_list,1)
         
-        goal_obs = observations['objectgoal'].permute(0,3,1,2)
+        #goal_obs = observations['objectgoal'].permute(0,3,1,2)
+        goal_obs = observations['target_goal'].permute(0,3,1,2)
         batched_obs = torch.cat([curr_obs, goal_obs[:,:4]],0)
         
         feats = self.visual_encoder(batched_obs)
         curr_feats, target_feats = feats.split(B)
 
-        tgt_encoding = self.get_tgt_encoding(goal_obs[:,-1])
+        #tgt_encoding = self.get_tgt_encoding(goal_obs[:,-1])
         prev_actions = self.prev_action_embedding(
             ((prev_actions.float() + 1) * masks).long().squeeze(-1)
         )
         feats = self.visual_fc(torch.cat((curr_feats.view(B,-1),target_feats.view(B,-1)),1))
-        x = [feats, tgt_encoding, prev_actions]
+        x = [feats, prev_actions]
 
         x = torch.cat(x, dim=1)
         x, rnn_hidden_states = self.state_encoder(x, rnn_hidden_states, masks)

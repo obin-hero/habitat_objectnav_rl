@@ -6,6 +6,7 @@ from habitat_baselines.common.baseline_registry import baseline_registry
 from utils.vis_utils import observations_to_image, append_text_to_image
 import cv2
 from gym.spaces.dict_space import Dict as SpaceDict
+import numpy as np
 
 def get_env_class(env_name: str) -> Type[habitat.RLEnv]:
     r"""Return environment class based on name.
@@ -44,10 +45,13 @@ class VisTargetNavEnv(habitat.RLEnv):
     def reset(self):
         self._previous_action = None
         self.time_t = 0
-        observations = super().reset()
-        self._previous_measure = self._env.get_metrics()[
-            self._reward_measure_name
-        ]
+        while True:
+            observations = super().reset()
+            self._previous_measure = self._env.get_metrics()[
+                self._reward_measure_name
+            ]
+            if not np.isinf(self._previous_measure) and not self._previous_measure == 0:
+                break
         self.obs = observations
         self.info = None
         self.total_reward = 0
@@ -67,7 +71,7 @@ class VisTargetNavEnv(habitat.RLEnv):
         self.info['length'] = self.time_t * done
         self.obs = obs
         self.total_reward += reward
-        if self._episode_success():
+        if self._episode_success() or np.isnan(self._previous_measure):
             done = True
         return self.process_obs(obs), reward, done, self.info
 
@@ -79,9 +83,9 @@ class VisTargetNavEnv(habitat.RLEnv):
 
     def get_reward(self, observations):
         reward = self._rl_config.SLACK_REWARD
-
         current_measure = self._env.get_metrics()[self._reward_measure_name]
-        self.progress = self._previous_measure - current_measure
+        self.progress = self._previous_measure - current_measure if not np.isnan(current_measure) and not np.isinf(current_measure) else -0.05
+        self.progress = np.clip(self.progress, 0.0, 10.0)
         reward += self.progress
         if abs(self.progress) < 0.1 :
             self.stuck += 1
@@ -107,7 +111,12 @@ class VisTargetNavEnv(habitat.RLEnv):
         return done
 
     def get_info(self, observations):
-        return self.habitat_env.get_metrics()
+        info = self.habitat_env.get_metrics()
+        if np.isinf(info[self._reward_measure_name]) :
+            info[self._reward_measure_name] = self.info[self._reward_measure_name]
+            if np.isinf(self.info[self._reward_measure_name]):
+                print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1')
+        return info
 
     def render(self, mode='rgb'):
         info = self.get_info(None) if self.info is None else self.info

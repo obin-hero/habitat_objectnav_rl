@@ -95,12 +95,14 @@ class DDPPOTrainer(PPOTrainer):
             self.resume_steps = pretrained_state['extra_state']['step']
 
         if self.config.RL.DDPPO.pretrained:
+
             self.actor_critic.load_state_dict(
                 {
                     k[len("actor_critic.") :]: v
                     for k, v in pretrained_state["state_dict"].items()
                 }
             )
+            print('loaded pretrained actor critic')
         elif self.config.RL.DDPPO.pretrained_encoder:
             prefix = "actor_critic.net.visual_encoder."
             self.actor_critic.net.visual_encoder.load_state_dict(
@@ -110,6 +112,7 @@ class DDPPOTrainer(PPOTrainer):
                     if k.startswith(prefix)
                 }
             )
+            print('loaded pretrained visual encoder')
 
         if not self.config.RL.DDPPO.train_encoder:
             self._static_encoder = True
@@ -394,9 +397,8 @@ class DDPPOTrainer(PPOTrainer):
                         )
                         for k, v in window_episode_stats.items()
                     }
-                    if deltas['count'] == 0 :
-                        print('whats going on?')
-                        print(window_episode_stats['count'])
+                    deltas["count"] = max(deltas["count"], 1.0)
+
                     writer.add_scalar(
                         "reward",
                         deltas["reward"] / deltas["count"],
@@ -408,7 +410,7 @@ class DDPPOTrainer(PPOTrainer):
                     metrics = {
                         k: v / deltas["count"]
                         for k, v in deltas.items()
-                        if k not in {"reward", "count","length", "episode_num"}
+                        if k not in {"reward", "count"}
                     }
                     if len(metrics) > 0:
                         writer.add_scalars("metrics", metrics, count_steps)
@@ -417,13 +419,6 @@ class DDPPOTrainer(PPOTrainer):
                         "losses",
                         {k: l for l, k in zip(losses, ["value", "policy"])},
                         count_steps,
-                    )
-
-                    writer.add_scalars(
-                        "metrics",
-                        {'length':deltas['length']/deltas['episode_num'],
-                         'episode_num': deltas['episode_num']},
-                        count_steps
                     )
                     # log stats
                     if update > 0 and update % self.config.LOG_INTERVAL == 0:
@@ -442,14 +437,13 @@ class DDPPOTrainer(PPOTrainer):
                             )
                         )
 
-                        deltas['length'] = deltas['length']/deltas['episode_num'] * deltas['count']
                         logger.info(
                             "Average window size: {}  {}".format(
                                 len(window_episode_stats["count"]),
                                 "  ".join(
                                     "{}: {:.3f}".format(k, v / deltas["count"])
                                     for k, v in deltas.items()
-                                    if k not in ["count", "episode_num"]
+                                    if k not in ["count"]
                                 ),
                             )
                         )
