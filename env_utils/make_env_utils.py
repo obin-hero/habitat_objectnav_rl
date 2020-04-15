@@ -13,6 +13,10 @@ from utils.visdommonitor import VisdomMonitor
 import os
 
 def filter_fn(episode):
+    if 'difficulty' in episode.info.keys():
+        if episode.info['difficulty'] == 'easy' :
+            return True
+        else : return False
     if episode.info['geodesic_distance'] < 5.0 and episode.info['geodesic_distance'] > 1.5: return True
     else : return False
 
@@ -60,6 +64,9 @@ def add_panoramic_camera(task_config):
     task_config.TASK.PANORAMIC_DEPTH_SENSOR.WIDTH = task_config.SIMULATOR.DEPTH_SENSOR.WIDTH
     task_config.TASK.PANORAMIC_DEPTH_SENSOR.HEIGHT = task_config.SIMULATOR.DEPTH_SENSOR.HEIGHT
 
+    if "STOP" not in task_config.TASK.POSSIBLE_ACTIONS:
+        task_config.TASK.SUCCESS.TYPE = "Success_woSTOP"
+    task_config.TASK.SUCCESS.SUCCESS_DISTANCE = task_config.TASK.SUCCESS_DISTANCE
     return task_config
 
 def make_env_fn(
@@ -101,7 +108,7 @@ def construct_envs(
     # for debug!
     #config.defrost()
     #print('***!!!!!!!!!!!!!!!!**************debug code not deleted')
-    #config.TASK_CONFIG.DATASET.CONTENT_SCENES = ['1LXtFkjw3qL']
+    #config.TASK_CONFIG.DATASET.CONTENT_SCENES = ['ZMojNkEp431']
     #config.freeze()
     dataset = make_dataset(config.TASK_CONFIG.DATASET.TYPE, **{'filter_fn': filter_fn})
     scenes = config.TASK_CONFIG.DATASET.CONTENT_SCENES

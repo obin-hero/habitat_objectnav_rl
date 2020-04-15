@@ -95,12 +95,14 @@ class DDPPOTrainer(PPOTrainer):
             self.resume_steps = pretrained_state['extra_state']['step']
 
         if self.config.RL.DDPPO.pretrained:
+
             self.actor_critic.load_state_dict(
                 {
                     k[len("actor_critic.") :]: v
                     for k, v in pretrained_state["state_dict"].items()
                 }
             )
+            print('loaded pretrained actor critic')
         elif self.config.RL.DDPPO.pretrained_encoder:
             prefix = "actor_critic.net.visual_encoder."
             self.actor_critic.net.visual_encoder.load_state_dict(
@@ -110,6 +112,7 @@ class DDPPOTrainer(PPOTrainer):
                     if k.startswith(prefix)
                 }
             )
+            print('loaded pretrained visual encoder')
 
         if not self.config.RL.DDPPO.train_encoder:
             self._static_encoder = True
@@ -395,9 +398,7 @@ class DDPPOTrainer(PPOTrainer):
                         for k, v in window_episode_stats.items()
                     }
                     deltas["count"] = max(deltas["count"], 1.0)
-                    if deltas['count'] == 0 :
-                        print('whats going on?')
-                        print(window_episode_stats['count'])
+
                     writer.add_scalar(
                         "reward",
                         deltas["reward"] / deltas["count"],

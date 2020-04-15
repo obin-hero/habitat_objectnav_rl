@@ -183,7 +183,24 @@ class PanoramicPartDepthSensor(DepthSensor):
     # This is called whenver reset is called or an action is taken
     def get_observation(self, obs,*args: Any, **kwargs: Any):
         obs = obs.get(self.uuid, None)
-        return np.expand_dims(obs,2)
+        if isinstance(obs, np.ndarray):
+            obs = np.clip(obs, self.config.MIN_DEPTH, self.config.MAX_DEPTH)
+
+            obs = np.expand_dims(
+                obs, axis=2
+            )  # make depth observation a 3D array
+        else:
+            obs = obs.clamp(self.config.MIN_DEPTH, self.config.MAX_DEPTH)
+
+            obs = obs.unsqueeze(-1)
+
+        if self.config.NORMALIZE_DEPTH:
+            # normalize depth observation to [0, 1]
+            obs = (obs - self.config.MIN_DEPTH) / (
+                self.config.MAX_DEPTH - self.config.MIN_DEPTH
+            )
+
+        return obs
 
 
 @registry.register_sensor(name="PanoramicRGBSensor")
@@ -243,3 +260,40 @@ class PanoramicDepthSensor(DepthSensor):
     def get_observation(self, observations,*args: Any, **kwargs: Any):
         return make_panoramic(observations['depth_left'],observations['depth'],observations['depth_right'],observations['depth_back'])
 
+
+from habitat.core.embodied_task import (
+    EmbodiedTask,
+    Measure,
+    SimulatorTaskAction,
+)
+from habitat.core.simulator import (
+    AgentState,
+    Sensor,
+    SensorTypes,
+    ShortestPathPoint,
+    Simulator,
+)
+from habitat.tasks.nav.nav import DistanceToGoal, Success
+
+@registry.register_measure(name='Success_woSTOP')
+class Success_woSTOP(Success):
+    r"""Whether or not the agent succeeded at its task
+
+    This measure depends on DistanceToGoal measure.
+    """
+
+    cls_uuid: str = "success"
+
+    def update_metric(
+        self, *args: Any, episode, task: EmbodiedTask, **kwargs: Any
+    ):
+        distance_to_target = task.measurements.measures[
+            DistanceToGoal.cls_uuid
+        ].get_metric()
+
+        if (
+           distance_to_target < self._config.SUCCESS_DISTANCE
+        ):
+            self._metric = 1.0
+        else:
+            self._metric = 0.0
