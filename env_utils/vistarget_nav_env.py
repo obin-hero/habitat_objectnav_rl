@@ -87,6 +87,7 @@ class VisTargetNavEnv(habitat.RLEnv):
         current_measure = self._env.get_metrics()[self._reward_measure_name]
         self.move = self._previous_measure - current_measure if not np.isnan(current_measure) and not np.isinf(current_measure) else -0.05
         if abs(self.move) < 0.01 :
+
             self.stuck += 1
         else:
             self.stuck = 0
