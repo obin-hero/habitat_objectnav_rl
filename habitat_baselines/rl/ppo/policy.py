@@ -53,7 +53,7 @@ class Policy(nn.Module):
 
     def get_value(self, observations, rnn_hidden_states, prev_actions, masks):
         features, _ = self.net(
-            observations, rnn_hidden_states, masks
+            observations, rnn_hidden_states, prev_actions, masks
         )
         return self.critic(features)
 
@@ -61,7 +61,7 @@ class Policy(nn.Module):
         self, observations, rnn_hidden_states, prev_actions, masks, action
     ):
         features, rnn_hidden_states = self.net(
-            observations, rnn_hidden_states, masks
+            observations, rnn_hidden_states, prev_actions, masks
         )
         distribution = self.action_distribution(features)
         value = self.critic(features)

@@ -57,6 +57,7 @@ class VisTargetNavEnv(habitat.RLEnv):
         self.total_reward = 0
         self.progress = 0
         self.stuck = 0
+        self.min_measure = np.Inf
         return self.process_obs(observations)
 
     def process_obs(self, obs):
@@ -84,14 +85,16 @@ class VisTargetNavEnv(habitat.RLEnv):
     def get_reward(self, observations):
         reward = self._rl_config.SLACK_REWARD
         current_measure = self._env.get_metrics()[self._reward_measure_name]
-        self.progress = self._previous_measure - current_measure if not np.isnan(current_measure) and not np.isinf(current_measure) else -0.05
-        self.progress = np.clip(self.progress, 0.0, 10.0)
-        reward += self.progress
-        if abs(self.progress) < 0.1 :
+        self.move = self._previous_measure - current_measure if not np.isnan(current_measure) and not np.isinf(current_measure) else -0.05
+        if abs(self.move) < 0.01 :
             self.stuck += 1
         else:
             self.stuck = 0
-
+ 
+        self.progress = np.clip(self.min_measure - min(current_measure, self.min_measure), 0, 10.0)
+        self.min_measure = min(current_measure, self.min_measure)
+        reward += self.progress
+        #print(current_measure, self._previous_measure, self.min_measure, 'move:', self.move, 'progress:',self.progress, 'reward:', reward)
         self._previous_measure = current_measure
 
         if self._episode_success():
