@@ -92,17 +92,20 @@ class VisTargetNavEnv(habitat.RLEnv):
         else:
             self.stuck = 0
  
-        self.progress = np.clip(self.min_measure - min(current_measure, self.min_measure), 0, 10.0)
+        if np.isinf(self.min_measure):
+            self.progress = 0.0
+        else:
+            self.progress = np.clip(self.min_measure - min(current_measure, self.min_measure), 0, 10.0)
         self.min_measure = min(current_measure, self.min_measure)
         reward += self.progress
-        #print(current_measure, self._previous_measure, self.min_measure, 'move:', self.move, 'progress:',self.progress, 'reward:', reward)
+        #if reward > 5.0: print(current_measure, self._previous_measure, self.min_measure, 'move:', self.move, 'progress:',self.progress, 'reward:', reward)
+        #print(reward)
         self._previous_measure = current_measure
 
         if self._episode_success():
             reward += self._rl_config.SUCCESS_REWARD
 
         return reward
-
     def _episode_success(self):
         return self._env.get_metrics()[self._reward_measure_name] < self.success_distance
 
