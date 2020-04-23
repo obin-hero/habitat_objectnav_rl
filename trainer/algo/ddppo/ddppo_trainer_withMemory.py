@@ -92,7 +92,7 @@ class DDPPOTrainer_with_Memory(PPOTrainer):
             pretrained_state = torch.load(
                 self.config.RL.DDPPO.pretrained_weights, map_location="cpu"
             )
-            self.resume_steps = pretrained_state['step']
+            self.resume_steps = pretrained_state['extra_state']['step']
 
         if self.config.RL.DDPPO.pretrained:
             self.actor_critic.load_state_dict(
@@ -207,7 +207,9 @@ class DDPPOTrainer_with_Memory(PPOTrainer):
         if self._static_encoder:
             with torch.no_grad():
                 batch["visual_features"] = self._encoder(batch, actions, masks)
-
+                for b in range(len(actions)):
+                    batch['visual_features'][b][-2] = infos[b]['episode']
+                    batch['visual_features'][b][-1] = infos[b]['step']
         rollouts.insert(
             batch,
             recurrent_hidden_states,

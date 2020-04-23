@@ -6,6 +6,7 @@ from habitat_baselines.common.baseline_registry import baseline_registry
 from utils.vis_utils import observations_to_image, append_text_to_image
 import cv2
 from gym.spaces.dict_space import Dict as SpaceDict
+from gym.spaces.box import Box
 import numpy as np
 
 def get_env_class(env_name: str) -> Type[habitat.RLEnv]:
@@ -38,7 +39,8 @@ class VisTargetNavEnv(habitat.RLEnv):
             {
                 'panoramic_rgb': self.habitat_env._task.sensor_suite.observation_spaces.spaces['panoramic_rgb'],
                 'panoramic_depth': self.habitat_env._task.sensor_suite.observation_spaces.spaces['panoramic_depth'],
-                'target_goal': self.habitat_env._task.sensor_suite.observation_spaces.spaces['target_goal']
+                'target_goal': self.habitat_env._task.sensor_suite.observation_spaces.spaces['target_goal'],
+                'step': Box(low=np.array(0),high=np.array(500), dtype=np.float32)
             }
         )
 
@@ -63,13 +65,16 @@ class VisTargetNavEnv(habitat.RLEnv):
     def process_obs(self, obs):
         return {'panoramic_rgb': obs['panoramic_rgb'],
                 'panoramic_depth': obs['panoramic_depth'],
-                'target_goal': obs['target_goal']}
+                'target_goal': obs['target_goal'],
+                'step': self.time_t}
 
     def step(self, action):
         self._previous_action = action
         obs, reward, done, self.info = super().step(action)
         self.time_t += 1
         self.info['length'] = self.time_t * done
+        self.info['episode'] = int(self.current_episode.episode_id)
+        self.info['step'] = self.time_t
         self.obs = obs
         self.total_reward += reward
         if self._episode_success() or np.isnan(self._previous_measure):
@@ -85,21 +90,13 @@ class VisTargetNavEnv(habitat.RLEnv):
     def get_reward(self, observations):
         reward = self._rl_config.SLACK_REWARD
         current_measure = self._env.get_metrics()[self._reward_measure_name]
-        self.move = self._previous_measure - current_measure if not np.isnan(current_measure) and not np.isinf(current_measure) else -0.05
-        if abs(self.move) < 0.01 :
+        self.progress = self._previous_measure - current_measure
+        if abs(self.progress)<0.01:
 
             self.stuck += 1
         else:
             self.stuck = 0
- 
-        if np.isinf(self.min_measure):
-            self.progress = 0.0
-        else:
-            self.progress = np.clip(self.min_measure - min(current_measure, self.min_measure), 0, 10.0)
-        self.min_measure = min(current_measure, self.min_measure)
         reward += self.progress
-        #if reward > 5.0: print(current_measure, self._previous_measure, self.min_measure, 'move:', self.move, 'progress:',self.progress, 'reward:', reward)
-        #print(reward)
         self._previous_measure = current_measure
 
         if self._episode_success():

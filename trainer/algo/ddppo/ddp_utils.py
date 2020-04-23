@@ -154,7 +154,10 @@ def init_distrib_slurm(
         local_rank = 0
         world_rank = 0
         world_size = 1
-
+    # Default port to initialized the TCP store on
+    master_port += 3
+    # Default address of world rank 0
+    master_addr = "127.0.0.3"
     tcp_store = distrib.TCPStore(
         master_addr, master_port, world_size, world_rank == 0
     )

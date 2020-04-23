@@ -15,7 +15,7 @@ from habitat_baselines.config.default import get_config
 from trainer.algo import ddppo
 import env_utils
 import os
-#os.environ["CUDA_VISIBLE_DEVICES"] = "8,9"
+os.environ["CUDA_VISIBLE_DEVICES"] = "9"
 
 def main():
     parser = argparse.ArgumentParser()

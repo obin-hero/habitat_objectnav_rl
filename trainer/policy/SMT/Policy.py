@@ -97,6 +97,28 @@ class SMTPolicy(Policy):
 
         return value, action, action_log_probs, rnn_hidden_states
 
+    def get_value(self, observations, rnn_hidden_states, prev_actions, masks):
+        features, _ = self.net(
+            observations, rnn_hidden_states, masks
+        )
+        return self.critic(features)
+
+    def evaluate_actions(
+        self, observations, rnn_hidden_states, prev_actions, masks, action
+    ):
+        features, rnn_hidden_states = self.net(
+            observations, rnn_hidden_states, masks
+        )
+        distribution = self.action_distribution(features)
+        value = self.critic(features)
+
+        action_log_probs = distribution.log_probs(action)
+        distribution_entropy = distribution.entropy().mean()
+
+        return value, action_log_probs, distribution_entropy, rnn_hidden_states
+
+
+
 class SMTNet(Net):
     """Network which passes the input image through CNN and concatenates
     goal vector with CNN's output and passes that through RNN.
@@ -128,7 +150,7 @@ class SMTNet(Net):
 
         self._hidden_size = hidden_size
 
-        rnn_input_size = self._n_input_goal + self._n_prev_action
+        rnn_input_size = self._n_input_goal + self._n_prev_action + 1
         self.visual_encoder = ResNetEncoder(
             observation_space,
             baseplanes=resnet_baseplanes,
@@ -181,7 +203,7 @@ class SMTNet(Net):
                       observations['panoramic_depth'].permute(0, 3, 1, 2)]
         curr_obs = torch.cat(input_list, 1)
 
-        goal_obs = observations['objectgoal'].permute(0, 3, 1, 2)
+        goal_obs = observations['target_goal'].permute(0, 3, 1, 2)
         batched_obs = torch.cat([curr_obs, goal_obs[:, :4]], 0)
 
         feats = self.visual_encoder(batched_obs)
@@ -193,7 +215,7 @@ class SMTNet(Net):
         else:
             prev_actions_embedd = self.prev_action_embedding(torch.zeros((B),dtype=torch.long).to(feats.device))
         feats = self.visual_fc(torch.cat((curr_feats.view(B, -1), target_feats.view(B, -1)), 1))
-        x = [feats, prev_actions_embedd]
+        x = [feats, prev_actions_embedd, torch.exp(-observations['step']/10).to(feats.device).view(B,-1)]
 
         x = torch.cat(x, dim=1)
         return x

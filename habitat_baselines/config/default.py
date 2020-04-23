@@ -124,9 +124,9 @@ _C.ORBSLAM2.DEPTH_DENORM = get_task_config().SIMULATOR.DEPTH_SENSOR.MAX_DEPTH
 
 _C.attention = CN()
 _C.attention.n_head = 4
-_C.attention.d_model = 512 + 32
-_C.attention.d_k = 512 + 32
-_C.attention.d_v = 512 + 32
+_C.attention.d_model = 512 + 32 + 1
+_C.attention.d_k = 512 + 32 + 1
+_C.attention.d_v = 512 + 32 + 1
 _C.attention.dropout = 0.1
 
 _C.attention.lsh = CN()
